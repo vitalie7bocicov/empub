@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(71, 77, 86, 0.2);
+}
+
+li,
+a,
+button {
+  font-family: "Arimo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: #edf0f1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(71, 77, 86);
+  padding: 20px 10%;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
