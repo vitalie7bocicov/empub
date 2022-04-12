@@ -9,27 +9,29 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>EMPub</title>
 </head>
-<header>
-  <div class="logo">
-    <a href="#" />LOGO</a>
-  </div>
 
-  <nav>
-    <ul class="nav_links">
-      <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a href="#">User</a>
-      </li>
-    </ul>
-  </nav>
-</header>
+
 
 <body>
+  <header>
+    <div class="logo">
+      <a href="#">LOGO</a>
+    </div>
+
+    <nav>
+      <ul class="nav_links">
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">User</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
   <section class="container">
     <div class="email-list">
-      <div class="email-row">
+      <!-- <div class="email-row">
         <h3 class="email-sender">
           Figma
         </h3>
@@ -37,8 +39,12 @@
           <span class="email-subject"> Welcome to Figma! </span>
           <span class="email-text"> - Welcome to Figma! Let's get you set up. Here are some useful resources to help you
             get set up:</span>
+
         </div>
         <div class="email-options">
+          <span class="material-icons email-locked">
+            lock
+          </span>
           <span class="material-icons email-settings">
             settings
           </span>
@@ -52,18 +58,27 @@
             delete
           </span>
         </div>
-      </div>
+      </div> -->
 
       <div class="email-row">
-        <h3 class="email-sender">
-          service@intl.paypal.com
-        </h3>
-        <div class="email-message">
-          <span class="email-subject">Your transfer was successful</span>
-          <span class="email-text"> - Hi, there!
-            Looking for better solutions for all your content creation?</span>
+        <div class="email-content">
+          <div class="email-sender">
+            <h3>
+              service@intl.paypal.com
+            </h3>
+          </div>
+
+          <div class="email-message">
+            <span class="email-subject">Your transfer was successful</span>
+            <span class="email-text"> - Hi, there!
+              Looking for better solutions for all your content creation?</span>
+          </div>
         </div>
+
         <div class="email-options">
+          <span class="material-icons email-unlocked">
+            lock_open
+          </span>
           <span class="material-icons email-settings">
             settings
           </span>
@@ -78,6 +93,7 @@
           </span>
         </div>
       </div>
+    </div>
   </section>
 
 </body>

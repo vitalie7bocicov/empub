@@ -52,22 +52,39 @@ header {
   box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
 }
 
-.email-sender {
+.email-row .email-content {
   display: flex;
-  flex: 0.5;
-  margin-left: 5px;
+  flex: 1;
+  align-items: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.email-message {
-  flex: 1;
+.email-row .email-content .email-sender {
+  flex: 0.4;
+  margin-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.email-row .email-content .email-message {
+  flex: 0.6;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.email-row .email-options {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-left: 1px solid grey;
 }
 
 .email-message .email-subject {
@@ -76,14 +93,6 @@ header {
 
 .email-message .email-text {
   color: grey;
-}
-
-.email-options {
-  flex: 0.5;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-left: 1px solid grey;
 }
 
 .email-options .email-stats {
@@ -96,8 +105,12 @@ header {
   color: blue;
 }
 
-.emailOptions .email-delete:hover {
+.email-options .email-delete:hover {
   color: red;
+}
+
+.email-options .email-query-stats:hover {
+  color: darkgreen;
 }
 
 @media (max-width: 1024px) {
@@ -106,5 +119,45 @@ header {
   }
 }
 
+@media (max-width: 768px) {
+  .email-row {
+    height: 75px;
+  }
+  .email-row .email-content .email-message {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .email-row .email-message .email-text,
+  .email-row .email-message .email-subject {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 @media (max-width: 480px) {
+  .email-row .email-content {
+    flex: 0.5;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 0;
+  }
+
+  .email-row .email-content .email-sender {
+    margin-left: 0;
+  }
+
+  .email-row .email-content .email-message {
+    padding-left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
