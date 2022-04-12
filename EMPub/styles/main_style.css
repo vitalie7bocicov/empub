@@ -27,6 +27,12 @@ header {
   padding: 20px 10%;
 }
 
+/* body {
+  background-color: #474d56;
+  background-image: url("../images/backgroundImage.jpg");
+  background-size: cover;
+} */
+
 .nav_links {
   list-style: none;
 }
