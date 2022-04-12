@@ -1,42 +1,41 @@
 <html>
-
 <head>
     <title>EMPub</title>
-    <link rel="stylesheet" href="../styles/accountSettings.css">
+    <link rel="stylesheet" href="accountSettings.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-    <div width="100%" height="10px">
-        <img width="4%" src="images/LOGOT.png">
+<div width="100%" height="10px">
+    <img width="4%" src="LOGOT.png">
+</div>
+
+
+<div class="center">
+    <div class="headerDiv">
+        <h3 align="center">ACCOUNT SETTINGS</h3>
     </div>
-
-
-    <div class="center">
-        <div class="headerDiv">
-            <h3>ACCOUNT SETTINGS</h3>
+    <div class="content">
+        <div class="profilePictureDiv">
+        <h5 align="center">YOUR PICTURE PROFILE</h5>
+        <img src="defaultPicture.png" class="profilePicture">
         </div>
-        <div class="content">
-            <div class="profilePictureDiv">
-                <h5 align="center">YOUR PICTURE PROFILE</h5>
-                <img src="../images/defaultPicture.png" class="profilePicture">
-            </div>
-            <form>
-                <label for="img">Select your profile picture:</label><br>
-                <input type="file" id="img" name="img" accept="image/*"><br><br>
+		
+		<div class="formDiv">
+        <form align="center" id="form1">
+			<label>First-Name</label><br>
+            <input type="text" name="firstname"><br>
 
-                <label>First-Name</label><br>
-                <input type="text" name="firstname"><br>
-
-                <label>Last-Name</label><br>
-                <input type="text" name="lastname"><br>
-                <label>Email</label><br>
-                <input type="email" name="mail"><br>
-
-                <input type="submit" value="SAVE" class="button">
-            </form>
-        </div>
+            <label>Last-Name</label><br>
+            <input type="text" name="lastname"><br>
+            <label>Email</label><br>
+            <input type="email" name="mail"><br>
+            <label for="img">Select your profile picture:</label><br><br>
+            <input type="file" id="img" name="img" accept="image/*"><br><br>
+        </form>
+		</div>
+		
+		<button type="submit" form="form1" value="Save">SAVE</button>
     </div>
+</div>
 </body>
-
 </html>
