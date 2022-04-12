@@ -156,8 +156,5 @@ header {
 
   .email-row .email-content .email-message {
     padding-left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
