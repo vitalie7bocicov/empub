@@ -204,6 +204,10 @@ button:focus {
 	  padding:20px;
 	}
 	
+	.countries{
+	  margin-right:0;
+	}
+	
 
 	.sidebar-buttons {
 		font-size: 13px;
