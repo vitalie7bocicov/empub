@@ -1,3 +1,7 @@
+* {
+  font-family: "Nunito", sans-serif;
+}
+
 .center {
   position: absolute;
   background-color: white;
@@ -9,8 +13,8 @@
   padding: 4%;
   left: 35%;
   right: auto;
-  margin:auto;
-  width:30%;
+  margin: auto;
+  width: 30%;
 }
 
 .centerLOGO {
@@ -46,7 +50,6 @@ div {
   color: #3c4043;
   display: inline-flex;
   fill: currentcolor;
-  font-family: "Google Sans", Roboto, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 48px;
@@ -78,12 +81,10 @@ input[type="email"] {
 }
 
 label {
-  font-family: cursive;
   font-size: 18px;
 }
 
 img {
- 
   max-width: 400px;
   height: auto;
 }
@@ -104,17 +105,17 @@ img {
     padding: 4%;
     left: auto;
     right: auto;
-	width:100%;
+    width: 100%;
   }
 
   img {
-	 margin-top:20%;
+    margin-top: 20%;
     max-width: 400px;
     width: 60%;
     height: auto;
   }
-	
-   label{
-     font-size:100%;
+
+  label {
+    font-size: 100%;
   }
 }
