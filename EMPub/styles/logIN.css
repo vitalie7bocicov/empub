@@ -7,7 +7,10 @@
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   box-sizing: border-box;
   padding: 4%;
-  left: 34%;
+  left: 35%;
+  right: auto;
+  margin:auto;
+  width:30%;
 }
 
 .centerLOGO {
@@ -80,6 +83,7 @@ label {
 }
 
 img {
+ 
   max-width: 400px;
   height: auto;
 }
@@ -100,11 +104,13 @@ img {
     padding: 4%;
     left: auto;
     right: auto;
+	width:100%;
   }
 
   img {
+	 margin-top:20%;
     max-width: 400px;
-    width: 50%;
+    width: 60%;
     height: auto;
   }
 }
