@@ -1,22 +1,24 @@
 .center {
-  position: absolute;
   background-color: white;
-  top: 50%;
-  transform: translate(0, -50%);
+  width: 700px;
+  height: 500px;
+
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   box-sizing: border-box;
-  padding: 4%;
-  left: 35%;
-  right: auto;
-  margin: auto;
-  width: 30%;
+
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
 }
 
 .centerLOGO {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  width: 200px;
+  margin: 0 auto;
+  justify-self: center;
 }
 
 body {
@@ -25,8 +27,43 @@ body {
   background-size: cover;
 }
 
+a {
+  text-decoration: none;
+  color: #474d56;
+}
+
+.center p {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+form label {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.center form {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.center .copyright {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
 div {
-  border-radius: 20%;
+  border-radius: 2rem;
 }
 
 .orderC {
@@ -35,11 +72,12 @@ div {
 }
 
 .button-17 {
+  cursor: pointer;
   align-items: center;
   appearance: none;
   background-color: #fff;
   border-style: none;
-  border-radius: 24px;
+  border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   box-sizing: border-box;
@@ -66,18 +104,19 @@ div {
 }
 
 .button-17:hover {
-  background: #f6f9fe;
-  color: gray;
+  background: rgb(71, 77, 86);
+  color: white;
 }
 
 input[type="email"] {
   padding: 10px;
   border: 0;
+  border-radius: 1rem;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
-label {
-  font-size: 18px;
+input[type="email"]:active {
+  border: 1px solid #474d56;
 }
 
 img {
@@ -85,11 +124,7 @@ img {
   height: auto;
 }
 
-@media only screen and (max-width: 850px) {
-  div {
-    border-radius: 5%;
-  }
-
+@media only screen and (max-width: 768px) {
   .center {
     position: relative;
     background-color: white;
@@ -113,5 +148,18 @@ img {
 
   label {
     font-size: 100%;
+  }
+  .center form {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .center {
+    width: 100%;
+    height: 100%;
+  }
+  .center .copyright {
+    margin-top: 20%;
   }
 }
