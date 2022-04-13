@@ -106,19 +106,21 @@ body {
   position: relative;
  
 }
+
  
 .countries {
-  display: flex;
-  justify-content: space-around;
   flex: 0 0 20%;
   column-gap: 10px;
-  width: 80%;
+  width: 90%;
+  margin-right:30px;
   margin-top: 30px;
   margin-bottom: 50px;
   overflow-x: scroll;
 }
 
 .countries table{
+	display: flex;
+	justify-content: space-between;
 	text-align:center;
 }
 
