@@ -79,7 +79,7 @@ input[type="email"] {
 
 label {
   font-family: cursive;
-  font-size: 88%;
+  font-size: 18px;
 }
 
 img {
@@ -112,5 +112,9 @@ img {
     max-width: 400px;
     width: 60%;
     height: auto;
+  }
+	
+   label{
+     font-size:100%;
   }
 }
