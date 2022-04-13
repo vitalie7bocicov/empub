@@ -23,12 +23,12 @@ img {
 }
 
 .wrapper {
-    position: relative;
     width: 100%;
     max-width: 600px;
     background-color: #cccccc;
     padding-bottom: 60px;
     margin: 0 auto;
+    margin-top: 10%;
 }
 
 .logo-bar {
@@ -180,6 +180,37 @@ img {
 }
 
 
+header {
+    background-color: rgb(71, 77, 86);
+    padding: 10px 20px;
+    display: flex;
+    width: 100%;
+    top: 0;
+    position: fixed;
+  }
+  
+  .logo img {
+    width: 100px;
+    height: auto;
+  }
+  
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .nav_links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .nav_links li {
+    padding: 5px;
+    padding-right: 30px;
+  }
 
 .white-background {
     display: flex;

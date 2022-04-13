@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>EMPub</title>
-        <link rel="stylesheet" href="../styles/accountSettings.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/settingsPage.css"> 
         <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
@@ -15,6 +14,13 @@
                 <div class="headerDiv">
                     <h3>Email Settings:</h3>
                 </div>
+
+                <section class="sidebar" id="sidebar">
+                    <button class="sidebar-buttons" selected><i class="fa-solid fa-inbox"></i> Inbox</button>
+                    <button class="sidebar-buttons"><i class="fa-solid fa-chart-line"></i> Statistics</button>
+                    <button class="sidebar-buttons"><i class="fa-solid fa-gear"></i> Settings</button>
+                </section>
+
                 <div class="content"> 
                         <form id="form" class="formContainer">
                             <div class="radion-buttons-div">
@@ -31,7 +37,6 @@
         
                                 
                                 <label for="publicationType3" class="radion-buttons">Protected
-                                    
                                     <input type="radio" id="publicationType3" name="publicationType" onchange="handleClick(this)" value="3">
                                     <i class="fa-solid fa-circle-check checkState" id="check3"></i>
                                 </label>
@@ -55,7 +60,7 @@
                             
                         </form>
                     
-                    <button type="submit" form="form1" value="Save">SAVE</button>
+                    <button type="submit" form="form1" value="Save" class="buttonSettings">SAVE</button>
                 </div>
             </div>
         </div>

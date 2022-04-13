@@ -21,6 +21,23 @@ body {
 	width: 40%;
 }
 
+.sidebar {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar-buttons {
+    font-style: sans-serif;
+    background-color: transparent;
+    border: none;
+    border: 1px solid black;
+    background-color: #ffffff;
+    border-top: none;
+    padding: 10px 0;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
 .center1{
   background-color:white;
   
@@ -45,9 +62,8 @@ body {
 	margin-top: 5%;
 }
 
-button{
+.buttonSettings {
 	width: 100px;
-	/*height:8%;*/
 	padding:2%;
 	margin: 20px 0;
 	background-color: lightgray;
@@ -63,13 +79,14 @@ button{
 	font-size: 13px;
 	line-height: 29px;
 	padding: 0 10px 0 11px;
-	position: relative;
 	text-align: center;
 	text-decoration: none;
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
 	vertical-align: middle;
+	top: 0;
+	left: 0;
 }
 
 button:hover {
@@ -150,8 +167,14 @@ input[type=date], input[type=time], input[type=password] {
 	margin: 10px 0;
 }
 
+@media only screen and (max-width: 900px) {
+	.conatiner {
+		width: 60%;
+	}
+}
 
-@media only screen and (max-width: 850px) {
+
+@media only screen and (max-width: 600px) {
 	
 	.conatiner {
 		width: 100%;
@@ -165,13 +188,17 @@ input[type=date], input[type=time], input[type=password] {
 		
 	}
 
+	.sidebar-buttons {
+		font-size: 13px;
+	}
+
+	.formContainer .radion-buttons {
+		width: 200px;
+	}
+
 	.radion-buttons-div {
 		display: flex;
 		flex-direction: column;
-	}
-
-	.radion-buttons {
-		margin: 10px 0;
 	}
 	
 	.content{
@@ -180,7 +207,7 @@ input[type=date], input[type=time], input[type=password] {
 		align-items: center;
 	}
 	
-	button {
+	.buttonSettings {
 		align-items: center;
 		appearance: none;
 		background-color: #fff;
@@ -200,23 +227,21 @@ input[type=date], input[type=time], input[type=password] {
 		letter-spacing: .25px;
 		line-height: normal;
 		max-width: 100%;
-		margin-top:10%;
+		margin-top: 10%;
 		overflow: visible;
 		padding: 2px 24px;
-		position: relative;
 		text-align: center;
 		text-transform: none;
-		transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+		/*transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;*/
 		user-select: none;
 		-webkit-user-select: none;
 		touch-action: manipulation;
 		width: 80%;
 		will-change: transform,opacity;
-		z-index: 0;
 	}
 	
 	input[type=date] , input[type=time], input[type=password]{
-	  padding: 5%;
+	  padding: 7px;
 	  width: 100%;
 	  border: 1px solid #ccc;
 	  border-radius: 4px;
