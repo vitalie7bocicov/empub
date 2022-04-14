@@ -71,7 +71,7 @@ img {
   align-items: center;
 }
 
-.meniu-wrap {
+/*.meniu-wrap {
   display: none;
   width: 100%;
   padding: 5px;
@@ -137,27 +137,7 @@ img {
 .meniu-wrap .toggler:checked:hover + .hamburger > div:before {
   transition: rotare(225deg);
 }
-
-@media only screen and (max-width: 600px) {
-  .sidebar {
-    position: absolute;
-    flex-direction: column;
-    top: -100%;
-    transition: all 0.2s ease;
-  }
-
-  .meniu-wrap {
-    display: block;
-  }
-
-  .transition-function {
-    top: 0;
-  }
-
-  .title {
-    padding-top: 15px;
-  }
-}
+*/
 
 .sidebar-buttons {
   font-style: sans-serif;
