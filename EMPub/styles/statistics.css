@@ -15,6 +15,7 @@ body {
   box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   overflow: hidden;
+  border-radius: 2rem;
 }
 
 .panel-header {
@@ -26,22 +27,20 @@ body {
   background: lightgray;
 }
 
-.title {
-  font-family: cursive;
-}
 
 .calendar-views span {
   font-size: 14px;
   font-weight: 300;
-  color: black;
   padding: 6px 14px;
   border: 2px solid transparent;
+  cursor:pointer;
 }
 
 .sidebar {
   margin-top: -20px;
   display: flex;
   width: 100%;
+  
 }
 
 .sidebar-buttons {
@@ -49,6 +48,7 @@ body {
   background-color: transparent;
   border: none;
   border: 1px solid black;
+  border-radius:0;
   background-color: #ffffff;
   border-top: none;
   padding: 10px 0;
@@ -113,6 +113,11 @@ body {
   text-align: center;
 }
 
+.countries table tr td{
+	padding-right:10px;
+}
+
+
 .buttons {
   padding: 20px;
   display: flex;
@@ -131,7 +136,6 @@ button {
   color: #0f1111;
   cursor: pointer;
   display: inline-block;
-  font-family: "Amazon Ember", sans-serif;
   font-size: 13px;
   line-height: 29px;
   padding: 0 10px 0 11px;
@@ -145,7 +149,8 @@ button {
 }
 
 button:hover {
-  background-color: #f7fafa;
+  background-color: #474d56;
+  color:white;
 }
 
 button:focus {
@@ -154,7 +159,30 @@ button:focus {
   outline: 0;
 }
 
-@media only screen and (max-width: 860px) {
+@media(max-width: 1024px){
+	 header{
+		 z-index:1;
+	 }
+	 .panel{
+		 margin-top:80px;
+	 }
+	 
+	.panel-body {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 50%;
+	  }
+  
+  .buttons button{
+	  
+	  margin-top:20%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
    header{
 	   z-index:1;
    }
