@@ -100,8 +100,8 @@
 
                 <div class="email-options">
 
-                    <a href="settingsPage.html" class="email-lock">
-                        <span class="material-icons email-locked">
+                    <a href="settingsPage.html" class="email-lock " onclick="load_settings()">
+                        <span class=" material-icons email-locked">
                             lock
                         </span>
                     </a>
@@ -559,17 +559,9 @@
                 </div>
 
             </div>
-
-
-
-
 
             <!-- email-list end -->
         </div>
-
-
-
-
 
         <div class="email-opened">
             <iframe id="email-frame"></iframe>
@@ -581,9 +573,11 @@
 </body>
 
 <script>
-    function load_email(e) {
+    function load_email() {
         document.getElementById("email-frame").src = "letterFrame.html";
-        console.log(e.classList());
+    }
+    function load_settings() {
+        document.getElementById("email-frame").src = "settingsPage.html";
     }
 
 </script>
