@@ -16,12 +16,12 @@ img {
 }
 
 .wrapper {
-    width: 100%;
-    max-width: 600px;
-    background-color: #cccccc;
-    padding-bottom: 60px;
-    margin: 0 auto;
-    margin-top: 69px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #cccccc;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  margin-top: 69px;
 }
 
 .logo-bar {
@@ -59,6 +59,15 @@ img {
 .sidebar {
   display: flex;
   width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #474d56;
+  color: white;
 }
 
 .menu-button-container {
@@ -151,12 +160,13 @@ img {
   flex-grow: 1;
 }
 
-li, a {
-    font-family: "Arimo", sans-serif;
-  	font-weight: 500;
-  	font-size: 16px;
-  	text-decoration: none;
-  	color: #edf0f1;
+li,
+a {
+  font-family: "Arimo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: #edf0f1;
 }
 
 .white-background {
