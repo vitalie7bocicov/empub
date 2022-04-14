@@ -9,6 +9,7 @@ body {
 }
 
 .panel {
+  margin-top:10%;	
   position:relative;
   height: auto;
   background: white;
