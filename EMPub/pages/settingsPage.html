@@ -15,7 +15,7 @@
 
         <nav>
             <div class="logo">
-                <a href="/">
+                <a href="main.html">
                     <img src="../images/white_logo.png" alt="Logo">
                 </a>
             </div>
@@ -26,16 +26,16 @@
             </a>
             <ul class="nav-links">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="main.html">Home</a>
                 </li>
                 <li>
                     <a href="#">About</a>
                 </li>
                 <li id="account">
-                    <a href="#">Account</a>
+                    <a href="accountSettings.html">Account</a>
                 </li>
                 <li id="logout">
-                    <a href="#">
+                    <a href="../index.html">
                         Logout
                     </a>
                 </li>
@@ -50,9 +50,12 @@
             </div>
 
             <section class="sidebar" id="sidebar">
-                <button class="sidebar-buttons" selected><i class="fa-solid fa-inbox"></i> Inbox</button>
-                <button class="sidebar-buttons"><i class="fa-solid fa-chart-line"></i> Statistics</button>
-                <button class="sidebar-buttons"><i class="fa-solid fa-gear"></i> Settings</button>
+                <button onclick="location.href='main.html'" class="sidebar-buttons"><i class="fa-solid fa-inbox"></i>
+                    Inbox</button>
+                <button onclick="location.href='statistics.html'" class="sidebar-buttons"><i
+                        class="fa-solid fa-chart-line"></i> Statistics</button>
+                <button class="sidebar-buttons" style="background-color: grey;"><i class="fa-solid fa-gear"></i>
+                    Settings</button>
             </section>
 
             <div class="content">

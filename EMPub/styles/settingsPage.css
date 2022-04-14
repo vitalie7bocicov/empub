@@ -54,8 +54,8 @@ body {
 }
 
 .headerDiv {
-	background-color: lightgray;
-	padding: 10px 0;
+  background-color: lightgray;
+  padding: 10px 0;
 }
 
 .headerDiv > h3 {
@@ -95,6 +95,7 @@ body {
 
 button:hover {
   background-color: #f7fafa;
+  cursor: pointer;
 }
 
 button:focus {
@@ -172,7 +173,6 @@ input[type="password"] {
   margin: 10px 0;
 }
 
-
 @media only screen and (max-width: 900px) {
   .conatiner {
     width: 60%;
@@ -182,7 +182,7 @@ input[type="password"] {
 @media only screen and (max-width: 600px) {
   .conatiner {
     width: 100%;
-  }	
+  }
 
   .center1 {
     position: static;
