@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../styles/main_style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="../scripts/navbar.js" defer></script>
   <title>EMPub</title>
 </head>
 
@@ -21,7 +23,15 @@
           <img src="../images/white_logo.png" alt="Logo">
         </a>
       </div>
+      <a href="#" class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
       <ul class="nav-links">
+        <li>
+          <a href="#">Home</a>
+        </li>
         <li>
           <a href="#">About</a>
         </li>
@@ -29,19 +39,53 @@
           <a href="#">Account</a>
         </li>
         <li id="logout">
-
           <a href="#">
             Logout
           </a>
-
         </li>
       </ul>
     </nav>
   </header>
 
   <section class="container">
+
+    <div class="config-menu">
+      <div class="select-order">
+        <select name="email-permission" id="email-permission">
+          <option value="all" selected>All</option>
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+
+        <div class="order">
+
+          <label for="order-by">Order by:</label>
+          <select name="order-by" id="order-by">
+            <option value="expiration-date" selected>Expiration date</option>
+            <option value="publishing date">Publishing date</option>
+            <option value="nr-views">Nr. of views</option>
+          </select>
+
+        </div>
+
+      </div>
+      <form action="" class="search-bar">
+        <input type="text" name="q" placeholder="search">
+        <button type="submit " class="email-search">
+          <span class="material-icons">
+            search
+          </span>
+        </button>
+      </form>
+
+    </div>
     <div class="email-list">
       <div class="email-row">
+        <div class="email-date">
+          <span class="email-expiration-date">
+            17/04
+          </span>
+        </div>
         <div class="email-content">
           <div class="email-sender">
             <h3>
@@ -56,25 +100,42 @@
         </div>
 
         <div class="email-options">
-          <span class="material-icons email-locked">
-            lock
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
+
+          <a href="" class="email-lock">
+            <span class="material-icons email-locked">
+              lock
+            </span>
+          </a>
+
+          <a href="" class="email-settings">
+            <span class="material-icons">
+              settings
+            </span>
+          </a>
+
+
+          <a href="" class="email-stats">
+            <span class="material-icons">
               query_stats
             </span>
             <span class="email-views">15</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
+          </a>
+
+          <a href="" class="email-delete">
+            <span class="material-icons">
+              delete
+            </span>
+          </a>
+
         </div>
       </div>
 
       <div class="email-row">
+        <div class="email-date">
+          <span class="email-expiration-date">
+            20/07
+          </span>
+        </div>
         <div class="email-content">
           <div class="email-sender">
             <h3>
@@ -90,362 +151,47 @@
         </div>
 
         <div class="email-options">
-          <span class="material-icons email-unlocked">
-            lock_open
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
+          <a href="" class="email-lock">
+            <span class="material-icons email-unlocked">
+              lock_open
             </span>
-            <span class="email-views">20</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
+          </a>
 
-      </div>
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              Miro
-            </h3>
-          </div>
+          <a href="" class="email-settings">
+            <span class="material-icons">
+              settings
+            </span>
+          </a>
 
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
-            <span class="email-text"> - Here’s how your team did last week</span>
-          </div>
-        </div>
 
-        <div class="email-options">
-          <span class="material-icons email-locked">
-            lock
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
+          <a href="" class="email-stats">
             <span class="material-icons email-query-stats">
               query_stats
             </span>
             <span class="email-views">15</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-      </div>
+          </a>
 
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              service@intl.paypal.com
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
-            <span class="email-text"> - Hi, there!
-              Looking for better solutions for all your content creation?</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-unlocked">
-            lock_open
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
+          <a href="" class="email-delete">
+            <span class="material-icons">
+              delete
             </span>
-            <span class="email-views">20</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
+          </a>
+
         </div>
 
       </div>
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              Miro
-            </h3>
-          </div>
 
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
-            <span class="email-text"> - Here’s how your team did last week</span>
-          </div>
-        </div>
 
-        <div class="email-options">
-          <span class="material-icons email-locked">
-            lock
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">15</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-      </div>
 
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              service@intl.paypal.com
-            </h3>
-          </div>
+      <!-- email-list end -->
+    </div>
 
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
-            <span class="email-text"> - Hi, there!
-              Looking for better solutions for all your content creation?</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-unlocked">
-            lock_open
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">20</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-
-      </div>
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              Miro
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
-            <span class="email-text"> - Here’s how your team did last week</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-locked">
-            lock
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">15</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-      </div>
-
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              service@intl.paypal.com
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
-            <span class="email-text"> - Hi, there!
-              Looking for better solutions for all your content creation?</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-unlocked">
-            lock_open
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">20</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-
-      </div>
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              Miro
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
-            <span class="email-text"> - Here’s how your team did last week</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-locked">
-            lock
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">15</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-      </div>
-
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              service@intl.paypal.com
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
-            <span class="email-text"> - Hi, there!
-              Looking for better solutions for all your content creation?</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-unlocked">
-            lock_open
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">20</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-
-      </div>
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              Miro
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
-            <span class="email-text"> - Here’s how your team did last week</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-locked">
-            lock
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">15</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-      </div>
-
-      <div class="email-row">
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              service@intl.paypal.com
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
-            <span class="email-text"> - Hi, there!
-              Looking for better solutions for all your content creation?</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <span class="material-icons email-unlocked">
-            lock_open
-          </span>
-          <span class="material-icons email-settings">
-            settings
-          </span>
-          <div class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">20</span>
-          </div>
-          <span class="material-icons email-delete">
-            delete
-          </span>
-        </div>
-
-      </div>
+    </div>
     </div>
   </section>
 
 </body>
+
+
 
 </html>
