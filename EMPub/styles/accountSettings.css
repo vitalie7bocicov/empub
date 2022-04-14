@@ -24,7 +24,7 @@
 
 .profilePicture {
   border-radius: 50%;
-  width: 40%;
+  width: 60%;
   height: auto;
   padding: 10%;
   margin-left: 20%;
@@ -95,12 +95,17 @@ input[type="file"] {
 }
 
 @media only screen and (max-width: 850px) {
+	
+	 header{
+	   z-index:1;
+     }
+   
   .profilePicture {
     border-radius: 50%;
-    width: 60%;
+    width: 70%;
     height: auto;
     padding: 10%;
-    margin-left: 10%;
+    margin-left: 14%;
   }
 
   .center {
@@ -115,7 +120,8 @@ input[type="file"] {
       rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
     box-sizing: border-box;
     padding: 4%;
-    margin-top: 20%;
+    margin-top: 45%;
+	
   }
 
   .content {
@@ -174,4 +180,6 @@ input[type="file"] {
     border-radius: 4px;
     box-sizing: border-box;
   }
+  
+  
 }
