@@ -1,47 +1,3 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 8vh;
-  background-color: rgb(71, 77, 86);
-  padding: 10px 20px;
-  top: 0px;
-  position: fixed;
-  width: 100%;
-}
-
-li,
-nav a {
-  text-decoration: none;
-  color: #edf0f1;
-}
-
-.logo a img {
-  width: 100px;
-  height: auto;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 30%;
-}
-
-.nav-links li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.nav-links li {
-  padding: 5px;
-  padding-right: 30px;
-}
-
 .container {
   padding-top: 80px;
   margin-left: 15%;
@@ -263,5 +219,26 @@ a {
   .email-row .email-options .email-stats,
   .email-row .email-options .email-expires {
     display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links li a {
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 }

@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/letterTemplate.css">
     <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
-        <div class="logo">
-          <a href="">
-            <img src="../images/white_logo.png" alt="LOGO">
-          </a>
-        </div>
+
         <nav>
-          <ul class="nav_links">
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Account</a>
-            </li>
-            <li>
-              <a href="#">Logout</a>
-            </li>
-          </ul>
+            <div class="logo">
+                <a href="/">
+                    <img src="../images/white_logo.png" alt="Logo">
+                </a>
+            </div>
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li id="account">
+                    <a href="#">Account</a>
+                </li>
+                <li id="logout">
+                    <a href="#">
+                        Logout
+                    </a>
+                </li>
+            </ul>
         </nav>
-      </header>
+    </header>
 
     <main class="wrapper">
         <section class="sidebar" id="sidebar">
@@ -40,10 +55,10 @@
         <div class="meniu-wrap">
             <input type="checkbox" id="checkbox" class="toggler">
             <div class="hamburger">
-                    <div></div>
+                <div></div>
             </div>
         </div>
-        
+
         <section class="common-section">
             <div class="row-style"></div>
         </section>
@@ -58,7 +73,7 @@
                 <a href="#" class="brand-icons"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="brand-icons"><i class="fa-brands fa-linkedin"></i></a>
             </div>
-            
+
         </section>
 
         <section>
@@ -89,18 +104,19 @@
             <a href="#"><img class="custom-design-image" src="../img/keyboard.jpg" alt=""></a>
             <div class="custom-design-text">
                 <p style="font-weight: bold; font-size: 18px;">Create Customs Designs</p>
-                <p style="padding-bottom: 16px;">Over the years we build up a massive portfolio our clinet website and email designs.</p>
-                <a href="#" class="button" >Read More</a>
+                <p style="padding-bottom: 16px;">Over the years we build up a massive portfolio our clinet website and
+                    email designs.</p>
+                <a href="#" class="button">Read More</a>
             </div>
         </section>
     </main>
 
 
     <script>
-        function changeClass () {
+        function changeClass() {
             var menu = document.getElementById('sidebar');
 
-            if(menu.classList.contains('transition-function')) {
+            if (menu.classList.contains('transition-function')) {
                 menu.classList.remove('transition-function');
             }
             else {
@@ -111,4 +127,5 @@
         var checkbox = document.getElementById('checkbox').onclick = changeClass;
     </script>
 </body>
+
 </html>

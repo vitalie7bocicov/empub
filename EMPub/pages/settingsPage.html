@@ -1,69 +1,106 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>EMPub</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/settingsPage.css"> 
-        <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
-    </head>
 
-    <body>
-        <div class="conatiner">
+<head>
+    <title>EMPub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/settingsPage.css">
+    <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/navbar.js" defer></script>
+</head>
 
-            <div class="center1">
-                <div class="headerDiv">
-                    <h3>Email Settings</h3>
-                </div>
+<body>
+    <header>
 
-                <section class="sidebar" id="sidebar">
-                    <button class="sidebar-buttons" selected><i class="fa-solid fa-inbox"></i> Inbox</button>
-                    <button class="sidebar-buttons"><i class="fa-solid fa-chart-line"></i> Statistics</button>
-                    <button class="sidebar-buttons"><i class="fa-solid fa-gear"></i> Settings</button>
-                </section>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="../images/white_logo.png" alt="Logo">
+                </a>
+            </div>
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li id="account">
+                    <a href="#">Account</a>
+                </li>
+                <li id="logout">
+                    <a href="#">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="conatiner">
 
-                <div class="content"> 
-                        <form id="form" class="formContainer">
-                            <div class="radion-buttons-div">
-                                <label for="publicationType1" class="radion-buttons">Public
-                                    <input type="radio" name="publicationType" id="publicationType1" checked onchange="handleClick(this)" value="1"> 
-                                    <i class="fa-solid fa-circle-check checkState" id="check1"></i>
-                                </label>
-                                
-                                
-                                <label for="publicationType2" class="radion-buttons">Private
-                                    <input type="radio" name="publicationType" id="publicationType2" onchange="handleClick(this)" value="2">
-                                    <i class="fa-solid fa-circle-check checkState" id="check2"></i>
-                                </label>
-        
-                                
-                                <label for="publicationType3" class="radion-buttons">Protected
-                                    <input type="radio" id="publicationType3" name="publicationType" onchange="handleClick(this)" value="3">
-                                    <i class="fa-solid fa-circle-check checkState" id="check3"></i>
-                                </label>
-                            </div>
-                            
-        
-                            <div class="input-margin">
-                                <label for="dateOfExpiration">Date: </label>
-                                <input type="date" name="dateOfExpiration" id="dateOfExpiration"> 
-                            </div>
-        
-                            <div class="input-margin">
-                                <label for="timeofExpiration">Time:</label>
-                                <input type="time" name="timeofExpiration" id="timeofExpiration" >
-                            </div>
-        
-                            <div class="input-margin displayNone" id="password">
-                                <label for="password">Password: </label>
-                                <input type="password" name="password" id="password" >
-                            </div>
-                            
-                        </form>
-                    
-                    <button type="submit" form="form1" value="Save" class="buttonSettings">SAVE</button>
-                </div>
+        <div class="center1">
+            <div class="headerDiv">
+                <h3>Email Settings</h3>
+            </div>
+
+            <section class="sidebar" id="sidebar">
+                <button class="sidebar-buttons" selected><i class="fa-solid fa-inbox"></i> Inbox</button>
+                <button class="sidebar-buttons"><i class="fa-solid fa-chart-line"></i> Statistics</button>
+                <button class="sidebar-buttons"><i class="fa-solid fa-gear"></i> Settings</button>
+            </section>
+
+            <div class="content">
+                <form id="form" class="formContainer">
+                    <div class="radion-buttons-div">
+                        <label for="publicationType1" class="radion-buttons">Public
+                            <input type="radio" name="publicationType" id="publicationType1" checked
+                                onchange="handleClick(this)" value="1">
+                            <i class="fa-solid fa-circle-check checkState" id="check1"></i>
+                        </label>
+
+
+                        <label for="publicationType2" class="radion-buttons">Private
+                            <input type="radio" name="publicationType" id="publicationType2"
+                                onchange="handleClick(this)" value="2">
+                            <i class="fa-solid fa-circle-check checkState" id="check2"></i>
+                        </label>
+
+
+                        <label for="publicationType3" class="radion-buttons">Protected
+                            <input type="radio" id="publicationType3" name="publicationType"
+                                onchange="handleClick(this)" value="3">
+                            <i class="fa-solid fa-circle-check checkState" id="check3"></i>
+                        </label>
+                    </div>
+
+
+                    <div class="input-margin">
+                        <label for="dateOfExpiration">Date: </label>
+                        <input type="date" name="dateOfExpiration" id="dateOfExpiration">
+                    </div>
+
+                    <div class="input-margin">
+                        <label for="timeofExpiration">Time:</label>
+                        <input type="time" name="timeofExpiration" id="timeofExpiration">
+                    </div>
+
+                    <div class="input-margin displayNone" id="password">
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" id="password">
+                    </div>
+
+                </form>
+
+                <button type="submit" form="form1" value="Save" class="buttonSettings">SAVE</button>
             </div>
         </div>
+    </div>
 
     <script>
         currentRadio = null;
@@ -71,20 +108,20 @@
         function handleClick(myRadio) {
             console.log(myRadio.value);
 
-            if(currentRadio != null) {
+            if (currentRadio != null) {
                 currentRadio.classList.remove('changeOpacity');
-                
-                if(doc != null)
+
+                if (doc != null)
                     doc.classList.remove('displayBlock');
             }
-            
-            if(myRadio.value == 1) {
+
+            if (myRadio.value == 1) {
                 var i1 = document.getElementById('check1');
 
                 i1.classList.add('changeOpacity');
                 currentRadio = i1;
             }
-            else if(myRadio.value == 2) {
+            else if (myRadio.value == 2) {
                 var i2 = document.getElementById('check2');
 
                 i2.classList.add('changeOpacity');
@@ -99,11 +136,12 @@
                 doc = document.getElementById('password');
                 doc.classList.add('displayBlock');
             }
-            
+
         }
 
-        
+
 
     </script>
-    </body>
-    </html>
+</body>
+
+</html>
