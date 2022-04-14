@@ -16,7 +16,14 @@
           </a>
         </div>
         <nav>
-          <ul class="nav_links">
+            <div class="meniu-wrap">
+                <input type="checkbox" id="checkbox" class="toggler">
+                <div class="hamburger">
+                        <div></div>
+                </div>
+            </div>
+
+          <ul class="nav_links" id="nav_links">
             <li>
               <a href="#">About</a>
             </li>
@@ -37,12 +44,13 @@
             <button class="sidebar-buttons"><i class="fa-solid fa-gear"></i> Settings</button>
         </section>
 
-        <div class="meniu-wrap">
+        <!--<div class="meniu-wrap">
             <input type="checkbox" id="checkbox" class="toggler">
             <div class="hamburger">
                     <div></div>
             </div>
         </div>
+        --> 
         
         <section class="common-section">
             <div class="row-style"></div>
@@ -98,7 +106,7 @@
 
     <script>
         function changeClass () {
-            var menu = document.getElementById('sidebar');
+            var menu = document.getElementById('nav_links');
 
             if(menu.classList.contains('transition-function')) {
                 menu.classList.remove('transition-function');
