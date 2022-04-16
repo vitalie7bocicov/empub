@@ -32,7 +32,7 @@
                     <a href="main.html">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="doc.html">About</a>
                 </li>
                 <li id="account">
                     <a href="accountSettings.html">Account</a>
@@ -570,7 +570,7 @@
                 <input type="password" name="password" id="password">
             </div>
             <iframe id="email-frame"></iframe>
-            
+
         </div>
     </section>
 
@@ -580,10 +580,10 @@
 
 <script>
     var emails = document.getElementsByClassName('email-row');
-    
-    for(let i = 0; i < emails.length; i++) {
-        
-        emails[i].addEventListener('click', function() {
+
+    for (let i = 0; i < emails.length; i++) {
+
+        emails[i].addEventListener('click', function () {
             var emailString = 'email';
 
             let j = i + 1;
@@ -599,7 +599,7 @@
         var doc = document.getElementById(divName);
         console.log(doc);
 
-        if(doc.classList.contains('email-unlocked')) {
+        if (doc.classList.contains('email-unlocked')) {
             var password = document.getElementById('insert-password');
             var overlay = document.getElementById('overlay');
 

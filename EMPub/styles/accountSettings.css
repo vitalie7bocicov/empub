@@ -1,5 +1,6 @@
-h3,h5{
-	text-align:center;
+h3,
+h5 {
+  text-align: center;
 }
 
 .center {
@@ -73,7 +74,7 @@ button {
 
 button:hover {
   background-color: #474d56;
-  color:white;
+  color: white;
 }
 
 button:focus {
@@ -93,39 +94,35 @@ input[type="email"] {
 
 input[type="file"] {
   cursor: pointer;
-  visibility:hidden;
+  visibility: hidden;
 }
 
 .formDiv {
   float: right;
   width: 50%;
   height: auto;
-  text-align:center;
-  
+  text-align: center;
 }
 
-.selectPicture:hover{
-	background-color:#474d56;
-	color:white;
-	padding:10px;
-	cursor:pointer;
+.selectPicture:hover {
+  background-color: #474d56;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
-	
   .center {
     width: 60%;
-	margin-top:20%;
+    margin-top: 20%;
   }
-  
 }
 
 @media only screen and (max-width: 768px) {
-	
-	 header{
-	   z-index:1;
-     }
-   
+  header {
+    z-index: 1;
+  }
+
   .profilePicture {
     border-radius: 50%;
     width: 70%;
@@ -136,7 +133,7 @@ input[type="file"] {
 
   .center {
     margin: auto;
-	position:absolute;
+    position: absolute;
     background-color: white;
     top: 50%;
     width: 99%;
@@ -147,7 +144,6 @@ input[type="file"] {
     box-sizing: border-box;
     padding: 4%;
     margin-top: 35%;
-	
   }
 
   .content {
@@ -206,15 +202,10 @@ input[type="file"] {
     border-radius: 4px;
     box-sizing: border-box;
   }
-  
-  
-  
-  
 }
 
-@media only screen and (max-width: 480px){
-	.center{
-	margin-top: 20%;
-	}
+@media only screen and (max-width: 480px) {
+  .center {
+    margin-top: 20%;
+  }
 }
-
