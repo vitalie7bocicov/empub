@@ -190,6 +190,7 @@ input[type="password"] {
 }
 
 @media only screen and (max-width: 480px) {
+  
   .conatiner {
     width: 100%;
   }
@@ -221,6 +222,10 @@ input[type="password"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .red {
+    color: red;
   }
 
   .buttonSettings {
