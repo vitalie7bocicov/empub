@@ -3,6 +3,7 @@
 require '../application/core/Controller.php';
 require '../application/core/BD.php';
 require '../application/util/Mail.php';
+require '../application/models/User.php';
 
 class Login extends Controller {
     
@@ -10,73 +11,116 @@ class Login extends Controller {
         $this->view('loginview');
     }
 
-    public function work() {
-        if(!isset($_POST['email'])) {
-            echo 'here you go';
+    public function generatePasswordandSendEmail() {
+        $json = trim(file_get_contents('php://input'));
+
+        $obj = json_decode($json);
+        if($obj == null) {
+            http_response_code(400);
+            echo 'User is not set';
+            return;
         }
+        $email = $obj->email;
     
         $bd = new DB;
-        $email = $_POST['email'];
+        if($email) {
+            $paramsArray = array($email);
+            $user = User::findByEmail($bd->getConnection(), $paramsArray);
 
-        $paramsArray = array($email);
-
-        $result = $bd->queryFind('select * from users where email = ?', $paramsArray);
-
-        if(!$result) {
-
-        } else {
-            $user = $result['email'];
-            $generatePass = $this->randomPassword();
-
-            require '../application/views/passwordEmail.php';
-
-            $mail = new Mail;
-
-            $mailSend = $mail->sendMail($user, $str);
-            if(!$mailSend) {
-
+            if($user == false) {
+                http_response_code(400);
+                echo 'User not found in data base';
+                return;
             }
-
-            $hash = hash('sha256', $generatePass);
-            $bd->updatePassword($user, $hash);
-            setcookie('user', $user, time() + 180, './password');
-            header('Location: ./password');
         }
+
+        header('Content-type: application/json');
+
+        $resposeObj = array('respose' => false);
+        $generatePass = $this->randomPassword();
+
+        require '../application/views/passwordEmail.php';
+
+        $data = array('user' => $user->getEmail());
+        $hash = hash('sha256', $generatePass);
+        
+        if(!$user->updatePassword($bd->getConnection(), $hash)) {
+            http_response_code(400);
+            echo json_encode($resposeObj);
+            return;
+        }
+
+        $mail = new Mail;
+        $mailSend = $mail->sendMail($user->getEmail(), $str);
+
+        if(!$mailSend) {
+            http_response_code(400);
+            echo json_encode($resposeObj);
+            return;
+        }
+
+        $resposeObj['respose'] = true;
+        echo json_encode($resposeObj);
     }
 
     public function password() {
-        
-        if(isset($_COOKIE['user'])) {
-            $user = $_COOKIE['user'];
+        if(isset($_POST['email'])) {
+            $email = $_POST['email'];
         }
-        
-        $data = array('user' => $user);
+
+        $data = array('user' => $email);
         $this->view('passwordView', $data);
     }
 
     public function verifyPassword() {
+        $json = trim(file_get_contents('php://input'));
 
-        if(!isset($_POST['email'])) {
-            
-        }
-
-        if(!isset($_POST['password'])) {
-            
-        }
-
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $obj = json_decode($json);
+        $email = $obj->email;
+        $password = $obj->password;
+        
         $bd = new DB;
 
-        $sql = 'select * from users where email = ?';
-        $data = array($email);
-        $data = $bd->queryFind($sql, $data);
+        $paramsArray = array($email);
+        $user = User::findByEmail($bd->getConnection(), $paramsArray);
+        header('Content-type: application/json');
+        $resposeObj = array('respose' => false);
+
+        if(!$user) {
+            //http_response_code(400);
+            $resposeObj['respose'] = 'Can not find user';
+            echo json_encode($resposeObj);
+            return;
+        }
         
         $hash = hash('sha256', $password);
 
-        if(strcmp($data['password'], $hash) == 0) {
-            header('Location: /home');
+        if(!$user->passwordMatching($bd->getConnection(), $hash)) {
+            //http_response_code(400);
+            $resposeObj['respose'] = 'Passwords don\'t match';
+            echo json_encode($resposeObj);
+            return;
         }
+
+        $resposeObj['respose'] = true;
+        //header('Location: /home');
+        echo json_encode($resposeObj);
+    }
+
+    public function verifyEmail($email = '') {
+        $db = new DB;
+        header('Content-type: application/json');
+
+        $resposeObj = array('respose' => false);
+        $paramsArray = array($email);
+
+        $user = User::findByEmail($db->getConnection(), $paramsArray);
+
+        if($user) {
+            $resposeObj['respose'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
+        }
+
+        echo json_encode($resposeObj);
     }
 
     public static function randomPassword() {

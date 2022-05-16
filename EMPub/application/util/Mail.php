@@ -19,7 +19,7 @@ class Mail {
         $mail->SMTPSecure = 'tls';
         $mail->Port = '587';
         $mail->Username = 'eduardsoltan3@gmail.com';
-        $mail->Password = 'ibppqbtefupkvgbo';
+        $mail->Password = 'ezbnklklvuxcyjft';
         $mail->Subject = 'Temporary Password for EMPub Application';
         $mail->setFrom('eduardsoltan3@gmail.com');
         $mail->addAddress($to);

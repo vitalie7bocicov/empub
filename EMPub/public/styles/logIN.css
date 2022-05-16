@@ -124,6 +124,16 @@ img {
   height: auto;
 }
 
+.orderC .hidden {
+  display: none;
+  font-size: 12px; 
+  margin: 10px auto;
+}
+
+.orderC .err {
+  display: block;
+}
+
 @media only screen and (max-width: 768px) {
   .center {
     position: relative;

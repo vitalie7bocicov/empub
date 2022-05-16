@@ -23,7 +23,9 @@ class App {
             }
         }
 
+       
         $this->params = $url ? array_values($url) : [];
+        
         $newObj = new $this->controller;
         call_user_func_array([$newObj, $this->method], $this->params);
     }

@@ -8,7 +8,7 @@ $str =
         <title>Document</title>
     </head>
     <body>
-        <p>Hello dear '.$user.'</p>
+        <p>Hello dear '.$user->getEmail().'</p>
         <p>Your generated password is '.$generatePass.'</p>
     </body>
 </html>';

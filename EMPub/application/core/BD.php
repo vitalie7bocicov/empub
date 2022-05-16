@@ -23,6 +23,10 @@ class DB {
         $this->dbConnection = new PDO($dsn, $this->user, $this->password, $opt);
     }
 
+    public function getConnection() {
+        return $this->dbConnection;
+    }
+
 
     public function queryFind($sql, $params = []) {
         $prepareStatemnt =  $this->dbConnection->prepare($sql);
