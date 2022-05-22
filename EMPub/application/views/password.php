@@ -3,20 +3,19 @@
         <title>EMPub</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/empub/public/styles/style.css">
-        <link rel="stylesheet" href="/empub/public/styles/logIN.css">
+        <link rel="stylesheet" href="../../application/styles/logIN.css">
     </head>
 
     <body>
 
         <div class="center">
-            <img src="/empub/public/images/logot.png" class="centerLOGO">
+            <img src="../../application/images/LOGOT.png" class="centerLOGO">
             <p class="quote">
                 the best email publisher.
             </p>
-            <form class="orderC" id="submitForm" action="./verifyPassword" method="POST">
+            <form class="orderC" id="submitForm" action="http://localhost/TehnologiiWeb/empub/public/main" method="POST">
                 <input id="hidden" type="hidden" name="email" value=<?= $data['user'] ?>>
-                <label for="password">Enter your password: </label><br>
+                <label for="password">We've sent you an email with the password. </label><br>
                 <input id="password" type="password" name="password" placeholder="type your password..."><br><br>
                 <p id="errMessage" class="hidden"></p>
                 <input type="submit" class="button-17">
@@ -36,7 +35,7 @@
             </div>
         </div>
 
-        <script src="/empub/public/scripts/password.js"></script>
+        <script src="../../application/scripts/password.js"></script>
     </body>
 
 </html>

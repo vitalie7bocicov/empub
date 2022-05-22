@@ -2,18 +2,18 @@
 <head>
     <title>EMPub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/logIN.css">
+    <link rel="stylesheet" href="../../application/styles/logIN.css">
+
 </head>
 
 <body>
 
     <div class="center">
-        <img src="/empub/public/images/logot.png" class="centerLOGO">
+        <img src="../../application/images/LOGOT.png" class="centerLOGO">
         <p class="quote">
             the best email publisher.
         </p>
-        <form class="orderC" id="formSubmit" action="./login/password" method="POST">
+        <form class="orderC" id="formSubmit" action="http://localhost/TehnologiiWeb/empub/public/login/password" method="POST">
             <label for="email">new user? enter your email below to get started </label><br>
             <input id="email" type="email" name="email" placeholder="type your email..."><br>
             <p id="errMessage" class="hidden">Can not find user with this email</p>
@@ -34,7 +34,9 @@
         </div>
     </div>
 
-    <script src="/empub/public/scripts/login.js"></script>
+    <script src="../../application/scripts/login.js">
+        console.log("hello");
+    </script>
 </body>
 
 </html>

@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../styles/main_style.css" />
+  <link rel="stylesheet" href="../application/styles/main_style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/style.css">
-  <script src="../scripts/navbar.js" defer></script>
+  <link rel="stylesheet" href="../application/styles/style.css">
+  <script src="../application/scripts/navbar.js" defer></script>
   <title>EMPub</title>
 </head>
 
@@ -19,8 +19,8 @@
 
     <nav>
       <div class="logo">
-        <a href="main.html">
-          <img src="../images/white_logo.png" alt="Logo">
+        <a href="main.php">
+          <img src="../application/images/white_logo.png" alt="Logo">
         </a>
       </div>
       <a href="#" class="hamburger">
@@ -30,16 +30,16 @@
       </a>
       <ul class="nav-links">
         <li>
-          <a href="main.html">Home</a>
+          <a href="main.php">Home</a>
         </li>
         <li>
-          <a href="doc.html">About</a>
+          <a href="../../public/html/doc.html">About</a>
         </li>
         <li id="account">
-          <a href="accountSettings.html">Account</a>
+          <a href="../../public/html/accountSettings.html">Account</a>
         </li>
         <li id="logout">
-          <a href="../index.html">
+          <a href="login.php">
             Logout
           </a>
         </li>
@@ -101,20 +101,20 @@
 
         <div class="email-options">
 
-          <a href="settingsPage.html" class="email-lock">
+          <a href="../../public/html/settingsPage.html" class="email-lock">
             <span class="material-icons email-locked">
               lock
             </span>
           </a>
 
-          <a href="settingsPage.html" class="email-settings">
+          <a href="../../public/html/settingsPage.html" class="email-settings">
             <span class="material-icons">
               settings
             </span>
           </a>
 
 
-          <a href="statistics.html" class="email-stats">
+          <a href="../../public/html/statistics.html" class="email-stats">
             <span class="material-icons">
               query_stats
             </span>
@@ -151,20 +151,20 @@
         </div>
 
         <div class="email-options">
-          <a href="settingsPage.html" class="email-lock">
+          <a href="../../public/html/settingsPage.html" class="email-lock">
             <span class="material-icons email-unlocked">
               lock_open
             </span>
           </a>
 
-          <a href="settingsPage.html" class="email-settings">
+          <a href="../../public/html/settingsPage.html" class="email-settings">
             <span class="material-icons">
               settings
             </span>
           </a>
 
 
-          <a href="statistics.html" class="email-stats">
+          <a href="../../public/html/statistics.html" class="email-stats">
             <span class="material-icons email-query-stats">
               query_stats
             </span>
