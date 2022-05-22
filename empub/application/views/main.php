@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../application/styles/main_style.css" />
+  <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/main_style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../application/styles/style.css">
-  <script src="../application/scripts/navbar.js" defer></script>
+  <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/style.css">
+  <script src="http://localhost/TehnologiiWeb/empub/application/scripts/navbar.js" defer></script>
   <title>EMPub</title>
 </head>
 
@@ -20,7 +21,7 @@
     <nav>
       <div class="logo">
         <a href="main.php">
-          <img src="../application/images/white_logo.png" alt="Logo">
+          <img src="http://localhost/TehnologiiWeb/empub/application/images/white_logo.png" alt="Logo">
         </a>
       </div>
       <a href="#" class="hamburger">
@@ -33,10 +34,10 @@
           <a href="main.php">Home</a>
         </li>
         <li>
-          <a href="../../public/html/doc.html">About</a>
+          <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>
         </li>
         <li id="account">
-          <a href="../../public/html/accountSettings.html">Account</a>
+          <a href="http://localhost/TehnologiiWeb/empub/public/html/accountSettings.html">Account</a>
         </li>
         <li id="logout">
           <a href="login.php">

@@ -3,13 +3,13 @@
         <title>EMPub</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../application/styles/logIN.css">
+        <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/logIN.css">
     </head>
 
     <body>
 
         <div class="center">
-            <img src="../../application/images/LOGOT.png" class="centerLOGO">
+            <img src="http://localhost/TehnologiiWeb/empub/application/images/LOGOT.png" class="centerLOGO">
             <p class="quote">
                 the best email publisher.
             </p>
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <script src="../../application/scripts/password.js"></script>
+        <script src="http://localhost/TehnologiiWeb/empub/application/scripts/password.js"></script>
     </body>
 
 </html>
