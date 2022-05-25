@@ -28,26 +28,24 @@ class DB {
     }
 
 
-    public function queryFind($sql, $params = []) {
-        $prepareStatemnt =  $this->dbConnection->prepare($sql);
+    // public function queryFind($sql, $params = []) {
+    //     $prepareStatemnt =  $this->dbConnection->prepare($sql);
 
-        if($prepareStatemnt->execute($params)) {
-            $row = $prepareStatemnt -> fetch();
+    //     if($prepareStatemnt->execute($params)) {
+    //         $row = $prepareStatemnt -> fetch();
         
-            return $row;
-        }
+    //         return $row;
+    //     }
 
-        return $row;
-    }
+    //     return $row;
+    // }
 
-    public function updatePassword($email, $password) {
-        $sql = 'update users set password = ? where email = ?';
+    // public function updatePassword($email, $password) {
+    //     $sql = 'update users set password = ? where email = ?';
 
-        $prepareStatemnt = $this->dbConnection->prepare($sql);
+    //     $prepareStatemnt = $this->dbConnection->prepare($sql);
 
-        $array = array($password, $email);
-        $prepareStatemnt->execute($array);
-    }
-
-   
+    //     $array = array($password, $email);
+    //     $prepareStatemnt->execute($array);
+    // }   
 }

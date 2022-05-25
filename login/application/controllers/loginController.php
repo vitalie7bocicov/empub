@@ -5,12 +5,18 @@ require '../application/core/BD.php';
 require '../application/util/Mail.php';
 require '../application/models/User.php';
 
-class Login extends Controller {
-    
-    public function index() {
-        $this->view('loginview');
-    }
+include_once '../../libs/php-jwt/src/BeforeValidException.php';
+include_once '../../libs/php-jwt/src/ExpiredException.php';
+include_once '../../libs/php-jwt/src/SignatureInvalidException.php';
+include_once '../../libs/php-jwt/src/JWT.php';
 
+use \Firebase\JWT\JWT;
+
+
+class Login extends Controller {
+
+    private $key = "privatekey";
+    
     public function generatePasswordandSendEmail() {
         $json = trim(file_get_contents('php://input'));
 
@@ -63,15 +69,6 @@ class Login extends Controller {
         echo json_encode($resposeObj);
     }
 
-    public function password() {
-        if(isset($_POST['email'])) {
-            $email = $_POST['email'];
-        }
-
-        $data = array('user' => $email);
-        $this->view('passwordView', $data);
-    }
-
     public function verifyPassword() {
         $json = trim(file_get_contents('php://input'));
 
@@ -103,7 +100,21 @@ class Login extends Controller {
         }
 
         $resposeObj['respose'] = true;
-        //header('Location: /home');
+        
+        $iat = time();
+        $exp = $iat + 60 * 60;
+        $payload = array(
+            'iat' => $iat,
+            'exp' => $exp,
+            'data' => array(
+                'id' => $user->getUserId(),
+                'name' => $user->getEmail()
+            )
+        );
+
+        $jwt = JWT::encode($payload, $this->key, 'HS512');
+        header('Autorization: Bearer '.$jwt);
+
         echo json_encode($resposeObj);
     }
 
@@ -120,6 +131,7 @@ class Login extends Controller {
             $resposeObj['respose'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
         }
 
+        setcookie('email', $user->getEmail(),  time() + 300, '/empub/public/login/password');
         echo json_encode($resposeObj);
     }
 

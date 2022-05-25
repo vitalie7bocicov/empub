@@ -10,7 +10,7 @@
 
 body::after {
   content: "";
-  background: url("../images/backgroundImage.jpg");
+  background: url("../../application/images/backgroundImage.jpg");
   opacity: 0.3;
   top: 0;
   left: 0;
@@ -35,6 +35,8 @@ nav {
   /*top: 0px;
   width: 100%;*/
 }
+
+
 
 .logo a img {
   width: 100px;
