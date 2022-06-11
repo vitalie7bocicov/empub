@@ -9,7 +9,7 @@ class DB {
     protected $charset = 'utf8';
 
     function __construct() {
-        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=utf8mb4";
 
         $opt = [
             // erorile sunt raportate ca exceptii de tip PDOException

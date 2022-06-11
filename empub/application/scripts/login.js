@@ -1,5 +1,4 @@
 window.onload = () => {
-    console.log("form submited");
     const formSubmit = document.getElementById('formSubmit');
 
     formSubmit.addEventListener('submit', (e) => {
@@ -10,7 +9,6 @@ window.onload = () => {
             method: 'GET',
             headers: {}
         });
-    
     
         fetch(request)
         .then((response) => {

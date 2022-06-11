@@ -10,12 +10,12 @@ class User {
     }
 
     public static function findByEmail($dbConnection, $params = []) {
-        $sql = 'select user_is, email from users where email = ?';
+        $sql = 'select id, email from users where email = ?';
         $prepareStatemnt =  $dbConnection->prepare($sql);
 
         if($prepareStatemnt->execute($params)) {
             if($row = $prepareStatemnt -> fetch()) {
-                $user = new User($row['user_is'], $row['email']);
+                $user = new User($row['id'], $row['email']);
                 return $user;
             }
         
@@ -38,7 +38,7 @@ class User {
     }
 
     public function passwordMatching($dbConnection, $password) {
-        $sql = 'select password from users where user_is = ?';
+        $sql = 'select password from users where id = ?';
 
         $prepareStatemnt = $dbConnection->prepare($sql);
         $array = array($this->user_id);
@@ -58,7 +58,7 @@ class User {
     public static function emailMatching($dbConnection, $str) {
         $str = $str . '%';
         
-        $sql = 'select user_is, email from users where email like ?';
+        $sql = 'select id, email from users where email like ?';
         $prepareStatemnt = $dbConnection->prepare($sql);
         $result = array();
         $counter = 0;

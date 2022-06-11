@@ -113,7 +113,7 @@ class Login extends Controller {
         );
 
         $jwt = JWT::encode($payload, $this->key, 'HS512');
-        header('Autorization: Bearer '.$jwt);
+        $resposeObj['respose'] = array('token' => $jwt);
 
         echo json_encode($resposeObj);
     }

@@ -42,8 +42,10 @@ window.onload = () => {
             throw new TypeError (`Not Json`);
         })
         .then(data => {
-            if(data.respose == true) {
-                location.href = './home';
+            if(typeof data.respose === 'object') {
+
+                localStorage.setItem('accessToken', data.respose.token);
+                location.href = 'http://localhost/TehnologiiWeb/empub/public/main';
             }
     
             const text = data.respose;
@@ -52,7 +54,7 @@ window.onload = () => {
             errMessage.textContent = text;
             errMessage.classList.add('err');
     
-        })
+        });
     });
     
     fetch(request)

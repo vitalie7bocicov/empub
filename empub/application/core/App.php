@@ -22,15 +22,23 @@ class App {
                 unset($url[1]);
             }
         }
+        
         $this->params = $this->parseParams($url);
         $newObj = new $this->controller;
         call_user_func_array([$newObj, $this->method], $this->params);
     }
 
     public function parseParams($url){
-        if(isset($url[2]) ){
-            return array_values($url);
-        }
+        if($url != null) {
+            $length = count($url);
+
+            $paramArray = array();
+            if($length > 0) {
+                $paramArray = $url;
+            }
+            return $paramArray;
+        } 
+
         if(isset($_POST['email'])){
             return [$_POST['email']];
         }

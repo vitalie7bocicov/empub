@@ -80,7 +80,7 @@
       </form>
 
     </div>
-    <div class="email-list">
+    <div class="email-list" id="email-list">
       <div class="email-row" onclick="location.href='letterTemplate.html'">
         <div class="email-date">
           <span class="email-expiration-date">
@@ -188,9 +188,7 @@
     </div>
 
   </section>
-
+  
+  <script type="module" src="http://localhost/TehnologiiWeb/empub/application/scripts/main.js" defer></script>
 </body>
-
-
-
 </html>
