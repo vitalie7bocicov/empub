@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="../styles/doc.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div class="banner">
+        <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Community Draft</div>
+      </div>
+      <h1>Scholarly HTML</h1>
+    </header>
+    
+    <div role="contentinfo">
+      <dl>
+          <ol role="directory"><li><a href="#abstract"><span>1. </span>Abstract</a></li><li><a href="#introduction"><span>2. </span>Introduction</a></li><li><a href="#structure"><span>3. </span>Structure</a><ol role="directory"><li><a href="#Root"><span>3.1 </span>The root and <code>head</code></a></li><li><a href="#article"><span>3.2 </span>The <code>article</code></a></li><li><a href="#hunk"><span>3.3 </span>Hunk Elements</a><ol role="directory"><li><a href="#figures"><span>3.3.1 </span>Figures</a></li></ol></li><li><a href="#inline"><span>3.4 </span>Inline Elements</a></li><li><a href="#references"><span>3.5 </span>References</a></li><li><a href="#interactive"><span>3.6 </span>Interactive Elements</a></li><li><a href="#HTMLRoles"><span>3.7 </span>HTML Roles</a></li><li><a href="#validate"><span>3.8 </span>Validation</a></li></ol></li><li><a href="#semantics"><span>4. </span>Semantics Overlay</a><ol role="directory"><li><a href="#person-org"><span>4.1 </span>Persons &amp; Organizations</a></li><li><a href="#typing-sections"><span>4.2 </span>Typing Sections</a></li><li><a href="#roles"><span>4.3 </span>Schema Roles</a></li><li><a href="#actions"><span>4.4 </span>Actions</a></li><li><a href="#article-title-semantics"><span>4.5 </span>Article and Title Semantics</a></li><li><a href="#contentinfo-semantics"><span>4.6 </span>The <code>contentinfo</code> Region Semantics</a><ol role="directory"><li><a href="#authors"><span>4.6.1 </span>Authors &amp; Contributors</a></li><li><a href="#affiliations"><span>4.6.2 </span>Affiliations</a></li><li><a href="#abstract-etc"><span>4.6.3 </span>License, Copyright, Keywords, and Abstract</a></li><li><a href="#meta-notes"><span>4.6.4 </span>Notes</a></li></ol></li><li><a href="#flavored-links"><span>4.7 </span>Flavored Links</a></li><li><a href="#citations"><span>4.8 </span>Citations &amp; References</a></li><li><a href="#footnotes"><span>4.9 </span>Footnotes &amp; Endnotes</a></li><li><a href="#funding"><span>4.10 </span>Funding Information</a></li><li><a href="#disclosures"><span>4.11 </span>Disclosures</a></li><li><a href="#acknowledgements"><span>4.12 </span>Acknowledgements</a></li></ol></li><li><a href="#scholarly-article"><span>5. </span>Scholarly Article Vocabulary</a></li><li><a href="#hypermedia"><span>6. </span>Hypermedia Controls</a></li><li><a href="#processing-model"><span>7. </span>Processing Model</a></li><li><a href="#acks"><span>8. </span>Acknowledgements</a></li><li><a href="#biblio-references"><span>9. </span>References</a></li></ol>
+        <dt>Authors</dt>
+        <dd>
+          <a href="https://github.com/vitalie7bocicov/">Bocicov Vitalie</a>
+        </dd>
+        <dd>
+            <a href="https://github.com/TiberiuBadelita"> Badelita Tiberiu </a>
+        </dd>
+        <dd>
+            <a href="https://github.com/eduardsoltan"> Soltan Eduard</a>
+        
+          </dd>
+    <dt>Bugs &amp; Feedback</dt>
+        <dd>
+          <a href="https://github.com/w3c/scholarly-html/issues">Issues and PRs welcome!</a>
+        </dd>
+        <dt>Discussion Group</dt>
+        <dd>
+          The <a href="https://www.w3.org/community/scholarlyhtml/">Scholarly HTML Community
+          Group</a> at <a href="https://w3.org/">W3C</a>
+          (<a href="https://lists.w3.org/Archives/Public/public-scholarlyhtml/">email archives</a>)
+        </dd>
+        <dt>License</dt>
+        <dd>
+          <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+        </dd>
+      </dl>
+    </div>
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <p>
+        The introduction section of Software Requirements Specification (SRS) outlines the purpose, scope, document conventions,  intended audience, and an overview of the SRS. The main purpose of this paper is to provide a complete description of EMPub system by formulating the main problems it solves; providing feasible solutions to the problem.
+      </p>
+      
+      <h3>1.1	Purpose</h3>
+        <p>
+          The Epub application is the software that is described in this paper. It is an extension of the standard mailer. Using this application, a mail user can easily share a message from his inbox, providing access to it to multiple friends in just one click.
+        </p>
+        <p>
+          Throughout the documentation, we will present different use cases, and requirements in respect to the users and the system, and also outline the concepts that may be developed later. The paper specifies the project’s main audience, user interfaces, user interaction with the interface, hardware and software requirements.
+        </p>
+      <h3>1.2	Scope</h3>
+        <p>
+          The EMPub application focus on making messages from a mail client inbox public, so it can be seen by an unlimited or limited number of users. One of the most common use cases of our application is the situation in which a user what to forward a received email to a large group of colleagues. The current solution to this problem is adding in receive field of the letter email address of all colleagues. Therefore, we want to provide a platform in which the previous operation will take just a few clicks.
+        </p>
+      <h3>1.3	Intendent audience</h3>
+        <p>
+          This paper is intended to be read by developers and testers as detailed information will be provided in respect to the implementation of the application functionality, however, certain chapters of our documentation could be easily read by simple users. The second chapter Overall description describes application functionality and presents UML diagrams, and the first paragraph of the third chapter describes Users Interfaces are the documentation part intended for user reading.
+        </p>
+    </section>
+  
+
+    <section id="">
+      <h2>SYSTEM FEATURES</h2>
+        <h3>4.1 Receiving and publishing emails</h3>
+        <p>Through this feature the product receive emails from mailing services (Gmail , Yahoo, etc.) and publish them on the user email page. The publication is made by sending a forward to an address controlled by the web application. Posting parameters can be changed by a tag system included in the body of the email for example: [password = password] [duration = 2h10m] [public].</p>
+
+        <h3>4.2 Publication list manager</h3>
+          <p>Through this feature a user can view and manipulate the list of his publications and his posting parameters : expiration date, sender, subject, availability (public/private), number of views. The list of publications can be ordered by availability, number of views, expiration date and time. An email can be searched by sender or subject.</p>
+
+        <h3>4.3 Email settings manager</h3>
+          <p>Through this feature a user can change the default publishing parameters (public, password protected, expiration date and time, etc.) or can delete an email through the web interface.</p>
+
+        <h3>4.4 Email statistics</h3>
+          <p>Through this feature a user can view the list of related statistics (number of views, country of origin of visitors, schedule of visits by time intervals) for a period viewed (per day, per week, per month) chosen by the user. Statistics will be available in HTML, PDF and XML formats.</p>
+        
+        <h3>4.5 Login via email</h3>
+          <p>hrough this feature a user account is created upon receipt of the first email from an email address or via the web interface. Authentication in the web application will be done by temporary passwords sent to the email address of the account.</p>
+
+        <h3>4.6 Account settings manager</h3>
+          <p>hTrough this feature a user can set or change its name and surname, can upload a profile picture.</p>
+    </section>
+  </body>
+</html>
