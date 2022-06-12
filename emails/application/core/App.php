@@ -1,6 +1,6 @@
 <?php
 
-require 'E:\ProgramFiles\xampp\htdocs\TehnologiiWeb\emails\application\models\User.php';
+require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\models\User.php';
 include_once '../libs/php-jwt/src/JWT.php';
 include_once '../libs/php-jwt/src/Key.php';
 include_once '../libs/php-jwt/src/ExpiredException.php';
@@ -18,7 +18,6 @@ class App {
 
     function __construct() {
         $url = $this->parseUrl();
-
         $user = $this->parseJWT();
         if(!$user) {
             http_response_code(403);
@@ -48,8 +47,11 @@ class App {
     }
 
     public function parseUrl() {
-        $var =  explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
-        return $var;
+        if(isset($_GET['url']))
+            return explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
+        if(isset($_DELETE['url']))
+            return explode('/', filter_var($_DELETE['url'], FILTER_SANITIZE_URL));
+
     }
 
     public function parseJWT() {

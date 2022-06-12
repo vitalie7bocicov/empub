@@ -1,10 +1,10 @@
 <?php
 use function MongoDB\BSON\toJSON;
 
-require 'E:\ProgramFiles\xampp\htdocs\TehnologiiWeb\emails\application\core\Controller.php';
-require 'E:\ProgramFiles\xampp\htdocs\TehnologiiWeb\emails\application\core\BD.php';
-require 'E:\ProgramFiles\xampp\htdocs\TehnologiiWeb\emails\application\models\MailModel.php';
-require 'E:\ProgramFiles\xampp\htdocs\TehnologiiWeb\emails\application\models\MailContentModel.php';
+require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\core\Controller.php';
+require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\core\BD.php';
+require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\models\MailModel.php';
+require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\models\MailContentModel.php';
 class Mail extends Controller {
     function index($email = '') {
         header('Content-type: application/json');
@@ -39,5 +39,17 @@ class Mail extends Controller {
 
         
         echo json_encode($mailContetnt);
+    }
+
+    function deleteMailByID($id = '') {
+        $bd = new DB();
+        $response = MailModel::deleteMail($bd->getConnection(),$this->user->getId(), $id);
+        if($response)
+        {
+            http_response_code(200);
+            return;
+        }
+        http_response_code(400);
+        echo $response;
     }
 }

@@ -72,4 +72,15 @@ class MailModel {
         return $result;
     }
 
+    public static function deleteMail($dbConnection, $user_id, $id) {
+        $sql = 'delete from mails where user_id = ? and id=?';
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($user_id, $id);
+
+        if($stmt -> execute($paramsArray)) {
+           return true;
+        }
+        return false;
+    }
+
 }

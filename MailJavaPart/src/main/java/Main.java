@@ -14,7 +14,6 @@ public class Main {
         String host = "imap.gmail.com";
         String user = "empub.send@gmail.com";
         String password = "dqiskcafniragusj";
-
         try {
             Properties props = new Properties();
             props.setProperty("mail.imap.ssl.enable", "true");
@@ -23,6 +22,7 @@ public class Main {
             Store store = session.getStore( "imap");
 
             store.connect(host, user, password);
+
             /*UserDAO userDAO = new UserDAO();
             JavaDAO javaDAO = new JavaDAO();
             MailContentDAO mailContentDAO = new MailContentDAO();

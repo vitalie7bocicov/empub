@@ -371,7 +371,7 @@ public class MailHandler {
         }
 
 
-        String filePath = "E:\\ProgramFiles\\xampp\\htdocs\\TehnologiiWeb\\storage";
+        String filePath = "C:\\xampp\\htdocs\\TehnologiiWeb\\storage";
         filePath += "\\" + currentMail.getMailNumber();
 
         if(!new File(filePath).exists()) {

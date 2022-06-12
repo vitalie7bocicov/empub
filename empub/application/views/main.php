@@ -81,104 +81,104 @@
 
     </div>
     <div class="email-list" id="email-list">
-      <div class="email-row" onclick="location.href='letterTemplate.html'">
-        <div class="email-date">
-          <span class="email-expiration-date">
-            17/04
-          </span>
-        </div>
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              Miro
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
-            <span class="email-text"> - Here’s how your team did last week</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-
-          <a href="../../public/html/settingsPage.html" class="email-lock">
-            <span class="material-icons email-locked">
-              lock
-            </span>
-          </a>
-
-          <a href="../../public/html/settingsPage.html" class="email-settings">
-            <span class="material-icons">
-              settings
-            </span>
-          </a>
-
-
-          <a href="../../public/html/statistics.html" class="email-stats">
-            <span class="material-icons">
-              query_stats
-            </span>
-            <span class="email-views">15</span>
-          </a>
-
-          <a href="#" class="email-delete">
-            <span class="material-icons">
-              delete
-            </span>
-          </a>
-
-        </div>
-      </div>
-
-      <div class="email-row" onclick="location.href='letterTemplate.html'">
-        <div class="email-date">
-          <span class="email-expiration-date">
-            20/07
-          </span>
-        </div>
-        <div class="email-content">
-          <div class="email-sender">
-            <h3>
-              service@intl.paypal.com
-            </h3>
-          </div>
-
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
-            <span class="email-text"> - Hi, there!
-              Looking for better solutions for all your content creation?</span>
-          </div>
-        </div>
-
-        <div class="email-options">
-          <a href="../../public/html/settingsPage.html" class="email-lock">
-            <span class="material-icons email-unlocked">
-              lock_open
-            </span>
-          </a>
-
-          <a href="../../public/html/settingsPage.html" class="email-settings">
-            <span class="material-icons">
-              settings
-            </span>
-          </a>
-
-
-          <a href="../../public/html/statistics.html" class="email-stats">
-            <span class="material-icons email-query-stats">
-              query_stats
-            </span>
-            <span class="email-views">15</span>
-          </a>
-
-          <a href="#" class="email-delete">
-            <span class="material-icons">
-              delete
-            </span>
-          </a>
-
-        </div>
+<!--      <div class="email-row" onclick="location.href='letterTemplate.html'">-->
+<!--        <div class="email-date">-->
+<!--          <span class="email-expiration-date">-->
+<!--            17/04-->
+<!--          </span>-->
+<!--        </div>-->
+<!--        <div class="email-content">-->
+<!--          <div class="email-sender">-->
+<!--            <h3>-->
+<!--              Miro-->
+<!--            </h3>-->
+<!--          </div>-->
+<!---->
+<!--          <div class="email-message">-->
+<!--            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>-->
+<!--            <span class="email-text"> - Here’s how your team did last week</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="email-options">-->
+<!---->
+<!--          <a href="../../public/html/settingsPage.html" class="email-lock">-->
+<!--            <span class="material-icons email-locked">-->
+<!--              lock-->
+<!--            </span>-->
+<!--          </a>-->
+<!---->
+<!--          <a href="../../public/html/settingsPage.html" class="email-settings">-->
+<!--            <span class="material-icons">-->
+<!--              settings-->
+<!--            </span>-->
+<!--          </a>-->
+<!---->
+<!---->
+<!--          <a href="../../public/html/statistics.html" class="email-stats">-->
+<!--            <span class="material-icons">-->
+<!--              query_stats-->
+<!--            </span>-->
+<!--            <span class="email-views">15</span>-->
+<!--          </a>-->
+<!---->
+<!--          <a href="#" class="email-delete">-->
+<!--            <span class="material-icons">-->
+<!--              delete-->
+<!--            </span>-->
+<!--          </a>-->
+<!---->
+<!--        </div>-->
+<!--      </div>-->
+<!---->
+<!--      <div class="email-row" onclick="location.href='letterTemplate.html'">-->
+<!--        <div class="email-date">-->
+<!--          <span class="email-expiration-date">-->
+<!--            20/07-->
+<!--          </span>-->
+<!--        </div>-->
+<!--        <div class="email-content">-->
+<!--          <div class="email-sender">-->
+<!--            <h3>-->
+<!--              service@intl.paypal.com-->
+<!--            </h3>-->
+<!--          </div>-->
+<!---->
+<!--          <div class="email-message">-->
+<!--            <span class="email-subject">Your transfer was successful</span>-->
+<!--            <span class="email-text"> - Hi, there!-->
+<!--              Looking for better solutions for all your content creation?</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="email-options">-->
+<!--          <a href="../../public/html/settingsPage.html" class="email-lock">-->
+<!--            <span class="material-icons email-unlocked">-->
+<!--              lock_open-->
+<!--            </span>-->
+<!--          </a>-->
+<!---->
+<!--          <a href="../../public/html/settingsPage.html" class="email-settings">-->
+<!--            <span class="material-icons">-->
+<!--              settings-->
+<!--            </span>-->
+<!--          </a>-->
+<!---->
+<!---->
+<!--          <a href="../../public/html/statistics.html" class="email-stats">-->
+<!--            <span class="material-icons email-query-stats">-->
+<!--              query_stats-->
+<!--            </span>-->
+<!--            <span class="email-views">15</span>-->
+<!--          </a>-->
+<!---->
+<!--          <a href="#" class="email-delete">-->
+<!--            <span class="material-icons">-->
+<!--              delete-->
+<!--            </span>-->
+<!--          </a>-->
+<!---->
+<!--        </div>-->
 
       </div>
 

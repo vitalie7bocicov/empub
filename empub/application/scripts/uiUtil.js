@@ -1,4 +1,4 @@
-function appenEmail(mail) {
+function appendEmail(mail) {
     const emailRow = document.createElement('div');
     emailRow.classList.add('email-row');
 
@@ -6,6 +6,7 @@ function appenEmail(mail) {
     emailRow.addEventListener('click', () => {
         location.href = `http://localhost/TehnologiiWeb/empub/public/email/${mail.id}`;
     });
+
     const emailDate = document.createElement('div');
     emailDate.classList.add('email-date');
     const spanDate = document.createElement('span');
@@ -40,6 +41,7 @@ function appenEmail(mail) {
     emailContent.appendChild(emailMessage);
 
     const emailLock = document.createElement('a');
+
     const emailSettings = document.createElement('a');
     const emailStats = document.createElement('a');
     const emailDelete = document.createElement('a');
@@ -75,7 +77,7 @@ function appenEmail(mail) {
 
 
     emailDelete.appendChild(material_icons_span4);
-    emailDelete.classList.add('email_delete');
+    emailDelete.classList.add('email-delete');
 
     emailOptions.appendChild(emailLock);
     emailOptions.appendChild(emailSettings);
@@ -90,4 +92,24 @@ function appenEmail(mail) {
     return emailRow;
 }
 
-export {appenEmail};
+function deleteEmail(mail)
+{
+    //delete mail from dom
+    mail.remove();
+
+    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+    let myHeaders = new Headers();
+    myHeaders.append('Authorization', authToken);
+    let deleteEmail = new Request(`http://localhost/TehnologiiWeb/emails/mail/deleteMailByID/${mail.id}`, {
+        method: 'DELETE',
+        headers: myHeaders
+    });
+
+    fetch(deleteEmail)
+        .then((response) => {
+            if(response.status !== 200) {
+                throw new TypeError(`Response with code ${response.status}`);
+            }
+        })
+}
+export {appendEmail, deleteEmail};

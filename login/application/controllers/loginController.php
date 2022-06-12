@@ -22,7 +22,7 @@ class Login extends Controller {
 
         $obj = json_decode($json);
         if($obj == null) {
-            http_response_code(400);
+            http_response_code(404);
             echo 'User is not set';
             return;
         }
@@ -78,6 +78,7 @@ class Login extends Controller {
         
         $bd = new DB;
 
+
         $paramsArray = array($email);
         $user = User::findByEmail($bd->getConnection(), $paramsArray);
         header('Content-type: application/json');
@@ -91,7 +92,6 @@ class Login extends Controller {
         }
         
         $hash = hash('sha256', $password);
-
         if(!$user->passwordMatching($bd->getConnection(), $hash)) {
             //http_response_code(400);
             $resposeObj['respose'] = 'Passwords don\'t match';

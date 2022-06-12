@@ -45,7 +45,6 @@ class User {
         if($prepareStatemnt->execute($array)) {
             if($row = $prepareStatemnt -> fetch()) {
                 $actualPassword = $row['password'];
-
                 if(strcmp($actualPassword, $password) == 0) {
                     return true;
                 }
