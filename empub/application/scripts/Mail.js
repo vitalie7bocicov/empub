@@ -6,7 +6,7 @@ class Mail {
         this.subject = mail.subject;
         this.publicationDate = mail.publicationDate;
         this.expirationDate = mail.expirationDate;
-        // this.message = mail.message;
+        this.isPublic = mail.isPublic;
     }
 }
 

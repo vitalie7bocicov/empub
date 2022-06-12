@@ -59,16 +59,25 @@ function appendEmail(mail) {
     const emailViews = document.createElement('span');
     emailViews.classList.add('email-views');
     material_icons_span1.classList.add('material-icons');
-    material_icons_span1.classList.add('email-locked');
+
+    if(mail.isPublic===1){
+        material_icons_span1.classList.add('email-unlocked');
+        material_icons_span1.textContent = 'lock_open';
+    }
+    else{
+        material_icons_span1.classList.add('email-locked');
+        material_icons_span1.textContent = 'lock';
+    }
     material_icons_span2.classList.add('material-icons');
     material_icons_span3.classList.add('material-icons');
     material_icons_span4.classList.add('material-icons');
-    material_icons_span1.textContent = 'lock';
+
     material_icons_span2.textContent = 'settings';
     material_icons_span3.textContent = 'query_stats';
     material_icons_span4.textContent = 'delete';
 
     emailLock.appendChild(material_icons_span1);
+
     emailLock.classList.add('email-lock');
 
     emailSettings.appendChild(material_icons_span2);
@@ -149,7 +158,6 @@ function appendAllEmails()
         })
         .then(data => {
             let length = data.length;
-
             for(let i = 0; i < length; i++) {
                 let mail = new Mail(data[i]);
                 const elem = appendEmail(mail);
@@ -160,7 +168,6 @@ function appendAllEmails()
             console.log(err);
         });
 }
-
 
 function appendPermissionEmails(isPublic){
     let emailList = document.getElementById('email-list');
