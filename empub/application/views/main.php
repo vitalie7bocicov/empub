@@ -62,9 +62,9 @@
 
           <label for="order-by">Order by:</label>
           <select name="order-by" id="order-by">
-            <option value="expiration-date" selected>Expiration date</option>
-            <option value="publishing date">Publishing date</option>
-            <option value="nr-views">Nr. of views</option>
+                <option value="publishing date" selected>Publishing date</option>
+                <option value="expiration-date" >Expiration date</option>
+                <option value="nr-views">Nr. of views</option>
           </select>
 
         </div>

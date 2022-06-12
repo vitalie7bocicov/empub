@@ -1,3 +1,5 @@
+import {Mail} from "./Mail.js";
+
 function appendEmail(mail) {
     const emailRow = document.createElement('div');
     emailRow.classList.add('email-row');
@@ -34,6 +36,7 @@ function appendEmail(mail) {
     emailText.classList.add('email-text');
     emailSubject.classList.add('email-subject');
     emailSubject.innerText = mail.subject;
+    // emailText.innerText = mail.message;
     emailMessage.appendChild(emailSubject);
     emailMessage.appendChild(emailText);
 
@@ -78,6 +81,11 @@ function appendEmail(mail) {
 
     emailDelete.appendChild(material_icons_span4);
     emailDelete.classList.add('email-delete');
+    emailDelete.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        deleteEmail(event.target.parentElement.parentElement.parentElement);
+    });
 
     emailOptions.appendChild(emailLock);
     emailOptions.appendChild(emailSettings);
@@ -91,6 +99,8 @@ function appendEmail(mail) {
 
     return emailRow;
 }
+
+
 
 function deleteEmail(mail)
 {
@@ -112,4 +122,81 @@ function deleteEmail(mail)
             }
         })
 }
-export {appendEmail, deleteEmail};
+
+
+function appendAllEmails()
+{
+    let emailList = document.getElementById('email-list');
+    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+    let myHeaders = new Headers();
+    myHeaders.append('Authorization', authToken);
+    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail`, {
+        method: 'GET',
+        headers: myHeaders
+    });
+    fetch(request)
+        .then(res => {
+            if(res.status != 200) {
+                throw new TypeError (`Response with code ${res.status}`);
+            }
+            const contentType = res.headers.get('Content-Type');
+
+            if(contentType && contentType.includes('application/json')) {
+                return res.json();
+            }
+
+            throw new TypeError ('Response got is not in correct format');
+        })
+        .then(data => {
+            let length = data.length;
+
+            for(let i = 0; i < length; i++) {
+                let mail = new Mail(data[i]);
+                const elem = appendEmail(mail);
+                emailList.appendChild(elem);
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+
+function appendPermissionEmails(isPublic){
+    let emailList = document.getElementById('email-list');
+    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+    let myHeaders = new Headers();
+    myHeaders.append('Authorization', authToken);
+    myHeaders.append('Permission', isPublic);
+
+    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailsPermission`, {
+        method: 'GET',
+        headers: myHeaders
+    });
+    fetch(request)
+        .then(res => {
+            if(res.status != 200) {
+                throw new TypeError (`Response with code ${res.status}`);
+            }
+            const contentType = res.headers.get('Content-Type');
+            if(contentType && contentType.includes('application/json')) {
+                return res.json();
+            }
+
+            throw new TypeError ('Response got is not in correct format');
+        })
+        .then(data => {
+            let length = data.length;
+
+            for(let i = 0; i < length; i++) {
+                let mail = new Mail(data[i]);
+                const elem = appendEmail(mail);
+                emailList.appendChild(elem);
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+export {appendEmail, appendAllEmails, appendPermissionEmails};

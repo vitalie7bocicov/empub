@@ -54,10 +54,29 @@ class MailModel {
     }
 
     public static function getMails($dbConnection, $id) {
-        $sql = 'select * from mails where user_id = ?';
+        $sql = 'select * from mails where user_id = ? order by id desc';
 
         $stmt = $dbConnection->prepare($sql);
         $paramsArray = array($id);
+        $result = array();
+        $counter = 0;
+
+        if($stmt -> execute($paramsArray)) {
+            while($row = $stmt -> fetch()) {
+                $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['publication_date'], $row['expiration_date']);
+                $result[$counter] = $mail;
+                $counter += 1;
+            }
+        }
+
+        return $result;
+    }
+
+    public static function getMailsPermission($dbConnection, $user_id, $isPublic) {
+        $sql = 'select * from mails where user_id = ? and public = ? order by id desc';
+
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($user_id,$isPublic);
         $result = array();
         $counter = 0;
 

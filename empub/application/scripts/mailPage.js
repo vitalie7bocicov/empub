@@ -34,7 +34,6 @@ window.onload = () => {
             const iframeDocument = iframe.contentDocument;
             const iframeWindow = iframe.contentWindow;
 
-
             const parser = new DOMParser();
             const parsedDocument = parser.parseFromString(html, 'text/html');
             const child = parsedDocument.documentElement;

@@ -31,6 +31,36 @@ class Mail extends Controller {
         echo json_encode($response);
     }
 
+    function getPermission(){
+        $headers = apache_request_headers();
+        if($headers['permission']==="true")
+            return 1;
+        return 0;
+    }
+
+    function getMailsPermission($email = '' )
+    {
+        header('Content-type: application/json');
+        $isPublic = $this->getPermission();
+        if($email == '') {
+            $email = $this->user->getName();
+        }
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            http_response_code(400);
+            return;
+        }
+        $bd = new DB();
+        $mails = MailModel::getMailsPermission($bd->getConnection(), $this->user->getId(), $isPublic);
+        $response = array();
+        $counter = 0;
+        foreach($mails as $mailVar) {
+            $mail = $mailVar -> toJson();
+            $response[$counter] = $mail;
+            $counter += 1;
+        }
+        echo json_encode($response);
+    }
+
     function getMailByID($id = '') {
         header('Content-type: application/json');
         $bd = new DB();
