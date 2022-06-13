@@ -59,8 +59,8 @@ class MailModel {
         return $result;
     }
 
-    public static function getMails($dbConnection, $id) {
-        $sql = 'select * from mails where user_id = ? order by id desc';
+    public static function getMails($dbConnection, $id, $orderBy) {
+        $sql = 'select * from mails where user_id = ? order by ' . $orderBy;
 
         $stmt = $dbConnection->prepare($sql);
         $paramsArray = array($id);
@@ -78,8 +78,8 @@ class MailModel {
         return $result;
     }
 
-    public static function getMailsPermission($dbConnection, $user_id, $isPublic) {
-        $sql = 'select * from mails where user_id = ? and public = ? order by id desc';
+    public static function getMailsPermission($dbConnection, $user_id, $isPublic, $orderBy) {
+        $sql = 'select * from mails where user_id = ? and public = ? order by ' . $orderBy;
 
         $stmt = $dbConnection->prepare($sql);
         $paramsArray = array($user_id,$isPublic);

@@ -111,8 +111,7 @@ function appendEmail(mail) {
 
 
 
-function deleteEmail(mail)
-{
+function deleteEmail(mail) {
     //delete mail from dom
     mail.remove();
 
@@ -132,13 +131,33 @@ function deleteEmail(mail)
         })
 }
 
+function getOrderBy(){
+    const orderBy = document.getElementById('order-by');
+    const value =  orderBy.options[orderBy.selectedIndex].value;
+    console.log(value);
+    return value;
+}
+
+function getFilter(){
+    const orderBy = document.getElementById('email-permission');
+    const value =  orderBy.options[orderBy.selectedIndex].value;
+    if(value==="all")
+        return "all";
+    if(value==="public")
+        return true;
+    if(value==="private")
+        return false;
+}
 
 function appendAllEmails()
 {
+    let orderBy = getOrderBy();
+    console.log(orderBy);
     let emailList = document.getElementById('email-list');
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
+    myHeaders.append('orderBy', orderBy);
     let request = new Request(`http://localhost/TehnologiiWeb/emails/mail`, {
         method: 'GET',
         headers: myHeaders
@@ -149,11 +168,9 @@ function appendAllEmails()
                 throw new TypeError (`Response with code ${res.status}`);
             }
             const contentType = res.headers.get('Content-Type');
-
             if(contentType && contentType.includes('application/json')) {
                 return res.json();
             }
-
             throw new TypeError ('Response got is not in correct format');
         })
         .then(data => {
@@ -173,10 +190,11 @@ function appendPermissionEmails(isPublic){
     let emailList = document.getElementById('email-list');
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
+    let orderBy = getOrderBy();
     myHeaders.append('Authorization', authToken);
     myHeaders.append('Permission', isPublic);
-
-    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailsPermission`, {
+    myHeaders.append('orderBy', orderBy);
+    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/getFilteredMails`, {
         method: 'GET',
         headers: myHeaders
     });
@@ -206,4 +224,4 @@ function appendPermissionEmails(isPublic){
         });
 }
 
-export {appendEmail, appendAllEmails, appendPermissionEmails};
+export {appendEmail, appendAllEmails, appendPermissionEmails, getFilter};

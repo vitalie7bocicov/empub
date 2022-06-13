@@ -8,7 +8,7 @@ require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\models\MailContentMode
 class Mail extends Controller {
     function index($email = '') {
         header('Content-type: application/json');
-        
+        $orderBy = $this->getOrderBy();
         if($email == '') {
             $email = $this->user->getName();
         }
@@ -19,7 +19,7 @@ class Mail extends Controller {
         }
 
         $bd = new DB();
-        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId());
+        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId(), $orderBy);
         $response = array();
         $counter = 0;
         foreach($mails as $mailVar) {
@@ -38,10 +38,16 @@ class Mail extends Controller {
         return 0;
     }
 
-    function getMailsPermission($email = '' )
+    function getOrderBy(){
+        $headers = apache_request_headers();
+        return $headers['orderby'];
+    }
+
+    function getFilteredMails($email = '' )
     {
         header('Content-type: application/json');
         $isPublic = $this->getPermission();
+        $orderBy = $this->getOrderBy();
         if($email == '') {
             $email = $this->user->getName();
         }
@@ -50,7 +56,7 @@ class Mail extends Controller {
             return;
         }
         $bd = new DB();
-        $mails = MailModel::getMailsPermission($bd->getConnection(), $this->user->getId(), $isPublic);
+        $mails = MailModel::getMailsPermission($bd->getConnection(), $this->user->getId(), $isPublic, $orderBy);
         $response = array();
         $counter = 0;
         foreach($mails as $mailVar) {
