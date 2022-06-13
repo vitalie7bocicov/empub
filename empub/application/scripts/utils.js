@@ -14,8 +14,16 @@ function appendEmail(mail) {
     const spanDate = document.createElement('span');
     spanDate.classList.add('email-expiration-date');
 
-    let publicationDate = new Date(mail.publicationDate);
-    spanDate.innerText = `${publicationDate.getDate()}/${publicationDate.getMonth()}/${publicationDate.getFullYear()}`; 
+    const orderBy = getOrderBy();
+
+    if(orderBy === "publication_date desc"){
+        let publicationDate = new Date(mail.publicationDate);
+        spanDate.innerText = `${publicationDate.getDate()}/${publicationDate.getMonth().toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
+    }
+    else if(orderBy ==="expiration_date"){
+        let expirationDate = new Date(mail.expirationDate);
+        spanDate.innerText = `${expirationDate.getDate()}/${expirationDate.getMonth().toString().padStart(2,"0")}/${expirationDate.getFullYear()}`;
+    }
 
     emailDate.appendChild(spanDate);
     
@@ -134,7 +142,6 @@ function deleteEmail(mail) {
 function getOrderBy(){
     const orderBy = document.getElementById('order-by');
     const value =  orderBy.options[orderBy.selectedIndex].value;
-    console.log(value);
     return value;
 }
 
