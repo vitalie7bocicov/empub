@@ -8,7 +8,7 @@ window.onload = () => {
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
-    let getEmailHtml = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailByID/${cookies['mailID']}`, {
+    let getEmailHtml = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailContentByID/${cookies['mailID']}`, {
             method: 'GET',
             headers: myHeaders
     });

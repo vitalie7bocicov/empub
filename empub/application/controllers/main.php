@@ -6,5 +6,4 @@ class Main extends Controller
     {
         $this->view('main');
     }
-
 }

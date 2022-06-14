@@ -67,14 +67,25 @@ class Mail extends Controller {
         echo json_encode($response);
     }
 
-    function getMailByID($id = '') {
+    function getMailContentByID($id = '') {
         header('Content-type: application/json');
         $bd = new DB();
-        $mailContetnt = MailContentModel::getMail($bd->getConnection(), $id);
-        $mailContetnt = $mailContetnt -> toJson();
-
+        $mailContent = MailContentModel::getMail($bd->getConnection(), $id);
+        $mailContent = $mailContent -> toJson();
         
-        echo json_encode($mailContetnt);
+        echo json_encode($mailContent);
+    }
+
+    function getMailByID($id = '') {
+        $bd = new DB();
+        $response = MailModel::getMail($bd->getConnection(),$this->user->getId(), $id);
+        if($response)
+        {
+            http_response_code(200);
+            return;
+        }
+        http_response_code(400);
+        echo $response;
     }
 
     function deleteMailByID($id = '') {

@@ -20,7 +20,7 @@
 
     <nav>
       <div class="logo">
-        <a href="main.php">
+        <a href="http://localhost/TehnologiiWeb/empub/public/main">
           <img src="http://localhost/TehnologiiWeb/empub/application/images/white_logo.png" alt="Logo">
         </a>
       </div>
@@ -31,7 +31,7 @@
       </a>
       <ul class="nav-links">
         <li>
-          <a href="main.php">Home</a>
+          <a href="http://localhost/TehnologiiWeb/empub/public/main">Home</a>
         </li>
         <li>
           <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>

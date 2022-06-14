@@ -4,38 +4,37 @@
 <head>
     <title>EMPub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../application/styles/settingsPage.css">
+    <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/settingsPage.css">
     <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../application/styles/style.css">
-    <script src="../../application/scripts/navbar.js" defer></script>
+    <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/style.css">
+    <script src="http://localhost/TehnologiiWeb/empub/application/scripts/navbar.js" defer></script>
 </head>
 
 <body>
     <header>
-
         <nav>
             <div class="logo">
-                <a href="../../application/views/main.php">
-                    <img src="../../application/images/white_logo.png" alt="Logo">
+                <a href="http://localhost/TehnologiiWeb/empub/public/main">
+                    <img src="http://localhost/TehnologiiWeb/empub/application/images/white_logo.png" alt="Logo">
                 </a>
             </div>
             <a href="#" class="hamburger">
                 <div class="bar"></div>
                 <!--<span class="bar "></span>
-                <span class="bar "></span>-->
+                    <span class="bar "></span>-->
             </a>
             <ul class="nav-links">
                 <li>
-                    <a href="../../application/views/main.php">Home</a>
+                    <a href="http://localhost/TehnologiiWeb/empub/public/main">Home</a>
                 </li>
                 <li>
-                    <a href="doc.html">About</a>
+                    <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>
                 </li>
                 <li id="account">
-                    <a href="accountSettings.html">Account</a>
+                    <a href="http://localhost/TehnologiiWeb/empub/public/html/accountSettings.html">Account</a>
                 </li>
                 <li id="logout">
-                    <a href="../index.html">
+                    <a href="login.php">
                         Logout
                     </a>
                 </li>
@@ -50,9 +49,9 @@
             </div>
 
             <div class="sidebar" id="sidebar">
-                <button onclick="location.href='main.html'" class="sidebar-buttons"><i class="fa-solid fa-inbox"></i>
+                <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons"><i class="fa-solid fa-inbox"></i>
                     Inbox</button>
-                <button onclick="location.href='statistics.html'" class="sidebar-buttons"><i
+                <button onclick="location.href='statistics.php'" class="sidebar-buttons"><i
                         class="fa-solid fa-chart-line"></i> Statistics</button>
                 <button class="sidebar-buttons" style="background-color: grey;"><i class="fa-solid fa-gear"></i>
                     Settings</button>
@@ -81,7 +80,6 @@
                         </label>
                     </div>
 
-
                     <div class="input-margin">
                         <label for="dateOfExpiration">Date: </label>
                         <input type="date" name="dateOfExpiration" id="dateOfExpiration">
@@ -91,58 +89,16 @@
                         <label for="timeofExpiration">Time:</label>
                         <input type="time" name="timeofExpiration" id="timeofExpiration">
                     </div>
-
                     <div class="input-margin displayNone" id="password">
                         <label for="password1">Password: </label>
                         <input type="password" name="password" id="password1">
                     </div>
-
                     <button type="submit" value="Save" class="buttonSettings">SAVE</button>
                 </form>
-
             </div>
         </div>
     </div>
-
-    <script>
-        currentRadio = null;
-        var doc;
-        function handleClick(myRadio) {
-            console.log(myRadio.value);
-
-            if (currentRadio != null) {
-                currentRadio.classList.remove('changeOpacity');
-
-                if (doc != null)
-                    doc.classList.remove('displayBlock');
-            }
-
-            if (myRadio.value == 1) {
-                var i1 = document.getElementById('check1');
-
-                i1.classList.add('changeOpacity');
-                currentRadio = i1;
-            }
-            else if (myRadio.value == 2) {
-                var i2 = document.getElementById('check2');
-
-                i2.classList.add('changeOpacity');
-                currentRadio = i2;
-            }
-            else {
-                var i3 = document.getElementById('check3');
-
-                i3.classList.add('changeOpacity');
-                currentRadio = i3;
-
-                doc = document.getElementById('password');
-                doc.classList.add('displayBlock');
-            }
-
-        }
-
-
-
+    <script src="http://localhost/TehnologiiWeb/empub/application/scripts/emailSettingsPage.js">
     </script>
 </body>
 

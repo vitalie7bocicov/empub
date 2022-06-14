@@ -90,6 +90,13 @@ function appendEmail(mail) {
 
     emailSettings.appendChild(material_icons_span2);
     emailSettings.classList.add('email-settings');
+    emailSettings.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        localStorage.setItem('mailId', event.target.parentElement.parentElement.parentElement.id);
+        location.href="http://localhost/TehnologiiWeb/empub/public/emailSettings";
+    });
+
 
     emailStats.appendChild(material_icons_span3);
     emailStats.appendChild(emailViews);
@@ -159,7 +166,6 @@ function getFilter(){
 function appendAllEmails()
 {
     let orderBy = getOrderBy();
-    console.log(orderBy);
     let emailList = document.getElementById('email-list');
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();

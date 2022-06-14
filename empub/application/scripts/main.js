@@ -3,7 +3,6 @@ window.onload = () => {
     filterByPerm();
     orderBy();
     appendAllEmails();
-
 }
 
 function deleteAllEmails(){//from dom

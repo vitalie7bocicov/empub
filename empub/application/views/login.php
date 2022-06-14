@@ -37,7 +37,6 @@
     </div>
 
     <script src="http://localhost/TehnologiiWeb/empub/application/scripts/login.js">
-        console.log("hello");
     </script>
 </body>
 
