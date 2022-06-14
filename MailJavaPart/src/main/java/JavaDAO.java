@@ -10,7 +10,7 @@ public class JavaDAO {
     }
 
     public int insertEmail(Mail mail) {
-        String insertMail = "insert into mails(senderName, senderEmailAddress, subject, publication_date, expiration_date, public, PASSWORD, user_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertMail = "insert into mails(senderName, senderEmailAddress, subject, publication_date, expiration_date, public, PASSWORD, user_id, views) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(insertMail, Statement.RETURN_GENERATED_KEYS);
@@ -28,7 +28,7 @@ public class JavaDAO {
             pstmt.setBoolean(6, mail.isPublicParam());
             pstmt.setString(7, digest);
             pstmt.setInt(8, mail.getUser_id());
-
+            pstmt.setInt(9, 0);
             int rs = pstmt.executeUpdate();
 
             if(rs == 0)  {
