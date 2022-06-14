@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="391dc202-8956-4c98-abf0-c26c60fab1f5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../empub/application/controllers/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/controllers/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../empub/application/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/scripts/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emails/application/controllers/mailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emails/application/controllers/mailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emails/application/models/MailModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emails/application/models/MailModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../empub/application/scripts/Mail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/scripts/Mail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../empub/application/scripts/emailSettingsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/scripts/emailSettingsPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../empub/application/scripts/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/scripts/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../empub/application/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/views/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../empub/application/views/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/views/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../empub/public/html/settingsPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/views/settingsPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../empub/public/html/visitor.html" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/public/html/visitor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../empub/application/views/settingsPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/views/settingsPage.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

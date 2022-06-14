@@ -53,15 +53,11 @@ class Mail extends Controller {
     }
 
     function getMailByID($id = '') {
+        header('Content-type: application/json');
         $bd = new DB();
         $response = MailModel::getMail($bd->getConnection(),$this->user->getId(), $id);
-        if($response)
-        {
-            http_response_code(200);
-            return;
-        }
-        http_response_code(400);
-        echo $response;
+        $mail = $response -> toJson();
+        echo json_encode($mail);
     }
 
     function deleteMailByID($id = '') {

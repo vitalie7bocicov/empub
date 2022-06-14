@@ -61,15 +61,13 @@
                 <form id="form" class="formContainer">
                     <div class="radion-buttons-div">
                         <label for="publicationType1" class="radion-buttons">Public
-                            <input type="radio" name="publicationType" id="publicationType1"
-                                onchange="handleClick(this)" value="1">
+                            <input type="radio" name="publicationType" id="publicationType1" value="1">
                             <i class="fa-solid fa-circle-check checkState" id="check1"></i>
                         </label>
 
 
                         <label for="publicationType2" class="radion-buttons">Private
-                            <input type="radio" name="publicationType" id="publicationType2"
-                                onchange="handleClick(this)" value="3">
+                            <input type="radio" name="publicationType" id="publicationType2" value="3">
                             <i class="fa-solid fa-circle-check checkState" id="check3"></i>
                         </label>
 
@@ -98,7 +96,7 @@
             </div>
         </div>
     </div>
-    <script src="http://localhost/TehnologiiWeb/empub/application/scripts/emailSettingsPage.js">
+    <script type="module" src="http://localhost/TehnologiiWeb/empub/application/scripts/emailSettingsPage.js">
     </script>
 </body>
 

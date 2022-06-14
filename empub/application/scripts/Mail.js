@@ -8,6 +8,7 @@ class Mail {
         this.expirationDate = mail.expirationDate;
         this.isPublic = mail.isPublic;
         this.views = mail.views;
+        this.password = mail.password;
     }
 }
 

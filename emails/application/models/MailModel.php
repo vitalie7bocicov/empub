@@ -9,7 +9,8 @@ class MailModel {
     private $expirationDate;
     private $isPublic;
     private $views;
-    function __construct($id, $sender, $senderEmail, $subject, $isPublic, $publicationDate, $expirationDate, $views) {
+    private $password;
+    function __construct($id, $sender, $senderEmail, $subject, $isPublic, $publicationDate, $expirationDate, $views, $password) {
         $this->id = $id;
         $this->sender = $sender;
         $this->senderEmail = $senderEmail;
@@ -18,6 +19,7 @@ class MailModel {
         $this->publicationDate = $publicationDate;
         $this->expirationDate = $expirationDate;
         $this->views = $views;
+        $this->password = $password;
     }
 
     public function getId() {
@@ -62,7 +64,7 @@ class MailModel {
         $result['publicationDate'] = $this->publicationDate;
         $result['expirationDate'] = $this->expirationDate;
         $result['views'] = $this->views;
-        
+        $result['password'] = $this->password;
         return $result;
     }
 
@@ -100,7 +102,7 @@ class MailModel {
 
         if($stmt -> execute($paramsArray)) {
             while($row = $stmt -> fetch()) {
-                $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['public'], $row['publication_date'], $row['expiration_date'], $row['views']);
+                $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['public'], $row['publication_date'], $row['expiration_date'], $row['views'], $row['PASSWORD'] );
                 $result[$counter] = $mail;
                 $counter += 1;
             }
@@ -116,7 +118,7 @@ class MailModel {
         $paramsArray = array($user_id, $id);
        if($stmt -> execute($paramsArray)) {
             $row = $stmt -> fetch();
-            $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['public'], $row['publication_date'], $row['expiration_date'], $row['views']);
+            $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['public'], $row['publication_date'], $row['expiration_date'], $row['views'], $row['PASSWORD'] );
             return $mail;
        }
        return false;

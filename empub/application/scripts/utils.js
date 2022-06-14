@@ -195,42 +195,4 @@ function appendEmails()
         });
 }
 
-// function appendPermissionEmails(isPublic){
-//     let emailList = document.getElementById('email-list');
-//     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
-//     let myHeaders = new Headers();
-//     let orderBy = getOrderBy();
-//     myHeaders.append('Authorization', authToken);
-//     myHeaders.append('Permission', isPublic);
-//     myHeaders.append('orderBy', orderBy);
-//     let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/getFilteredMails`, {
-//         method: 'GET',
-//         headers: myHeaders
-//     });
-//     fetch(request)
-//         .then(res => {
-//             if(res.status != 200) {
-//                 throw new TypeError (`Response with code ${res.status}`);
-//             }
-//             const contentType = res.headers.get('Content-Type');
-//             if(contentType && contentType.includes('application/json')) {
-//                 return res.json();
-//             }
-//
-//             throw new TypeError ('Response got is not in correct format');
-//         })
-//         .then(data => {
-//             let length = data.length;
-//
-//             for(let i = 0; i < length; i++) {
-//                 let mail = new Mail(data[i]);
-//                 const elem = appendEmail(mail);
-//                 emailList.appendChild(elem);
-//             }
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         });
-// }
-
 export {appendEmail, appendEmails};
