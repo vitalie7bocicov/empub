@@ -59,21 +59,19 @@
 
             <div class="content">
                 <form id="form" class="formContainer">
-                    <div class="radion-buttons-div">
-                        <label for="publicationType1" class="radion-buttons">Public
-                            <input type="radio" name="publicationType" id="publicationType1" value="1">
+                    <div class="radio-buttons-div">
+                        <label for="public" class="radio-buttons">Public
+                            <input type="radio" name="publicationType" id="public" value="1">
                             <i class="fa-solid fa-circle-check checkState" id="check1"></i>
                         </label>
 
-
-                        <label for="publicationType2" class="radion-buttons">Private
-                            <input type="radio" name="publicationType" id="publicationType2" value="3">
-                            <i class="fa-solid fa-circle-check checkState" id="check3"></i>
+                        <label for="private" class="radio-buttons">Private
+                            <input type="radio" name="publicationType" id="private" value="2">
+                            <i class="fa-solid fa-circle-check checkState" id="check2"></i>
                         </label>
 
-
-                        <label for="publicationType3" class="radion-buttons">Delete
-                            <input type="radio" id="publicationType3" name="delete" value="delete">
+                        <label for="deleteButton" class="radio-buttons">Delete
+                            <input type="radio" id="deleteButton" name="delete" value="delete">
                             <i class="fa-solid fa-square-xmark red" style="color: red"></i>
                         </label>
                     </div>
@@ -88,9 +86,11 @@
                         <input type="time" name="timeofExpiration" id="timeofExpiration">
                     </div>
                     <div class="input-margin displayNone" id="password">
-                        <label for="password1">Password: </label>
-                        <input type="password" name="password" id="password1">
+                        <label for="passwordInput">Password: </label>
+                        <input type="password" name="password" id="passwordInput">
+
                     </div>
+                    <p id="message" class="hidden"></p>
                     <button type="submit" value="Save" class="buttonSettings">SAVE</button>
                 </form>
             </div>

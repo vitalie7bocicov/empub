@@ -29,50 +29,74 @@ window.onload = () => {
 }
 
 let currentRadio = null;
-let doc;
+let passwordButton;
+const message = document.getElementById('message');
+function getSelectedOption(){
+    if(document.getElementById('check1').classList.contains('changeOpacity'))
+        return "public";
+    return "private";
+}
 
 function setInfo(mail)
 {
-    const publicButton = document.getElementById("publicationType1");
+    const publicButton = document.getElementById("public");
     publicButton.addEventListener("change",((event) => {
         handleClick(event.target);
     }));
-    const privateButton = document.getElementById("publicationType2");
+    const privateButton = document.getElementById("private");
     privateButton.addEventListener("change",((event) => {
         handleClick(event.target);
     }));
 
+
+
     if(mail.isPublic) {
-        let i1 = document.getElementById('check1');
-        i1.classList.add('changeOpacity');
-        currentRadio = i1;
+        let isPublic = document.getElementById('check1');
+        isPublic.classList.add('changeOpacity');
+        currentRadio = isPublic;
     }
     else{
-        let i3 = document.getElementById('check3');
-        i3.classList.add('changeOpacity');
-        currentRadio = i3;
-        doc = document.getElementById('password');
-        doc.classList.add('displayBlock');
+        let isPrivate = document.getElementById('check2');
+        isPrivate.classList.add('changeOpacity');
+        currentRadio = isPrivate;
+        passwordButton = document.getElementById('password');
+        passwordButton.classList.add('displayBlock');
     }
 
     const date = document.getElementById('dateOfExpiration');
     let expirationDate = new Date(mail.expirationDate);
     date.value=formatDate(expirationDate);
-
+    date.min = new Date().toLocaleDateString('en-ca');
 
     const time = document.getElementById('timeofExpiration');
     time.value=formatTime(expirationDate);
-
     onFormSubmit(mail);
 }
 
 function onFormSubmit(mail) {
     const formSubmit = document.getElementById('form');
+
     formSubmit.addEventListener('submit', (e) => {
         e.preventDefault();
+        const password = document.getElementById('passwordInput');
 
-        console.log("form subbed!")
+        if(password.value.length<5 && getSelectedOption()==="private"){
+            message.innerText = "Password must be at least 5 characters long!"
+            message.classList.add('showMessage');
+            return;
+        }
+        message.innerText = "Settings update was successful!"
+        message.classList.add('showMessage');
+
+        if(getSelectedOption()==="private")
+            password.value="";
+        updateSettings(mail);
+
     });
+}
+
+function updateSettings(mail){
+
 }
 
 
@@ -99,33 +123,23 @@ function formatTime(date) {
     );
 }
 
-
-
-
-function handleClick(myRadio) {
-
-    if (currentRadio != null) {
+function handleClick(option) {
+    message.classList.remove('showMessage');
+    if (currentRadio != null) {//toggle option
         currentRadio.classList.remove('changeOpacity');
-        if (doc != null)
-            doc.classList.remove('displayBlock');
+        if (passwordButton != null)
+            passwordButton.classList.remove('displayBlock');
     }
-    if (myRadio.value == 1) {
-        let i1 = document.getElementById('check1');
-        i1.classList.add('changeOpacity');
-        currentRadio = i1;
-    }
-    else if (myRadio.value == 2) {
-        let i2 = document.getElementById('check2');
-        i2.classList.add('changeOpacity');
-        doc = document.getElementById('password');
-        doc.classList.remove('displayBlock');
-        currentRadio = i2;
+    if (option.value == 1) {//isPublic
+        const isPublic = document.getElementById('check1');
+        isPublic.classList.add('changeOpacity');
+        currentRadio = isPublic;
     }
     else {
-        let i3 = document.getElementById('check3');
-        i3.classList.add('changeOpacity');
-        currentRadio = i3;
-        doc = document.getElementById('password');
-        doc.classList.add('displayBlock');
+        const isPrivate = document.getElementById('check2');
+        isPrivate.classList.add('changeOpacity');
+        currentRadio = isPrivate;
+        passwordButton = document.getElementById('password');
+        passwordButton.classList.add('displayBlock');
     }
 }
