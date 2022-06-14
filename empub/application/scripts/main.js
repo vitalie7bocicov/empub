@@ -1,12 +1,11 @@
-import {appendAllEmails, appendPermissionEmails, getFilter} from './utils.js';
+import {appendEmails} from './utils.js';
 window.onload = () => {
-    filterByPerm();
+    filterBy();
     orderBy();
-    appendAllEmails();
+    appendEmails();
 }
 
 function deleteAllEmails(){//from dom
-
     const allEmails = document.getElementById('email-list');
     allEmails.replaceChildren();
 }
@@ -14,31 +13,13 @@ function deleteAllEmails(){//from dom
 function orderBy(){
     document.getElementById('order-by').addEventListener('change', (event) => {
         deleteAllEmails();
-        let perm = getFilter();
-        if (perm === "all") {
-            appendAllEmails();
-        } else {
-            appendPermissionEmails(perm);
-        }
-
+        appendEmails();
     });
 }
 
-function filterByPerm(){
+function filterBy(){
     document.getElementById('email-permission').addEventListener('change', (event) => {
         deleteAllEmails();
-        switch (event.target.value) {
-            case 'all':
-                appendAllEmails();
-                break;
-            case 'public':
-                appendPermissionEmails(true);
-                break;
-            case 'private':
-                appendPermissionEmails(false);
-                break;
-            default:
-               break;
-        }
+        appendEmails();
     });
 }

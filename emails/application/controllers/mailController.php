@@ -9,6 +9,7 @@ class Mail extends Controller {
     function index($email = '') {
         header('Content-type: application/json');
         $orderBy = $this->getOrderBy();
+        $filter = $this->getFilter();
         if($email == '') {
             $email = $this->user->getName();
         }
@@ -19,7 +20,7 @@ class Mail extends Controller {
         }
 
         $bd = new DB();
-        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId(), $orderBy);
+        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId(), $filter, $orderBy);
         $response = array();
         $counter = 0;
         foreach($mails as $mailVar) {
@@ -31,11 +32,9 @@ class Mail extends Controller {
         echo json_encode($response);
     }
 
-    function getPermission(){
+    function getFilter(){
         $headers = apache_request_headers();
-        if($headers['permission']==="true")
-            return 1;
-        return 0;
+        return $headers['filter'];
     }
 
     function getOrderBy(){
@@ -43,29 +42,6 @@ class Mail extends Controller {
         return $headers['orderby'];
     }
 
-    function getFilteredMails($email = '' )
-    {
-        header('Content-type: application/json');
-        $isPublic = $this->getPermission();
-        $orderBy = $this->getOrderBy();
-        if($email == '') {
-            $email = $this->user->getName();
-        }
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            http_response_code(400);
-            return;
-        }
-        $bd = new DB();
-        $mails = MailModel::getMailsPermission($bd->getConnection(), $this->user->getId(), $isPublic, $orderBy);
-        $response = array();
-        $counter = 0;
-        foreach($mails as $mailVar) {
-            $mail = $mailVar -> toJson();
-            $response[$counter] = $mail;
-            $counter += 1;
-        }
-        echo json_encode($response);
-    }
 
     function getMailContentByID($id = '') {
         header('Content-type: application/json');
