@@ -1,5 +1,5 @@
 import {Mail} from "./Mail.js";
-
+import {deleteEmail} from './utils.js';
 window.onload = () => {
 
   const mailId = localStorage.getItem('mailId');
@@ -47,6 +47,12 @@ function setInfo(mail)
     privateButton.addEventListener("change",((event) => {
         handleClick(event.target);
     }));
+
+    const deleteButton = document.getElementById('deleteButton');
+    deleteButton.addEventListener("click", (event) => {
+        deleteEmail(mail);
+        location.href='http://localhost/TehnologiiWeb/empub/public/main';
+    });
 
 
 
@@ -98,6 +104,7 @@ function onFormSubmit(mail) {
 function updateSettings(mail){
 
 }
+
 
 
 function padTo2Digits(num) {

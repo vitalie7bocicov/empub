@@ -109,7 +109,7 @@ function appendEmail(mail) {
     emailDelete.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        deleteEmail(event.target.parentElement.parentElement.parentElement);
+        deleteEmailFromList(event.target.parentElement.parentElement.parentElement);
     });
 
     emailOptions.appendChild(emailLock);
@@ -126,11 +126,7 @@ function appendEmail(mail) {
 }
 
 
-
-function deleteEmail(mail) {
-    //delete mail from dom
-    mail.remove();
-
+function deleteEmailRequest(mail){
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
@@ -147,6 +143,16 @@ function deleteEmail(mail) {
         })
 }
 
+function deleteEmailFromList(mail) {
+    //delete mail from dom
+    mail.remove();
+    deleteEmailRequest(mail);
+}
+
+function deleteEmail(mail) {
+    deleteEmailRequest(mail);
+}
+
 function getOrderBy(){//publication_date or expiration_date or views
     const orderBy = document.getElementById('order-by');
      return  orderBy.options[orderBy.selectedIndex].value;
@@ -157,8 +163,7 @@ function getFilter(){//all or public or private
     return filter.options[filter.selectedIndex].value;
 }
 
-function appendEmails()
-{
+function appendEmails() {
     let orderBy = getOrderBy();
     let filter = getFilter();
     let emailList = document.getElementById('email-list');
@@ -195,4 +200,4 @@ function appendEmails()
         });
 }
 
-export {appendEmail, appendEmails};
+export {appendEmail, appendEmails, deleteEmail};

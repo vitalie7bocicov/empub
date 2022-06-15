@@ -48,6 +48,8 @@ body {
   display: block;
 }
 
+
+
 .center1 {
   background-color: white;
   text-align: center;
@@ -107,7 +109,8 @@ body {
   left: 0;
 }
 
-button:hover {
+button:hover, .formContainer .radio-buttons:hover {
+  color:white;
   background-color: rgb(71, 77, 86);
   cursor: pointer;
 }
@@ -146,6 +149,8 @@ input[type="password"] {
   width: 100px;
   padding: 5px 10px;
 }
+
+
 
 .checkState {
   display: none;
