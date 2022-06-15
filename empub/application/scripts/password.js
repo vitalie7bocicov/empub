@@ -7,7 +7,7 @@ window.onload = () => {
         body: obj,
         headers: {}
     });
-    console.log(obj);
+    
     const submitForm = document.getElementById('submitForm');
     
     submitForm.addEventListener('submit', (event) => {

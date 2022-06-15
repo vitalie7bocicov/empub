@@ -55,6 +55,7 @@ function appendEmail(mail) {
 
     const emailSettings = document.createElement('a');
     const emailStats = document.createElement('a');
+    emailStats.href = `http://localhost/TehnologiiWeb/empub/public/statistics/${mail.id}`;
     const emailDelete = document.createElement('a');
 
     const emailOptions = document.createElement('div');
@@ -130,7 +131,6 @@ function appendEmail(mail) {
 
     return emailRow;
 }
-
 
 function deleteEmailRequest(mail){
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;

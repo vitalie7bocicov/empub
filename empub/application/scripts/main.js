@@ -1,4 +1,5 @@
 import {appendEmails} from './utils.js';
+
 window.onload = () => {
     filterBy();
     orderBy();
@@ -12,8 +13,6 @@ function search(){
         appendEmails();
     });
 }
-
-
 
 function orderBy(){
     document.getElementById('order-by').addEventListener('change', (event) => {
