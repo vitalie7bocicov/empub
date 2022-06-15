@@ -42,6 +42,20 @@ class Mail extends Controller {
         return $headers['orderby'];
     }
 
+    function getExpirationDate(){
+        $headers = apache_request_headers();
+        return $headers['expirationdate'];
+    }
+
+    function getIsPublic(){
+        $headers = apache_request_headers();
+        return $headers['ispublic'];
+    }
+
+    function getPassword(){
+        $headers = apache_request_headers();
+        return $headers['password'];
+    }
 
     function getMailContentByID($id = '') {
         header('Content-type: application/json');
@@ -58,6 +72,18 @@ class Mail extends Controller {
         $response = MailModel::getMail($bd->getConnection(),$this->user->getId(), $id);
         $mail = $response -> toJson();
         echo json_encode($mail);
+    }
+
+    function updateMailByID($id = '') {
+        $bd = new DB();
+        $response = MailModel::updateMail($bd->getConnection(),$this->user->getId(), $id, $this->getExpirationDate(), $this->getIsPublic(), $this->getPassword());
+        if($response)
+        {
+            http_response_code(200);
+            return;
+        }
+        http_response_code(400);
+        echo $response;
     }
 
     function deleteMailByID($id = '') {

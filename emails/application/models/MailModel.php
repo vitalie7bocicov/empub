@@ -125,6 +125,22 @@ class MailModel {
 
     }
 
+    public static function updateMail($dbConnection, $user_id, $id, $newExpirationDate, $isPublic, $password) {
+        $sql = 'update mails set expiration_date=?, public=?, PASSWORD=? where user_id = ? and id=?';
+        $stmt = $dbConnection->prepare($sql);
+        if($password==="NULL")
+            $password=NULL;
+        else{
+            $password = hash('sha256', $password);
+        }
+        $paramsArray = array($newExpirationDate, $isPublic, $password, $user_id, $id);
+
+        if($stmt -> execute($paramsArray)) {
+            return true;
+        }
+        return false;
+    }
+
     public static function deleteMail($dbConnection, $user_id, $id) {
         $sql = 'delete from mails where user_id = ? and id=?';
         $stmt = $dbConnection->prepare($sql);

@@ -88,6 +88,12 @@ function appendEmail(mail) {
     emailLock.appendChild(material_icons_span1);
 
     emailLock.classList.add('email-lock');
+    emailLock.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        localStorage.setItem('mailId', event.target.parentElement.parentElement.parentElement.id);
+        location.href="http://localhost/TehnologiiWeb/empub/public/emailSettings";
+    });
 
     emailSettings.appendChild(material_icons_span2);
     emailSettings.classList.add('email-settings');
@@ -141,6 +147,9 @@ function deleteEmailRequest(mail){
                 throw new TypeError(`Response with code ${response.status}`);
             }
         })
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 function deleteEmailFromList(mail) {

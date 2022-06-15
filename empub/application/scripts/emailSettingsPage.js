@@ -31,14 +31,14 @@ window.onload = () => {
 let currentRadio = null;
 let passwordButton;
 const message = document.getElementById('message');
-function getSelectedOption(){
-    if(document.getElementById('check1').classList.contains('changeOpacity'))
-        return "public";
-    return "private";
-}
+const date = document.getElementById('dateOfExpiration');
+const time = document.getElementById('timeofExpiration');
+const passwordInput = document.getElementById('passwordInput');
+const passwordLabel = document.getElementById('passwordLabel');
+let mailIsPublic;
 
-function setInfo(mail)
-{
+function setInfo(mail) {
+    mailIsPublic = mail.isPublic;
     const publicButton = document.getElementById("public");
     publicButton.addEventListener("change",((event) => {
         handleClick(event.target);
@@ -55,7 +55,6 @@ function setInfo(mail)
     });
 
 
-
     if(mail.isPublic) {
         let isPublic = document.getElementById('check1');
         isPublic.classList.add('changeOpacity');
@@ -67,14 +66,15 @@ function setInfo(mail)
         currentRadio = isPrivate;
         passwordButton = document.getElementById('password');
         passwordButton.classList.add('displayBlock');
+        passwordLabel.innerText="Change password:";
     }
 
-    const date = document.getElementById('dateOfExpiration');
-    let expirationDate = new Date(mail.expirationDate);
+
+    const expirationDate = new Date(mail.expirationDate);
     date.value=formatDate(expirationDate);
     date.min = new Date().toLocaleDateString('en-ca');
 
-    const time = document.getElementById('timeofExpiration');
+
     time.value=formatTime(expirationDate);
     onFormSubmit(mail);
 }
@@ -83,29 +83,87 @@ function onFormSubmit(mail) {
     const formSubmit = document.getElementById('form');
 
     formSubmit.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const password = document.getElementById('passwordInput');
 
-        if(password.value.length<5 && getSelectedOption()==="private"){
+        e.preventDefault();
+
+
+        if(passwordInput.value.length<5 && getSelectedOption()==="private"){
             message.innerText = "Password must be at least 5 characters long!"
             message.classList.add('showMessage');
             return;
         }
-        message.innerText = "Settings update was successful!"
-        message.classList.add('showMessage');
 
-        if(getSelectedOption()==="private")
-            password.value="";
         updateSettings(mail);
 
     });
 }
 
-function updateSettings(mail){
+function handleClick(option) {
+    message.classList.remove('showMessage');
+    if (currentRadio != null) {//toggle option
+        currentRadio.classList.remove('changeOpacity');
+        if (passwordButton != null){
+            passwordButton.classList.remove('displayBlock');
 
+        }
+
+    }
+    if(mailIsPublic === 1){
+        passwordLabel.innerText="Set password:";
+    }else{
+        passwordLabel.innerText="Change password:";
+    }
+
+    if (option.value == 1) {//isPublic
+        const isPublic = document.getElementById('check1');
+        isPublic.classList.add('changeOpacity');
+        currentRadio = isPublic;
+    }
+    else {
+        const isPrivate = document.getElementById('check2');
+        isPrivate.classList.add('changeOpacity');
+        currentRadio = isPrivate;
+        passwordButton = document.getElementById('password');
+        passwordButton.classList.add('displayBlock');
+    }
 }
 
+function updateSettings(mail){
 
+    const newExpirationDate = date.value+ " " + time.value +":00";
+    const isPublic = getSelectedOption()==="public"?1:0;
+    mailIsPublic=isPublic;
+    const newPassword = isPublic===0?passwordInput.value:"NULL";
+    if(isPublic===0){
+        passwordLabel.innerText="Change password:";
+        passwordInput.value="";
+    }
+
+
+    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+    let myHeaders = new Headers();
+    myHeaders.append('Authorization', authToken);
+    myHeaders.append("expirationdate", newExpirationDate);
+    myHeaders.append("ispublic", isPublic);
+    myHeaders.append("password", newPassword);
+    let updateMailById = new Request(`http://localhost/TehnologiiWeb/emails/mail/updateMailByID/${mail.id}`, {
+        method: 'PUT',
+        headers: myHeaders
+    });
+    fetch(updateMailById)
+        .then((response) => {
+            if(response.status !== 200) {
+                throw new TypeError(`Response with code ${response.status}`);
+            }
+            message.innerText = "Settings successfully updated!"
+            message.classList.add('showMessage');
+
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+}
 
 function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
@@ -115,7 +173,7 @@ function formatDate(date) {
     return (
         [
             date.getFullYear(),
-            padTo2Digits(date.getMonth()),
+            padTo2Digits(date.getMonth()+1),
             padTo2Digits(date.getDate()),
         ].join('-')
     );
@@ -130,23 +188,10 @@ function formatTime(date) {
     );
 }
 
-function handleClick(option) {
-    message.classList.remove('showMessage');
-    if (currentRadio != null) {//toggle option
-        currentRadio.classList.remove('changeOpacity');
-        if (passwordButton != null)
-            passwordButton.classList.remove('displayBlock');
-    }
-    if (option.value == 1) {//isPublic
-        const isPublic = document.getElementById('check1');
-        isPublic.classList.add('changeOpacity');
-        currentRadio = isPublic;
-    }
-    else {
-        const isPrivate = document.getElementById('check2');
-        isPrivate.classList.add('changeOpacity');
-        currentRadio = isPrivate;
-        passwordButton = document.getElementById('password');
-        passwordButton.classList.add('displayBlock');
-    }
+function getSelectedOption(){
+    if(document.getElementById('check1').classList.contains('changeOpacity'))
+        return "public";
+    return "private";
 }
+
+

@@ -65,7 +65,7 @@
                             <i class="fa-solid fa-circle-check checkState" id="check1"></i>
                         </label>
 
-                        <label for="private" class="radio-buttons">Private
+                        <label for="private" class="radio-buttons">&nbsp;Private
                             <input type="radio" name="publicationType" id="private" value="2">
                             <i class="fa-solid fa-circle-check checkState" id="check2"></i>
                         </label>
@@ -86,7 +86,7 @@
                         <input type="time" name="timeofExpiration" id="timeofExpiration">
                     </div>
                     <div class="input-margin displayNone" id="password">
-                        <label for="passwordInput">Password: </label>
+                        <label id="passwordLabel" for="passwordInput"></label>
                         <input type="password" name="password" id="passwordInput">
 
                     </div>

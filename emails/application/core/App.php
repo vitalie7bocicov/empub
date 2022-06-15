@@ -51,6 +51,8 @@ class App {
             return explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
         if(isset($_DELETE['url']))
             return explode('/', filter_var($_DELETE['url'], FILTER_SANITIZE_URL));
+        if(isset($_PUT['url']))
+            return explode('/', filter_var($_PUT['url'], FILTER_SANITIZE_URL));
 
     }
 
