@@ -6,6 +6,10 @@ drop table mails;
 
 drop table users;
 
+drop table countries;
+
+drop table statistics;
+
 
 create table users (
 	id int primary key auto_increment,
@@ -53,4 +57,18 @@ create table attachments (
 ALTER TABLE attachments ADD CONSTRAINT 
      fk_attachments FOREIGN KEY (mail_id) 
            REFERENCES mails(id) ON DELETE CASCADE;
+	   
+create table statistics(
+      id int primary key auto_increment, 
+      country varchar(200),
+      mail_id int not null,
+      view_date date not null
+);
+
+
+create table countries(
+     id int primary key auto_increment, 
+     country varchar(200),
+     mail_id int not null,
+);
 
