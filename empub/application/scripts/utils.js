@@ -144,6 +144,7 @@ function deleteEmailRequest(mail){
     fetch(deleteEmail)
         .then((response) => {
             if(response.status !== 200) {
+                checkStatus(response.status);
                 throw new TypeError(`Response with code ${response.status}`);
             }
         })
@@ -162,25 +163,18 @@ function deleteEmail(mail) {
     deleteEmailRequest(mail);
 }
 
-function getOrderBy(){//publication_date or expiration_date or views
-    const orderBy = document.getElementById('order-by');
-     return  orderBy.options[orderBy.selectedIndex].value;
-}
-
-function getFilter(){//all or public or private
-    const filter = document.getElementById('email-permission');
-    return filter.options[filter.selectedIndex].value;
-}
 
 function appendEmails() {
-    let orderBy = getOrderBy();
-    let filter = getFilter();
-    let emailList = document.getElementById('email-list');
-    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+    const orderBy = getOrderBy();
+    const filter = getFilter();
+    const query = getQuery();
+    const emailList = document.getElementById('email-list');
+    const authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
     myHeaders.append('filter', filter);
     myHeaders.append('orderBy', orderBy);
+    myHeaders.append('searchquery', query);
     let request = new Request(`http://localhost/TehnologiiWeb/emails/mail`, {
         method: 'GET',
         headers: myHeaders
@@ -188,6 +182,7 @@ function appendEmails() {
     fetch(request)
         .then(res => {
             if(res.status != 200) {
+                checkStatus(res.status);
                 throw new TypeError (`Response with code ${res.status}`);
             }
             const contentType = res.headers.get('Content-Type');
@@ -198,6 +193,7 @@ function appendEmails() {
         })
         .then(data => {
             let length = data.length;
+            deleteAllEmails();//from dom
             for(let i = 0; i < length; i++) {
                 let mail = new Mail(data[i]);
                 const elem = appendEmail(mail);
@@ -209,4 +205,29 @@ function appendEmails() {
         });
 }
 
-export {appendEmail, appendEmails, deleteEmail};
+function checkStatus(code){
+    if(code==403)
+        location.href="http://localhost/TehnologiiWeb/empub/public/";
+}
+
+function getOrderBy(){//publication_date or expiration_date or views
+    const orderBy = document.getElementById('order-by');
+    return  orderBy.options[orderBy.selectedIndex].value;
+}
+
+function getFilter(){//all or public or private
+    const filter = document.getElementById('email-permission');
+    return filter.options[filter.selectedIndex].value;
+}
+
+function getQuery(){
+    const query = document.getElementById('search-input');
+    return query.value;
+}
+
+function deleteAllEmails(){//from dom
+    const allEmails = document.getElementById('email-list');
+    allEmails.replaceChildren();
+}
+
+export {appendEmail, appendEmails, deleteEmail, deleteAllEmails};

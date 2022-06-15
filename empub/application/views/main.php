@@ -70,8 +70,8 @@
         </div>
 
       </div>
-      <form action="#" class="search-bar">
-        <input type="text" name="q" placeholder="search">
+      <form action="#" class="search-bar" id="search">
+        <input type="text" name="q"  placeholder="search"  id="search-input">
         <button class="email-search">
           <span class="material-icons">
             search

@@ -84,7 +84,7 @@ class MailModel {
         throw new \http\Exception\InvalidArgumentException("Order by: ". $orderBy);
     }
 
-    public static function getMails($dbConnection, $id, $filter, $orderBy) {
+    public static function getMails($dbConnection, $id, $filter, $orderBy, $query='') {
         $orderBy = MailModel::getOrderBy($orderBy);
         if($filter==="all"){
             $sql = 'select * from mails where user_id = ? order by ' . $orderBy;
@@ -103,12 +103,27 @@ class MailModel {
         if($stmt -> execute($paramsArray)) {
             while($row = $stmt -> fetch()) {
                 $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['public'], $row['publication_date'], $row['expiration_date'], $row['views'], $row['PASSWORD'] );
+                //if query is set and mail doesn't match the query - continue
+                if($query!=='' && !MailModel::searchMail($mail,$query)){
+                    continue;
+                }
                 $result[$counter] = $mail;
                 $counter += 1;
             }
         }
 
         return $result;
+    }
+
+    public static function searchMail($mail, $query){
+        $sender = mb_strtolower($mail->sender);
+        $query = mb_strtolower($query);
+        if (str_contains($sender, $query))
+            return true;
+        $subject = mb_strtolower($mail->subject);
+        if(str_contains($subject, $query))
+            return true;
+        return false;
     }
 
 

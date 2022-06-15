@@ -14,15 +14,16 @@ window.onload = () => {
     });
     
         fetch(getEmailHtml)
-        .then((respose) => {
-            if(respose.status != 200) {
+        .then((response) => {
+            if(response.status != 200) {
+                checkStatus(response.status);
                 throw new TypeError (`Response with code ${response.status}`);
             }
-            const contentType = respose.headers.get('Content-Type');
+            const contentType = response.headers.get('Content-Type');
     
             if(contentType && contentType.includes('application/json')) {
                 //location.href = './home';
-                return respose.json();
+                return response.json();
             }
     
             throw new TypeError (`Not Json`);
@@ -46,4 +47,9 @@ window.onload = () => {
             
             iframe.height = iframeDocument.body.scrollHeight + 30;
         });
+}
+
+function checkStatus(code){
+    if(code==403)
+        location.href="http://localhost/TehnologiiWeb/empub/public/";
 }

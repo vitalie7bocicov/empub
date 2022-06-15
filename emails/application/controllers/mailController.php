@@ -10,6 +10,7 @@ class Mail extends Controller {
         header('Content-type: application/json');
         $orderBy = $this->getOrderBy();
         $filter = $this->getFilter();
+        $query = $this->getQuery();
         if($email == '') {
             $email = $this->user->getName();
         }
@@ -20,7 +21,7 @@ class Mail extends Controller {
         }
 
         $bd = new DB();
-        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId(), $filter, $orderBy);
+        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId(), $filter, $orderBy, $query);
         $response = array();
         $counter = 0;
         foreach($mails as $mailVar) {
@@ -32,32 +33,9 @@ class Mail extends Controller {
         echo json_encode($response);
     }
 
-    function getFilter(){
-        $headers = apache_request_headers();
-        return $headers['filter'];
-    }
-
-    function getOrderBy(){
-        $headers = apache_request_headers();
-        return $headers['orderby'];
-    }
-
-    function getExpirationDate(){
-        $headers = apache_request_headers();
-        return $headers['expirationdate'];
-    }
-
-    function getIsPublic(){
-        $headers = apache_request_headers();
-        return $headers['ispublic'];
-    }
-
-    function getPassword(){
-        $headers = apache_request_headers();
-        return $headers['password'];
-    }
 
     function getMailContentByID($id = '') {
+
         header('Content-type: application/json');
         $bd = new DB();
         $mailContent = MailContentModel::getMail($bd->getConnection(), $id);
@@ -97,4 +75,35 @@ class Mail extends Controller {
         http_response_code(400);
         echo $response;
     }
+
+    function getFilter(){
+        $headers = apache_request_headers();
+        return $headers['filter'];
+    }
+
+    function getOrderBy(){
+        $headers = apache_request_headers();
+        return $headers['orderby'];
+    }
+
+    function getExpirationDate(){
+        $headers = apache_request_headers();
+        return $headers['expirationdate'];
+    }
+
+    function getIsPublic(){
+        $headers = apache_request_headers();
+        return $headers['ispublic'];
+    }
+
+    function getPassword(){
+        $headers = apache_request_headers();
+        return $headers['password'];
+    }
+
+    function getQuery(){
+        $headers = apache_request_headers();
+        return $headers['searchquery'];
+    }
+
 }
