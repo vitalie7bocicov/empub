@@ -14,7 +14,9 @@ drop table statistics;
 create table users (
 	id int primary key auto_increment,
 	email varchar(128) not null,
-	password varchar(256)
+	password varchar(256),
+	first_name varchar(256),
+	last_name varchar(256)
 );
 
 create table mails (
