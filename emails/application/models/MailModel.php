@@ -167,4 +167,16 @@ class MailModel {
         return false;
     }
 
+    public static function getLastMailId($dbConnection, $user_id) {
+        $sql = 'select id from mails order by id desc LIMIT 1;';
+        $stmt = $dbConnection->prepare($sql);
+        if($stmt -> execute()) {
+            $row = $stmt -> fetch();
+            $id=$row['id'];
+            return $id;
+        }
+        return false;
+
+    }
+
 }

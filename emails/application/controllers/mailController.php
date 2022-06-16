@@ -52,6 +52,13 @@ class Mail extends Controller {
         echo json_encode($mail);
     }
 
+    function getLastMailId(){
+        header('Content-type: application/json');
+        $bd = new DB();
+        $id = MailModel::getLastMailId($bd->getConnection(),$this->user->getId());
+        echo json_encode($id);
+    }
+
     function updateMailByID($id = '') {
         $bd = new DB();
         $response = MailModel::updateMail($bd->getConnection(),$this->user->getId(), $id, $this->getExpirationDate(), $this->getIsPublic(), $this->getPassword());

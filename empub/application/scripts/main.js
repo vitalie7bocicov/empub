@@ -1,10 +1,16 @@
-import {appendEmails} from './utils.js';
+import {appendEmails, checkNewEmails} from './utils.js';
 
 window.onload = () => {
     filterBy();
     orderBy();
     search();
     appendEmails();
+    checkNewEmail();
+}
+
+function checkNewEmail(){
+    checkNewEmails();
+    setTimeout(checkNewEmail, 1000);
 }
 
 function search(){

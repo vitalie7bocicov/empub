@@ -1,5 +1,7 @@
 import {Mail} from "./Mail.js";
 
+let lastMailId = -1;
+
 function appendEmail(mail) {
     const emailRow = document.createElement('div');
     emailRow.classList.add('email-row');
@@ -196,6 +198,7 @@ function appendEmails() {
             deleteAllEmails();//from dom
             for(let i = 0; i < length; i++) {
                 let mail = new Mail(data[i]);
+                updateLastMailId(mail);
                 const elem = appendEmail(mail);
                 emailList.appendChild(elem);
             }
@@ -203,6 +206,46 @@ function appendEmails() {
         .catch(err => {
             console.log(err);
         });
+}
+
+function updateLastMailId(mail){
+    if(lastMailId<mail.id)
+        lastMailId = mail.id;
+}
+
+function getLastMailId(){
+    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+    let myHeaders = new Headers();
+    myHeaders.append('Authorization', authToken);
+    let getLastMailId = new Request(`http://localhost/TehnologiiWeb/emails/mail/getLastMailId`, {
+        method: 'GET',
+        headers: myHeaders
+    });
+    fetch(getLastMailId)
+        .then((response) => {
+            if(response.status !== 200) {
+                checkStatus(response.status);
+                throw new TypeError(`Response with code ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((id) =>{
+            compareLastMailsIDs(id);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+function compareLastMailsIDs(newId){
+    if(newId>lastMailId){
+        console.log("new mail!")
+        appendEmails();
+    }
+}
+
+function checkNewEmails(){
+    getLastMailId();
 }
 
 function checkStatus(code){
@@ -230,4 +273,4 @@ function deleteAllEmails(){//from dom
     allEmails.replaceChildren();
 }
 
-export {appendEmail, appendEmails, deleteEmail, deleteAllEmails};
+export {appendEmail, appendEmails, deleteEmail, deleteAllEmails, checkNewEmails};
