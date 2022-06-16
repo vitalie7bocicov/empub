@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../application/styles/style.css">
   <script src="../../application/scripts/navbar.js" defer></script>
   <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
+ 
 </head>
 
 <body>
@@ -48,9 +49,10 @@
       <h3 class="title">Statistics</h3>
 
       <div class="calendar-views">
-        <button type="submit"><span>Day</span></button>
-        <button type="submit"><span>Week</span></button>
-        <button type="submit"><span>Month</span></button>
+        <button type="submit" id="dayID"><span>Day</span></button>
+        <button type="submit" id="week"><span>Week</span></button>
+        <button type="submit" id="month"><span>Month</span></button>
+       
       </div>
     </div>
 
@@ -107,9 +109,8 @@
     </div>
   </div>
 
-  <script src="http://localhost/TehnologiiWeb/empub/application/scripts/statisticsPage.js">
-        console.log("hello");
-    </script>
+  <script src="http://localhost/TehnologiiWeb/empub/application/scripts/statisticsPage.js"></script>
+
 </body>
 
 </html>
