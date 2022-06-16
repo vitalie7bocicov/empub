@@ -4,7 +4,6 @@ window.onload = () => {
         let [key, value] = element.split('=');
         cookies[key.trim()] = value.trim();
     });
-
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
