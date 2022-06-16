@@ -138,20 +138,43 @@
   color: blue;
 }
 
+/*.email-options a.email-lock:hover {*/
+/*  color: blue;*/
+/*}*/
+
+/*.email-options a.email-settings:hover {*/
+/*  color: blue;*/
+/*}*/
+
+/*.email-options a.email-delete:hover {*/
+/*  color: red;*/
+/*}*/
+
+/*.email-options a.email-stats:hover {*/
+/*  color: rgb(31, 147, 54);*/
+/*}*/
+
 .email-options a.email-lock:hover {
-  color: blue;
+  color: white;
 }
 
 .email-options a.email-settings:hover {
-  color: blue;
+  color: white;
 }
 
 .email-options a.email-delete:hover {
-  color: red;
+  color: white;
 }
 
 .email-options a.email-stats:hover {
-  color: rgb(31, 147, 54);
+  color: white;
+}
+
+.email-options a:hover{
+  padding: 2.5px;
+  border-radius: 50%;
+  background-color: rgb(71, 77, 86);
+  color: white;
 }
 
 @media (max-width: 1024px) {
