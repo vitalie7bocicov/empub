@@ -79,6 +79,62 @@ class StatisticContentModel {
        
     }
 
+    public static function getStatisticByDate($dbConnection, $id, $type) {
+    
+        if($type == "day"){
+            $sql = 'select * from statistics where mail_id = ? and view_date >= (?)';
+            $stmt = $dbConnection->prepare($sql);
+            $paramsArray = array($id,date("Y-m-d"));
+        }
+        else if($type == "week"){
+            $sql = 'select * from statistics where mail_id = ? and view_date >= (? - 7)';
+            $stmt = $dbConnection->prepare($sql);
+            $paramsArray = array($id,date("Y-m-d"));
+        }
+          else if($type == "month"){
+            $sql = 'select * from statistics where mail_id = ? and view_date >= (? - 30)';
+            $stmt = $dbConnection->prepare($sql);
+            $paramsArray = array($id,date("Y-m-d"));
+          }
+
+        $sql2 = 'select * from countries where mail_id = ?';
+
+        $stmt2 = $dbConnection->prepare($sql2);
+        $paramsArray1 = array($id);
+
+        if($stmt -> execute($paramsArray) && $stmt2 ->execute($paramsArray1)) {
+            $countryArray = array();
+            $viewsArray = array();
+
+            while($row2 = $stmt2 -> fetch()){
+           
+              
+            $country = $row2['country'];
+            array_push($countryArray,$country);
+          }
+
+            while($row = $stmt -> fetch()){
+
+               
+                $viewsArray[$row['country']]++;
+                
+            
+            }
+
+            $viewsArray2 = array(); 
+
+            foreach($viewsArray as $view){
+              array_push($viewsArray2,$view);
+            }
+
+
+         $statisticContent = new StatisticContentModel($row['id'], $countryArray, $viewsArray2, $row['mail_id']);
+
+
+        return $statisticContent;
+      }
+  }
+
     public static function getStatistic($dbConnection, $id) {
         $sql = 'select * from statistics where mail_id = ?';
 

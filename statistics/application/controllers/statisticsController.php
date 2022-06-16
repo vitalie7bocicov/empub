@@ -22,5 +22,35 @@ class Statistics extends Controller {
         
         echo json_encode($statisticContent);
     }
+
+    function getStatisticsForDay($id = ''){
+        header('Content-type: application/json');
+        $bd = new DB();
+
+        $statisticContent = StatisticContentModel::getStatisticByDate($bd->getConnection(), $id, "day");
+        $statisticContent = $statisticContent -> toJson();
+        
+        echo json_encode($statisticContent);
+    }
+
+    function getStatisticsForWeek($id = ''){
+        header('Content-type: application/json');
+        $bd = new DB();
+
+        $statisticContent = StatisticContentModel::getStatisticByDate($bd->getConnection(), $id, "week");
+        $statisticContent = $statisticContent -> toJson();
+        
+        echo json_encode($statisticContent);
+    }
+
+    function getStatisticsForMonth($id = ''){
+        header('Content-type: application/json');
+        $bd = new DB();
+
+        $statisticContent = StatisticContentModel::getStatisticByDate($bd->getConnection(), $id, "month");
+        $statisticContent = $statisticContent -> toJson();
+        
+        echo json_encode($statisticContent);
+    }
    
 }
