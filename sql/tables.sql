@@ -69,6 +69,6 @@ create table statistics(
 create table countries(
      id int primary key auto_increment, 
      country varchar(200),
-     mail_id int not null,
+     mail_id int not null
 );
 
