@@ -1,6 +1,7 @@
 window.onload = () => {
     const hidden = document.getElementById('hidden');
     const obj = `{ "email": "${hidden.value}" }`;
+   
 
     let request = new Request(`http://localhost/TehnologiiWeb/login/public/login/generatePasswordandSendEmail`, {
         method: 'POST',
@@ -16,7 +17,7 @@ window.onload = () => {
         const passInput = document.getElementById('password');
         const email = hidden.value;
         const password = passInput.value;
-    
+        localStorage.setItem("email",email);
     
         const aux = `{ "email": "${email}",
                         "password": "${password}" }`;

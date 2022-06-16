@@ -37,7 +37,7 @@
           <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>
         </li>
         <li id="account">
-          <a href="http://localhost/TehnologiiWeb/empub/public/html/accountSettings.html">Account</a>
+          <a href="http://localhost/TehnologiiWeb/empub/public/accountSettings">Account</a>
         </li>
         <li id="logout">
           <a href="login.php">

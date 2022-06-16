@@ -8,16 +8,16 @@ window.onload = () => {
     checkNewEmail();
 }
 
-function checkNewEmail(){
-    checkNewEmails();
-    setTimeout(checkNewEmail, 1000);
-}
-
 function search(){
     document.getElementById('search').addEventListener('submit', (event) => {
         event.preventDefault();
         appendEmails();
     });
+}
+
+function checkNewEmail(){
+    checkNewEmails();
+    setTimeout(checkNewEmail, 1000);
 }
 
 function orderBy(){

@@ -4,6 +4,7 @@ window.onload = () => {
     formSubmit.addEventListener('submit', (e) => {
         e.preventDefault();
         const email = document.getElementById('email').value;
+        
     
         let request = new Request(`http://localhost/TehnologiiWeb/login/public/login/verifyEmail/${email}`, {
             method: 'GET',

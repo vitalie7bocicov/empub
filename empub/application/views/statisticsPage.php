@@ -9,7 +9,21 @@
   <link rel="stylesheet" href="../../application/styles/style.css">
   <script src="../../application/scripts/navbar.js" defer></script>
   <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
- 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script>
+    
+		function generatePDF() 
+		{
+			
+			var element = document.getElementById('panelID');
+
+		
+			html2pdf().from(element).save();
+			 
+		};
+
+	</script>
 </head>
 
 <body>
@@ -44,7 +58,7 @@
       </ul>
     </nav>
   </header>
-  <div class="panel">
+  <div class="panel" id="panelID">
     <div class="panel-header">
       <h3 class="title">Statistics</h3>
 
@@ -104,7 +118,7 @@
 
     </div>
     <div class="buttons">
-      <button>GENERATE FORMAT PDF</button>
+      <button onclick="generatePDF()">GENERATE FORMAT PDF</button>
       <button>GENERATE FORMAT XML</button>
     </div>
   </div>
