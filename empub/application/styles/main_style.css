@@ -56,10 +56,18 @@
   margin-left: 5px;
 }
 
-.config-menu .search-bar button:hover {
-  color: blue;
+/*.config-menu .search-bar button:hover {*/
+/*  color: blue;*/
+/*  cursor: pointer;*/
+/*  background-color: #e5e5e5;*/
+/*}*/
+
+.config-menu .search-bar button:hover{
+  padding: 2.5px;
+  border-radius: 50%;
+  background-color: rgb(71, 77, 86);
+  color: white;
   cursor: pointer;
-  background-color: #e5e5e5;
 }
 
 .email-row {
