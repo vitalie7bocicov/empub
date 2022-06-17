@@ -12,17 +12,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <script>
-    
-		function generatePDF() 
-		{
-			
-			var element = document.getElementById('panelID');
-
-		
+		function generatePDF() {
+			var element = document.getElementById('panelID');		
 			html2pdf().from(element).save();
-			 
 		};
-
 	</script>
 </head>
 
@@ -119,7 +112,7 @@
     </div>
     <div class="buttons">
       <button onclick="generatePDF()">GENERATE FORMAT PDF</button>
-      <button>GENERATE FORMAT XML</button>
+      <button id="xmlBtn">GENERATE FORMAT XML</button>
     </div>
   </div>
 

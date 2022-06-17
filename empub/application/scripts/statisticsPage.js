@@ -35,10 +35,13 @@ window.onload = () => {
             const views = document.getElementById('views');
             const totalViews = document.getElementById('totalViews');
 
+            var count2 = 1;
+
              data.country.forEach(element => {
                 const td = document.createElement('td');
                 td.innerText = element;
-                td.id = element;
+                td.id = count2;
+                count2 = count2+1;
                 country.append(td);
                 country.append(" ");
             });
@@ -107,8 +110,6 @@ window.onload = () => {
         
           
         });
-
-
 
         
         week = document.getElementById('week');
@@ -205,6 +206,39 @@ window.onload = () => {
         });
         
           
+        });
+
+
+        const xmlBtn = document.getElementById('xmlBtn');
+
+        xmlBtn.addEventListener('click', ()=>{
+           var xmlDoc = document.implementation.createDocument("","statistics");
+           var countries = xmlDoc.createElement("Countries");
+           var views = xmlDoc.createElement("Views");
+
+           for(i=1;i<count;i++){
+            var countryNode = xmlDoc.createElement("country");
+            const countriesHtml =  document.getElementById(i).innerText;
+            countryNode.setAttribute("name",countriesHtml)
+            countries.appendChild(countryNode);
+
+            var viewNode = xmlDoc.createElement("view");
+            const viewsHtml = document.getElementById(`view${i}`).innerText;
+            viewNode.setAttribute("for",countriesHtml);
+            viewNode.setAttribute("value",viewsHtml);
+            views.appendChild(viewNode);
+            
+           }
+
+           xmlDoc.documentElement.appendChild(countries);
+           xmlDoc.documentElement.appendChild(views);
+
+           var serializer = new XMLSerializer();
+           
+      
+
+          window.open(window.URL.createObjectURL(new Blob([serializer.serializeToString(xmlDoc)],{type:'type/xml'})));
+         
         });
         
        
