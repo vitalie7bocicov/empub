@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+}
+
+body::after {
+  content: "";
+  background: url("../../application/images/backgroundImage.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(71, 77, 86);
+  /*top: 0px;
+  width: 100%;*/
+}
+
+
+
+.logo a img {
+  width: 100px;
+  height: auto;
+  margin: 0.6rem;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li:hover {
+  background-color: lightgrey;
+  border-radius: 2rem;
+}
+
+.nav-links li a:hover {
+  color: rgb(71, 77, 86);
+}
+
+.nav-links li a {
+  display: block;
+  padding: 1rem;
+  color: #edf0f1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hamburger {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 30px;
+  height: 23px;
+  transition: all 0.3s ease;
+}
+
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.bar::after,
+.bar::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.bar::before {
+  transform: translateY(-10px);
+}
+
+.bar::after {
+  transform: translateY(10px);
+}
+
+.hamburger.open .bar {
+  transform: translateX(-50px);
+  background-color: transparent;
+}
+
+.hamburger.open .bar::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.hamburger.open .bar::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+@media (max-width: 480px) {
+  .hamburger {
+    display: flex;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    position: fixed;
+    background-color: rgb(71, 77, 86);
+    top: -100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+
+  .nav-links li a {
+    text-align: center;
+  }
+
+  .nav-links.active {
+    top: 64px;
+  }
+}

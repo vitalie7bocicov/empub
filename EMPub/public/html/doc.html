@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Scholarly HTML</title>
+  <link rel="stylesheet" href="../../application/styles/doc.css">
+  <script src="js/scholarly.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org">
+  <header>
+    <div class="banner">
+      <img src="../../application/images/logot.png" width="227" height="50" alt="Scholarly HTML logo">
+    </div>
+    <h1>EMPub - Specifications</h1>
+  </header>
+
+  <div role="contentinfo">
+    <dl>
+      <ol role="directory">
+
+        <li><a href="#introduction">
+            <span>1. </span>Introduction</a>
+          <ol role="directory">
+            <li><a href="#purpose"><span>1.1</span> Purpose</a></li>
+            <li><a href="#scope"><span>1.2</span> Scope</a></li>
+            <li><a href="#audience"><span>1.3</span> Intendent audience</a></li>
+          </ol>
+        </li>
+        <li><a href="#description">
+            <span>2. </span>Overall Description</a>
+          <ol role="directory">
+            <li><a href="#d1"><span>2.1</span> Product Perspective</a></li>
+            <li><a href="#d2"><span>2.2</span> Product Functions</a></li>
+            <li><a href="#d3"><span>2.3</span> User Classes and Characteristics</a></li>
+            <li><a href="#d4"><span>2.4</span> Operating Environment</a></li>
+            <li><a href="#d5"><span>2.5</span> Design and Implementation Constraints</a></li>
+            <li><a href="#d6"><span>2.6</span> User Documentation</a></li>
+            <li><a href="#d7"><span>2.7</span> Assumptions and Dependencies</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#external-interface">
+            <span>3. </span>External Interface Requirements</a>
+
+          <ol role="directory">
+            <li><a href="#interfaces">
+                <span>3.1</span> User Interfaces
+              </a>
+            </li>
+            <li><a href="#hardware">
+                <span>3.2</span> Hardware Interfaces
+              </a>
+            </li>
+            <li><a href="#software">
+                <span>3.3</span> Software Interfaces
+                <ol role="directory">
+                  <li><a href="#operating-systems">
+                      <span>3.2.1</span> Operating Systems
+                    </a>
+                  </li>
+                  <li><a href="#browsers">
+                      <span>3.2.2</span> Browsers
+                    </a>
+                  </li>
+                  <li><a href="#email-providers">
+                      <span>3.2.3</span> Email Service Providers
+                    </a>
+                  </li>
+                </ol>
+              </a>
+            </li>
+            <li><a href="#communications">
+                <span>3.3</span> Communications Interfaces
+              </a>
+            </li>
+          </ol>
+        </li>
+        <li><a href="#features">
+            <span>4. </span>System Features</a>
+          <ol role="directory">
+            <li><a href="#s1"><span>4.1</span> Receiving and publishing emails</a></li>
+            <li><a href="#s2"><span>4.2</span> Publication list manager</a></li>
+            <li><a href="#s3"><span>4.3</span> Email settings manager</a></li>
+            <li><a href="#s4"><span>4.4</span> Email statistics</a></li>
+            <li><a href="#s5"><span>4.5</span> Login via email</a></li>
+            <li><a href="#s6"><span>4.6</span> Account settings manager</a></li>
+          </ol>
+        </li>
+        <!-- <li><a href="#other">
+            <span>5. </span>Other Nonfunctional Requirements </a></li> -->
+      </ol>
+
+      <dt>Authors</dt>
+      <dd>
+        <a href="https://github.com/vitalie7bocicov/">Bocicov Vitalie</a>
+      </dd>
+      <dd>
+        <a href="https://github.com/TiberiuBadelita"> Badelita Tiberiu </a>
+      </dd>
+      <dd>
+        <a href="https://github.com/eduardsoltan"> Soltan Eduard</a>
+
+      </dd>
+
+
+  </div>
+  <section id="introduction" role="doc-introduction">
+    <h2>1. Introduction</h2>
+    <section id="purpose">
+      <h3><span>1.1</span> Purpose</h3>
+      <p>The Epub application is the software that is described in this paper. It is an extension of the standard
+        mailer.
+        Using this application, a mail user can easily share a message from his inbox, providing access to it to
+        multiple
+        friends in just one click.</p>
+      <p>Throughout the documentation, we will present different use cases, and requirements in respect to the users and
+        the system, and also outline the concepts that may be developed later. The paper specifies the project’s main
+        audience, user interfaces, user interaction with the interface, hardware and software requirements.</p>
+    </section>
+
+    <section id="scope">
+      <h3><span>1.2</span> Scope</h3>
+      <p>The EMPub application focus on making messages from a mail client inbox public, so it can be seen by an
+        unlimited
+        or limited number of users. One of the most common use cases of our application is the situation in which a user
+        what to forward a received email to a large group of colleagues. The current solution to this problem is adding
+        in
+        receive field of the letter email address of all colleagues. Therefore, we want to provide a platform in which
+        the
+        previous operation will take just a few clicks.</p>
+    </section>
+
+    <section id="audience">
+      <h3><span>1.3</span> Intendent audience</h3>
+      <p>This paper is intended to be read by developers and testers as detailed information will be provided in respect
+        to the implementation of the application functionality, however, certain chapters of our documentation could be
+        easily read by simple users. The second chapter Overall description describes application functionality and
+        presents UML diagrams, and the first paragraph of the third chapter describes Users Interfaces are the
+        documentation part intended for user reading.</p>
+    </section>
+
+
+  </section>
+
+
+  <section id="description">
+
+    <h2><span>2.</span> Overall Description</h2>
+
+
+    <section id="d1">
+      <h3><span>2.1</span> Product Perspective</h3>
+      This product is an extension product of the products intended for mailing, because within it it will be possible
+      to publish emails for the target audience. This product will consist of several components, including a login
+      component, a profile management component, an email management component in which emails will be received from
+      mailing services and published on the site, and a database
+      <div style="margin-left:20%;">
+        <img src="../../application/images/diagram.jpg" alt="diagram"><br>
+        <label for="img">A simple diagram that shows the major components of the system</label>
+      </div>
+    </section>
+
+    <section id="d2">
+      <h3><span>2.2</span> Product Functions</h3>
+      The functions that the product must perform are:
+      <ul>
+        <li>login / logout function</li>
+        <li>receiveMail function</li>
+        <li>publishMail function</li>
+        <li>deleteMail function</li>
+        <li>updateMailSettings function</li>
+        <li>generateStatistics function</li>
+        <li>updateProfileSettings function</li>
+
+      </ul>
+    </section>
+
+    <section id="d3">
+      <h3><span>2.3</span> User Classes and Characteristics</h3>
+      The classes of users who will be able to use this product are varied: from programmers who are interested in
+      further
+      developing the software to staff within a company / school or people who have nothing to do with technology,
+      because
+      the interface is friendly for anyone.
+    </section>
+
+    <section id="d4">
+      <h3><span>2.4</span> Operating Environment</h3>
+      This product being a web application is implemented as web responsive, so it can be used as well on both computer
+      /
+      laptop and tablets / mobile phones. The minimum set of browsers that must be supported is:
+      <ul>
+        <li>Apple Safari</li>
+        <li>Google Chrome</li>
+        <li>Microsoft Internet Explorer</li>
+        <li>Mozilla Firefox</li>
+
+      </ul>
+    </section>
+
+    <section id="d5">
+      <h3><span>2.5</span> Design and Implementation Constraints</h3>
+      This product is developed in PHP for the server back-end side and uses HTML5 and CSS3 in order to provide a
+      responsive front-end interface.
+    </section>
+
+    <section id="d6">
+      <h3><span>2.6</span> User Documentation</h3>
+      This section will be included when the final solution is available.
+    </section>
+    <section id="d7">
+      <h3><span>2.7</span> Assumptions and Dependencies</h3>
+      No specific assumptions or dependencies are considered at this time.
+    </section>
+
+  </section>
+
+
+
+  <section id="external-interface">
+    <h2><span>3.</span> External Interface Requirements</h2>
+    <section id="interfaces">
+      <h3>3.1 User Interfaces</h3>
+
+      <figure>
+        <img src="../../application/images/screenshots/login.png" alt="Login page" style="width:100%">
+        <figcaption>Fig.1 - Login Page.</figcaption>
+      </figure>
+      <figure>
+        <img src="../../application/images/screenshots/main.png" alt="Main page" style="width:100%">
+        <figcaption>Fig.2 - Publications manager page.</figcaption>
+      </figure>
+      <figure>
+        <img src="../../application/images/screenshots/email-settings.png" alt="Publication settings page" style="width:100%">
+        <figcaption>Fig.3 - Publication settings page</figcaption>
+      </figure>
+      <figure>
+        <img src="../../application/images/screenshots/email.png" alt="Published email page" style="width:100%">
+        <figcaption>Fig.5 - Published email page </figcaption>
+      </figure>
+      <figure>
+        <img src="../../application/images/screenshots/user.png" alt="Other user page (public email)" style="width:100%">
+        <figcaption>Fig.6 - Other user page (public email)</figcaption>
+      </figure>
+      <figure>
+        <img src="../../application/images/screenshots/email-private.png" alt="Other user page (private email)" style="width:100%">
+        <figcaption>Fig.7 - Other user page (private email)</figcaption>
+      </figure>
+
+    </section>
+    <section id="hardware">
+      <h3><span>3.2</span> Hardware Interfaces</h3>
+      <p>The minimum hardware requirements in
+        order to use EMPub are the minimum hardware
+        requirements of the preferred web browser.</p>
+
+      <p>
+        An internet connection is mandatory in order to allow the browser
+        software interfaces to connect
+        to the internet to access EMPub.
+      </p>
+    </section>
+    <section id="software">
+      <h3><span>3.3</span> Software Interfaces</h3>
+      <section id="operating-systems">
+        <h4><span>3.3.1</span> Operating Systems</h4>
+        <p>
+          EMPub supports the following operating systems*:
+        <ul>
+          <li>Windows</li>
+          <li>Linux</li>
+          <li>MacOS</li>
+          <li>Android</li>
+          <li>iOS</li>
+
+        </ul>
+        * - any version that has intalled a browser in the latest stable version.
+
+        </p>
+      </section>
+
+      <section id="browsers">
+        <h4>3.3.2 Browsers</h4>
+        <p>
+          EMPub is tested and supports the following desktop and mobile browsers*:
+        <ul>
+          <li>Google Chrome</li>
+          <li>Mozilla Firefox</li>
+          <li>Microsoft Edge</li>
+          <li>Safari</li>
+          <li>Opera</li>
+
+        </ul>
+        * - testing was done in the latest stable version.
+
+
+        </p>
+        <p>
+          Any supported browser that you choose to use must meet the following requirements:
+          <br>- JavaScript is enabled.
+          <br>- Cookies are enabled.
+        </p>
+      </section>
+
+      <section id="email-providers">
+        <h4>3.3.3 Email Service Providers</h4>
+        <p>
+          EMPub can receive emails forwarded from the following email service providers:
+        <ul>
+          <li>Gmail</li>
+          <li>Yahoo Mail</li>
+          <li>Outlook</li>
+
+        </ul>
+
+
+        </p>
+      </section>
+
+
+    </section>
+    <section id="communications">
+      <h3>3.4 Communications Interfaces</h3>
+      <p>
+        Internet Protocol (IP) shall be used by the software interfaces to connect to the internet.
+      </p>
+      <p>
+        The communication architecture must follow the client-server model. Communication
+        between the client and server must be
+        served over HTTP Secure (HTTPS).
+      </p>
+    </section>
+  </section>
+
+
+
+
+
+  <section id="features">
+    <h2>SYSTEM FEATURES</h2>
+    <section id="s1">
+      <h3><span>4.1</span> Receiving and publishing emails</h3>
+      <p>Through this feature the product receive emails from mailing services (Gmail , Yahoo, etc.) and publish them on
+        the user email page. The publication is made by sending a forward to an address controlled by the web
+        application.
+        Posting parameters can be changed by a tag system included in the body of the email for example: [password =
+        password] [duration = 2h10m] [public].</p>
+    </section>
+
+    <section id="s2">
+      <h3><span>4.2</span> Publication list manager</h3>
+      <p>Through this feature a user can view and manipulate the list of his publications and his posting parameters :
+        expiration date, sender, subject, availability (public/private), number of views. The list of publications can
+        be
+        ordered by availability, number of views, expiration date and time. An email can be searched by sender or
+        subject.
+      </p>
+    </section>
+
+    <section id="s3">
+      <h3><span>4.3</span> Email settings manager</h3>
+      <p>Through this feature a user can change the default publishing parameters (public, password protected,
+        expiration
+        date and time, etc.) or can delete an email through the web interface.</p>
+    </section>
+
+
+    <section id="s4">
+      <h3><span>4.4</span> Email statistics</h3>
+      <p>Through this feature a user can view the list of related statistics (number of views, country of origin of
+        visitors, schedule of visits by time intervals) for a period viewed (per day, per week, per month) chosen by the
+        user. Statistics will be available in HTML, PDF and XML formats.</p>
+    </section>
+
+    <section id="s5">
+      <h3><span>4.5</span> Login via email</h3>
+      <p>Through this feature a user account is created upon receipt of the first email from an email address or via the
+        web interface. Authentication in the web application will be done by temporary passwords sent to the email
+        address
+        of the account.</p>
+    </section>
+
+    <section id="s6">
+      <h3><span>4.6</span> Account settings manager</h3>
+      <p>Through this feature a user can set or change its name and surname, can upload a profile picture.</p>
+    </section>
+
+
+
+  </section>
+
+</body>
+
+</html>
