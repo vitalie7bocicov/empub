@@ -102,4 +102,18 @@ class UserModel {
             return $settings;
         
     }
+
+    public static function create($dbConnection,$user){
+        $sql = 'insert into users(email,firt_name,last_name) values(?,?,?)';
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($user->getEmail() , $user->getFname(), $user->getLname());
+        $stmt -> execute($paramsArray);
+    }
+
+    public static function delete($dbConnecton, $email){
+        $sql = 'delete from users where email = ?';
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($email);
+        $stmt -> execute($paramsArray);
+    }
 }

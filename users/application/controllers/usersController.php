@@ -47,5 +47,23 @@ class Users extends Controller {
         $settings = $settings-> toJson();
         echo json_encode($settings);
     }
+
+
+    function createUser($email,$fname,$lname){
+        header('Content-type: application/json');
+        $bd = new DB();
+
+        $user = new UserModel($email,$fname,$lname); 
+        UserModel::create($bd->getConnection(),$user);
+
+        $user->toJson();
+        echo json_encode($user);
+
+    }
+
+    function deleteUser($email){
+      $bd = new DB();
+      UserModel::delete($bd->getConnection(),$email);
+    }
    
 }
