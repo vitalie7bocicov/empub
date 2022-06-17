@@ -3,15 +3,15 @@
 class UserModel {
     private $id;
     private $email;
-    private $fname;
-    private $lname;
+    private $first_name;
+    private $last_name;
 
 
-    public function  __construct($id, $email, $fname, $lname) {
+    public function  __construct($id, $email, $first_name, $last_name) {
         $this->id = $id;
         $this->email = $email;
-        $this->fname = $fname;
-        $this->lname = $lname;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
     }
 
     public function getId() {
@@ -22,20 +22,20 @@ class UserModel {
         return $this->email;
     }
 
-    public function getFname() {
-        return $this->fname;
+    public function getFirstName() {
+        return $this->first_name;
     }
 
-    public function getLname() {
-        return $this->lname;
+    public function getLastName() {
+        return $this->last_name;
     }
 
     public function toJson() {
         $result = array();
         $result['id'] = $this->id;
         $result['email'] = $this->email;
-        $result['fname'] = $this->fname;
-        $result['lname'] = $this->lname;
+        $result['first_name'] = $this->first_name;
+        $result['last_name'] = $this->last_name;
 
         return $result;
     }
@@ -104,13 +104,13 @@ class UserModel {
     }
 
     public static function create($dbConnection,$user){
-        $sql = 'insert into users(email,firt_name,last_name) values(?,?,?)';
+        $sql = 'insert into users(email,first_name,last_name) values(?,?,?)';
         $stmt = $dbConnection->prepare($sql);
-        $paramsArray = array($user->getEmail() , $user->getFname(), $user->getLname());
+        $paramsArray = array($user->getEmail() , $user->getFirstName(), $user->getLastName());
         $stmt -> execute($paramsArray);
     }
 
-    public static function delete($dbConnecton, $email){
+    public static function delete($dbConnection, $email){
         $sql = 'delete from users where email = ?';
         $stmt = $dbConnection->prepare($sql);
         $paramsArray = array($email);

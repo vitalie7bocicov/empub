@@ -56,7 +56,7 @@
     cursor: pointer;
 }
 
-.user-row {
+.publisher-row {
     height: 60px;
     display: flex;
     align-items: center;
@@ -66,12 +66,12 @@
     border-radius: 0.25rem;
 }
 
-.user-row:hover {
+.publisher-row:hover {
     border: 1px solid rgb(71, 77, 86);
     box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
 }
 
-.user-row .user-content {
+.publisher-row .publisher-content {
     height: 100%;
     display: flex;
     flex: 1;
@@ -81,7 +81,7 @@
     text-overflow: ellipsis;
 }
 
-.user-row .user-content .first-name {
+.publisher-row .publisher-content .user-email {
     flex: 0.4;
     margin-left: 5px;
     padding-right: 5px;
@@ -90,11 +90,11 @@
     text-overflow: ellipsis;
 }
 
-.email .last-name {
+.publisher-message .publisher-first-name {
     font-weight: bold;
 }
 
-.user-row .user-content .email {
+.publisher-row .publisher-content .publisher-message {
     flex: 0.6;
     white-space: nowrap;
     overflow: hidden;
@@ -113,7 +113,7 @@
 }
 
 @media (max-width: 768px) {
-    .user-row {
+    .publisher-row {
         height: 75px;
     }
 
@@ -121,7 +121,7 @@
         margin: 7px;
     }
 
-    .user-row .user-content .email {
+    .publisher-row .publisher-content .publisher-message {
         flex: 0.5;
         display: flex;
         flex-direction: column;
@@ -129,8 +129,8 @@
         padding-left: 20px;
         padding-right: 20px;
     }
-    .user-row .email .email-text,
-    .user-row .email .last-name {
+    .publisher-row .publisher-name .publisher-last-name,
+    .publisher-row .publisher-message .publisher-first-name {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -148,7 +148,7 @@
         width: 95%;
     }
 
-    .user-row .user-content {
+    .publisher-row .publisher-content {
         flex: 0.7;
         flex-direction: column;
         align-items: flex-start;
@@ -158,11 +158,11 @@
         min-width: 0;
     }
 
-    .user-row .user-content .first-name {
+    .publisher-row .publisher-content .publisher-email {
         margin-left: 0;
     }
 
-    .user-row .user-content .email {
+    .publisher-row .publisher-content .publisher-message {
         padding-left: 0;
     }
 

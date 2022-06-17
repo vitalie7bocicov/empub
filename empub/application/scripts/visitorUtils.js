@@ -148,7 +148,7 @@ function appendPublishers() {
     });
     fetch(request)
         .then(res => {
-            if(res.status !== 200) {
+            if(res.status != 200) {
                 checkStatus(res.status);
                 throw new TypeError (`Response with code ${res.status}`);
             }
