@@ -1,6 +1,6 @@
 <?php
 
-class SettingsModel {
+class UserModel {
     private $id;
     private $email;
     private $fname;
@@ -40,6 +40,24 @@ class SettingsModel {
         return $result;
     }
 
+    public static function getUsers($dbConnection) {
+    
+        $sql = 'select * from users';
+        $stmt = $dbConnection->prepare($sql);
+        $result = array();
+        $counter = 0;
+
+        if($stmt -> execute()) {
+            while($row = $stmt -> fetch()) {
+                $mail = new UserModel($row['id'], $row['email'], $row['first_name'], $row['last_name']);
+                $result[$counter] = $mail;
+                $counter += 1;
+            }
+        }
+
+        return $result;
+    }
+
     public static function setF($dbConnection, $name, $email){
         $sql = 'update users set first_name = ? where email = ?';
 
@@ -48,7 +66,7 @@ class SettingsModel {
     
             if($stmt -> execute($paramsArray)) {
                 $row = $stmt -> fetch();
-                $settings = new SettingsModel($row['id'], $email, $row['first_name'], $row['last_name']);
+                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name']);
             }
             
             return $settings;
@@ -62,11 +80,12 @@ class SettingsModel {
     
             if($stmt -> execute($paramsArray)) {
                 $row = $stmt -> fetch();
-                $settings = new SettingsModel($row['id'], $email, $row['first_name'], $row['last_name']);
+                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name']);
             }
             
             return $settings;
     }
+
 
     public static function getProperties($dbConnection, $email){
        
@@ -77,11 +96,24 @@ class SettingsModel {
     
             if($stmt -> execute($paramsArray)) {
                 $row = $stmt -> fetch();
-                $settings = new SettingsModel($row['id'], $email, $row['first_name'], $row['last_name']);
+                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name']);
             }
             
             return $settings;
         
+    }
 
+    public static function create($dbConnection,$user){
+        $sql = 'insert into users(email,firt_name,last_name) values(?,?,?)';
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($user->getEmail() , $user->getFname(), $user->getLname());
+        $stmt -> execute($paramsArray);
+    }
+
+    public static function delete($dbConnecton, $email){
+        $sql = 'delete from users where email = ?';
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($email);
+        $stmt -> execute($paramsArray);
     }
 }

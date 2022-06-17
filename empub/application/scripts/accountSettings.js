@@ -4,7 +4,7 @@ window.onload = () => {
     let myHeaders = new Headers();
     let email = localStorage.getItem('email');
     myHeaders.append('Authorization', authToken);
-    let getProperties = new Request(`http://localhost/TehnologiiWeb/settings/settings/getProperties/${email}`, {
+    let getProperties = new Request(`http://localhost/TehnologiiWeb/users/users/getProperties/${email}`, {
             method: 'GET',
             headers: myHeaders
     });
@@ -44,21 +44,19 @@ window.onload = () => {
         const lname = document.getElementById('lname').value;
 
 
-        let setName = new Request(`http://localhost/TehnologiiWeb/settings/settings/setFName/${fname}/${email}`, {
+        let setName = new Request(`http://localhost/TehnologiiWeb/users/users/setFName/${fname}/${email}`, {
             method: 'POST',
             headers: myHeaders
     });
 
-        let setLname = new Request(`http://localhost/TehnologiiWeb/settings/settings/setLName/${lname}/${email}`, {
+        let setLname = new Request(`http://localhost/TehnologiiWeb/users/users/setLName/${lname}/${email}`, {
             method: 'POST',
             headers: myHeaders
     });
 
-    
     fetch(setName);
     fetch(setLname);
-
-    });
    
-      
+    });
+
 }
