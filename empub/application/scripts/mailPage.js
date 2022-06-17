@@ -4,7 +4,6 @@ window.onload = () => {
         let [key, value] = element.split('=');
         cookies[key.trim()] = value.trim();
     });
-    console.log(cookies);
     linkStatsAndSettingsButtons(cookies['mailID']);
 
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
@@ -32,8 +31,8 @@ window.onload = () => {
         
         throw new TypeError (`Not Json`);
     })
-    .then(data => {
-        console.log(data.id);
+    .catch(err => {
+        console.log(err);
     });
 
     
@@ -68,7 +67,10 @@ window.onload = () => {
             wrapper.style.maxWidth = `${iframeDocument.body.scrollWidth + 50}px`;
             
             iframe.height = iframeDocument.body.scrollHeight + 30;
-        });
+        })
+    .catch(err => {
+        console.log(err);
+    });
 
 
 }
