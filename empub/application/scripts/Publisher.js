@@ -1,9 +1,9 @@
 class Publisher {
     constructor(publisher) {
         this.id = publisher.id;
-        this.firstName = publisher.firstName;
-        this.lastName = publisher.lastName;
         this.email = publisher.email;
+        this.first_name =publisher.first_name;
+        this.last_name = publisher.last_name;
     }
 }
 export { Publisher };

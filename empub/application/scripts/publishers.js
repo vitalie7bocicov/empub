@@ -1,4 +1,4 @@
-import {appendPublishers} from './visitorUtils.js';
+import {appendPublishers} from './publisherUtils.js';
 
 window.onload = () => {
     appendPublishers();

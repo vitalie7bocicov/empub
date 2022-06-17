@@ -26,8 +26,8 @@ window.onload = () => {
         const lname = document.getElementById('lname');
         const email = document.getElementById('email');
         
-        fname.value = data.fname;
-        lname.value = data.lname;
+        fname.value = data.first_name;
+        lname.value = data.last_name;
         email.value = data.email;
     });
 
