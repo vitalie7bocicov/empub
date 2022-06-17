@@ -42,43 +42,47 @@ class StatisticContentModel {
 
     public static function setStatistic($dbConnection,$id,$country){
 
-        
-         $viewDate = date("Y-m-d");
-         $sql = 'insert into statistics(country,mail_id,view_date) values(?,?,?)';
-         $stmt = $dbConnection->prepare($sql);
-         $paramsArray = array($country,$id,$viewDate);
-         $stmt -> execute($paramsArray);
-         $statistic = StatisticContentModel::getStatistic($dbConnection,$id);
 
-         //---------------
+        $viewDate = date("Y-m-d");
+        $sql = 'insert into statistics(country,mail_id,view_date) values(?,?,?)';
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($country,$id,$viewDate);
+        $stmt -> execute($paramsArray);
+        $statistic = StatisticContentModel::getStatistic($dbConnection,$id);
 
-                  $sql2 = 'select * from countries where mail_id = ? and country = ?';
+        //---------------
 
-                  $stmt2 = $dbConnection->prepare($sql2);
-                  $paramsArray2 = array($id, $country);
-          
-                  if($stmt2 -> execute($paramsArray2)) {
-                      $row = $stmt2 -> fetch();
-                      $statisticContent = new StatisticContentModel($row['id'], $row['country'],$row['view_date'],$row['mail_id']);
-                  }
-         
-   
+        $sql2 = 'select * from countries where mail_id = ? and country = ?';
 
-         //--------------
-         if($statisticContent->getCountry() == NULL){
-         $sql1 = 'insert into countries(country,mail_id) values(?,?)';
-         $stmt1 = $dbConnection->prepare($sql1);
-         $paramsArray1 = array($country,$id);
-         $stmt1 -> execute($paramsArray1);
-         }
-     
+        $stmt2 = $dbConnection->prepare($sql2);
+        $paramsArray2 = array($id, $country);
 
-         
-      return $statistic;
+        if($stmt2 -> execute($paramsArray2)) {
+            $row = $stmt2 -> fetch();
+            $statisticContent = new StatisticContentModel($row['id'], $row['country'],$row['view_date'],$row['mail_id']);
+        }
 
-       
-    }
 
+
+        //--------------
+        if($statisticContent->getCountry() == NULL){
+            $sql1 = 'insert into countries(country,mail_id) values(?,?)';
+            $stmt1 = $dbConnection->prepare($sql1);
+            $paramsArray1 = array($country,$id);
+            $stmt1 -> execute($paramsArray1);
+        }
+
+        //---------------
+
+        $sql3 = 'update mails set views = (select count(*) from statistics where mail_id= ?) where id = ?;';
+        $stmt3 = $dbConnection->prepare($sql3);
+        $paramsArray3 = array($id,$id);
+        $stmt3 ->execute($paramsArray3);
+
+        return $statistic;
+
+
+    }   
     public static function getStatisticByDate($dbConnection, $id, $type) {
     
         if($type == "day"){
