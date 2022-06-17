@@ -1,12 +1,11 @@
 .container {
     padding-top: 80px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .config-menu {
     height: 60px;
-
     border: 1px solid rgb(71, 77, 86);
     background-color: #e5e5e5;
     margin-bottom: 10px;
@@ -59,6 +58,7 @@
 .publisher-row {
     height: 60px;
     display: flex;
+
     align-items: center;
     border: 1px solid whitesmoke;
     cursor: pointer;
@@ -71,66 +71,84 @@
     box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
 }
 
-.publisher-row .publisher-content {
-    height: 100%;
+
+.publisher-row  .publisher-email {
+    flex: 0.8;
     display: flex;
-    flex: 1;
     align-items: center;
     white-space: nowrap;
+    height: 100%;
+    margin-left: 20px;
+
     overflow: hidden;
     text-overflow: ellipsis;
+    border-right: 1px solid black;
 }
 
-.publisher-row .publisher-content .user-email {
-    flex: 0.4;
-    margin-left: 5px;
-    padding-right: 5px;
-    overflow: hidden;
+.publisher-row  .publisher-email h3{
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.publisher-message .publisher-first-name {
-    font-weight: bold;
-}
 
-.publisher-row .publisher-content .publisher-message {
-    flex: 0.6;
+
+.publisher-info .publisher-name {
+    flex: 0.7;
+    display: flex;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 20px;
     padding-right: 20px;
+    font-weight: bold;
+}
+
+.publisher-row .publisher-name .publisher-first-name{
+    padding-right: 5px;
+}
+
+.publisher-row  .publisher-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.publisher-info .nr-publications{
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-left: 1px solid black;
 }
 
 
 
-.
 @media (max-width: 1024px) {
     .container {
-        margin: 0;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
 
 @media (max-width: 768px) {
     .publisher-row {
-        height: 75px;
+        height: 55px;
+        display: flex;
     }
 
     .config-menu .search-bar {
         margin: 7px;
     }
 
-    .publisher-row .publisher-content .publisher-message {
-        flex: 0.5;
-        display: flex;
-        flex-direction: column;
 
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .publisher-row .publisher-name .publisher-last-name,
-    .publisher-row .publisher-message .publisher-first-name {
+   .publisher-name{
+       flex-direction: column;
+   }
+
+    .publisher-row .publisher-info .publisher-first-name,
+    .publisher-row .publisher-info .publisher-last-name{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -138,33 +156,41 @@
 }
 
 @media (max-width: 480px) {
-    .config-menu {
-        height: 100px;
-        flex-direction: column;
+    .publisher-name{
+        flex-direction: row;
     }
-
+    .publisher-row {
+        flex: 1;
+        height: 75px;
+        min-width: 0;
+    }
 
     .config-menu .search-bar {
         width: 95%;
     }
 
-    .publisher-row .publisher-content {
-        flex: 0.7;
+    .publisher-email{
+        flex: 1;
+    }
+
+    .publisher-info{
+        width: 20%;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
 
-        margin-left: 20px;
-        margin-right: 20px;
-        min-width: 0;
+    }
+    .publisher-info .publisher-name{
+        padding-left: 0px;
+        flex: 0.4;
     }
 
-    .publisher-row .publisher-content .publisher-email {
-        margin-left: 0;
+    .publisher-info .nr-publications{
+        padding-left: 0px;
+        flex: 0.2;
+        border: none;
     }
 
-    .publisher-row .publisher-content .publisher-message {
-        padding-left: 0;
-    }
+
 
 
     .hamburger {

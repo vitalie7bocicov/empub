@@ -118,6 +118,9 @@
   flex: 0.4;
   margin-left: 5px;
   padding-right: 5px;
+}
+
+.email-row .email-content .email-sender h3{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

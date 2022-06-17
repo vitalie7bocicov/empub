@@ -11,8 +11,6 @@ function appendPublisher(publisher) {
         location.href = `http://localhost/TehnologiiWeb/empub/public/publisher/${publisher.email}`;
     });
 
-    const publisherContent = document.createElement('div');
-    publisherContent.classList.add('publisher-content');
 
     const publisherEmail = document.createElement('div');
     publisherEmail.classList.add('publisher-email');
@@ -21,13 +19,16 @@ function appendPublisher(publisher) {
     publisherEmailTitle.innerText = publisher.email;
     publisherEmail.appendChild(publisherEmailTitle);
 
-    publisherContent.appendChild(publisherEmail);
-    publisherRow.appendChild(publisherContent);
+    publisherRow.appendChild(publisherEmail);
+
+    const publisherInfo = document.createElement('div');
+    publisherInfo.classList.add('publisher-info');
 
     const publisherName = document.createElement('div');
-    publisherName.classList.add('publisher-message');
+    publisherName.classList.add('publisher-name');
     const publisherFirstName = document.createElement('span');
     const publisherLastName = document.createElement('span');
+
 
     publisherFirstName.classList.add('publisher-first-name');
     publisherLastName.classList.add('publisher-last-name');
@@ -38,8 +39,17 @@ function appendPublisher(publisher) {
     publisherName.appendChild(publisherFirstName);
     publisherName.appendChild(publisherLastName);
 
-    publisherContent.appendChild(publisherEmail);
-    publisherContent.appendChild(publisherName);
+    publisherRow.appendChild(publisherEmail);
+    publisherInfo.appendChild(publisherName);
+
+    publisherRow.appendChild(publisherInfo);
+    const nrPublications = document.createElement('div');
+    nrPublications.classList.add("nr-publications");
+    const spanNrPublications = document.createElement('span');
+    spanNrPublications.innerText=`Nr. of publications: `;
+    nrPublications.appendChild(spanNrPublications);
+
+    publisherInfo.append(nrPublications);
 
     return publisherRow;
 }
