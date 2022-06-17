@@ -17,11 +17,18 @@
   width: 100%;
 }
 
-.config-menu .select-order {
+.config-menu .select-order{
   width: 100%;
   display: flex;
   align-items: center;
+
 }
+
+#email-permission, #order-by{
+  border-radius: 60px;
+}
+
+
 
 .config-menu .select-order > * {
   margin: 20px;
@@ -147,21 +154,6 @@
   color: blue;
 }
 
-/*.email-options a.email-lock:hover {*/
-/*  color: blue;*/
-/*}*/
-
-/*.email-options a.email-settings:hover {*/
-/*  color: blue;*/
-/*}*/
-
-/*.email-options a.email-delete:hover {*/
-/*  color: red;*/
-/*}*/
-
-/*.email-options a.email-stats:hover {*/
-/*  color: rgb(31, 147, 54);*/
-/*}*/
 
 .email-options a.email-lock:hover {
   color: white;
@@ -221,7 +213,7 @@
 @media (max-width: 480px) {
   .config-menu {
     height: 100px;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .config-menu .select-order {
