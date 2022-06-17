@@ -71,11 +71,11 @@
     </div>
 
     <section class="sidebar" id="sidebar">
-      <button onclick="location.href='main.html'" class="sidebar-buttons"><i class="fa-solid fa-inbox"></i>
+      <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons"><i class="fa-solid fa-inbox"></i>
         Inbox</button>
       <button class="sidebar-buttons" style="background-color: grey;"><i class=" fa-solid fa-chart-line"></i>
         Statistics</button>
-      <button onclick="location.href='settingsPage.html'" class="sidebar-buttons"><i class=" fa-solid fa-gear"></i>
+      <button class="sidebar-buttons" id="settings"><i class=" fa-solid fa-gear"></i>
         Settings</button>
     </section>
 

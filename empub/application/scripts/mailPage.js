@@ -4,6 +4,8 @@ window.onload = () => {
         let [key, value] = element.split('=');
         cookies[key.trim()] = value.trim();
     });
+    console.log(cookies);
+    linkStatsAndSettingsButtons(cookies['mailID']);
 
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
@@ -17,15 +19,15 @@ window.onload = () => {
     new Request(`http://localhost/TehnologiiWeb/statistics/statistics/updateStatisticsForMail/${cookies['mailID']}`,
     {method:'GET', headers:myHeaders})
     )
-    .then((respose) => {
-        if(respose.status != 200) {
+    .then((response) => {
+        if(response.status != 200) {
             throw new TypeError (`Response with code ${response.status}`);
         }
-        const contentType = respose.headers.get('Content-Type');
+        const contentType = response.headers.get('Content-Type');
 
         if(contentType && contentType.includes('application/json')) {
             //location.href = './home';
-            return respose.json();
+            return response.json();
         }
         
         throw new TypeError (`Not Json`);
@@ -61,11 +63,9 @@ window.onload = () => {
             const parsedDocument = parser.parseFromString(html, 'text/html');
             const child = parsedDocument.documentElement;
             iframeDocument.replaceChild(child, iframeDocument.documentElement);
-            
-            console.log(iframeDocument.body.scrollWidth);
+
 
             wrapper.style.maxWidth = `${iframeDocument.body.scrollWidth + 50}px`;
-            console.log(wrapper.style.maxWidth);
             
             iframe.height = iframeDocument.body.scrollHeight + 30;
         });
@@ -76,4 +76,18 @@ window.onload = () => {
 function checkStatus(code){
     if(code==403)
         location.href="http://localhost/TehnologiiWeb/empub/public/";
+}
+
+function linkStatsAndSettingsButtons(id){
+    const statsButton = document.getElementById("stats");
+
+    statsButton.addEventListener("click",((event) => {
+        location.href = `http://localhost/TehnologiiWeb/empub/public/statistics/${id}`;
+    }));
+
+    const settingsButton = document.getElementById("settings");
+
+    settingsButton.addEventListener("click",((event) => {
+        location.href = `http://localhost/TehnologiiWeb/empub/public/emailSettings/${id}`;
+    }));
 }

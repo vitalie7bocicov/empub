@@ -1,12 +1,15 @@
 import {Mail} from "./Mail.js";
 import {deleteEmail} from './utils.js';
 window.onload = () => {
-
-  const mailId = localStorage.getItem('mailId');
+    let cookies = {};
+    document.cookie.split(';').forEach(element => {
+        let [key, value] = element.split('=');
+        cookies[key.trim()] = value.trim();
+    });
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
-    let getEmailById = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailByID/${mailId}`, {
+    let getEmailById = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailByID/${cookies['mailID']}`, {
         method: 'GET',
         headers: myHeaders
     });
@@ -37,7 +40,16 @@ const passwordInput = document.getElementById('passwordInput');
 const passwordLabel = document.getElementById('passwordLabel');
 let mailIsPublic;
 
+function linkStatsButton(mail){
+    const statsButton = document.getElementById("stats");
+    statsButton.addEventListener("click",((event) => {
+        location.href = `http://localhost/TehnologiiWeb/empub/public/statistics/${mail.id}`;
+    }));
+}
+
 function setInfo(mail) {
+
+    linkStatsButton(mail);
     mailIsPublic = mail.isPublic;
     const publicButton = document.getElementById("public");
     publicButton.addEventListener("change",((event) => {
@@ -47,7 +59,6 @@ function setInfo(mail) {
     privateButton.addEventListener("change",((event) => {
         handleClick(event.target);
     }));
-
     const deleteButton = document.getElementById('deleteButton');
     deleteButton.addEventListener("click", (event) => {
         deleteEmail(mail);

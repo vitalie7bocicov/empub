@@ -4,6 +4,7 @@ window.onload = () => {
         let [key, value] = element.split('=');
         cookies[key.trim()] = value.trim();
     });
+    linkSettingsButton(cookies['mailID']);
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
@@ -15,15 +16,15 @@ window.onload = () => {
     var count = 1;
  
         fetch(getStatisticsHtml)
-        .then((respose) => {
-            if(respose.status != 200) {
+        .then((response) => {
+            if(response.status != 200) {
                 throw new TypeError (`Response with code ${response.status}`);
             }
-            const contentType = respose.headers.get('Content-Type');
+            const contentType = response.headers.get('Content-Type');
     
             if(contentType && contentType.includes('application/json')) {
                 //location.href = './home';
-                return respose.json();
+                return response.json();
             }
             
             throw new TypeError (`Not Json`);
@@ -119,15 +120,15 @@ window.onload = () => {
         });
           
         fetch(getStatisticsForWeek)
-        .then((respose) => {
-            if(respose.status != 200) {
+        .then((response) => {
+            if(response.status != 200) {
                 throw new TypeError (`Response with code ${response.status}`);
             }
-            const contentType = respose.headers.get('Content-Type');
+            const contentType = response.headers.get('Content-Type');
     
             if(contentType && contentType.includes('application/json')) {
                 //location.href = './home';
-                return respose.json();
+                return response.json();
             }
             
             throw new TypeError (`Not Json`);
@@ -154,8 +155,6 @@ window.onload = () => {
            totalViews.innerText = total;
 
         });
-        
-          
         });
 
 
@@ -211,5 +210,12 @@ window.onload = () => {
        
 }
 
+function linkSettingsButton(id){
+    
+    const settingsButton = document.getElementById("settings");
 
+    settingsButton.addEventListener("click",((event) => {
+        location.href = `http://localhost/TehnologiiWeb/empub/public/emailSettings/${id}`;
+    }));
+}
 

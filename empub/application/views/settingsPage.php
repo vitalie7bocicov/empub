@@ -51,7 +51,7 @@
             <div class="sidebar" id="sidebar">
                 <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons"><i class="fa-solid fa-inbox"></i>
                     Inbox</button>
-                <button onclick="location.href='statistics.php'" class="sidebar-buttons"><i
+                <button class="sidebar-buttons" id="stats"><i
                         class="fa-solid fa-chart-line"></i> Statistics</button>
                 <button class="sidebar-buttons" style="background-color: grey;"><i class="fa-solid fa-gear"></i>
                     Settings</button>

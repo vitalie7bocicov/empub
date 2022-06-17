@@ -20,11 +20,11 @@ function appendEmail(mail) {
 
     if(orderBy === "publication_date" || orderBy==="views"){
         let publicationDate = new Date(mail.publicationDate);
-        spanDate.innerText = `${publicationDate.getDate()}/${publicationDate.getMonth().toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
+        spanDate.innerText = `${publicationDate.getDate().toString().padStart(2,"0")}/${publicationDate.getMonth().toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
     }
     else if(orderBy ==="expiration_date"){
         let expirationDate = new Date(mail.expirationDate);
-        spanDate.innerText = `${expirationDate.getDate()}/${expirationDate.getMonth().toString().padStart(2,"0")}/${expirationDate.getFullYear()}`;
+        spanDate.innerText = `${expirationDate.getDate().toString().padStart(2,"0")}/${expirationDate.getMonth().toString().padStart(2,"0")}/${expirationDate.getFullYear()}`;
     }
 
     emailDate.appendChild(spanDate);
@@ -94,8 +94,8 @@ function appendEmail(mail) {
     emailLock.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        localStorage.setItem('mailId', event.target.parentElement.parentElement.parentElement.id);
-        location.href="http://localhost/TehnologiiWeb/empub/public/emailSettings";
+        // localStorage.setItem('mailId', event.target.parentElement.parentElement.parentElement.id);
+        location.href=`http://localhost/TehnologiiWeb/empub/public/emailSettings/${mail.id}`;
     });
 
     emailSettings.appendChild(material_icons_span2);
@@ -103,8 +103,8 @@ function appendEmail(mail) {
     emailSettings.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        localStorage.setItem('mailId', event.target.parentElement.parentElement.parentElement.id);
-        location.href="http://localhost/TehnologiiWeb/empub/public/emailSettings";
+        // localStorage.setItem('mailId', event.target.parentElement.parentElement.parentElement.id);
+        location.href=`http://localhost/TehnologiiWeb/empub/public/emailSettings/${mail.id}`;
     });
 
 

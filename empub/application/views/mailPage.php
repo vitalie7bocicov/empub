@@ -46,15 +46,15 @@
 
     <main class="wrapper" id = "wrapper">
         <div class="sidebar" id="sidebar">
-            <button onclick="location.href='main.html'" class="sidebar-buttons">
+            <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons">
                 <i class="fa-solid fa-inbox"></i>
                 Inbox
             </button>
-            <button onclick="location.href='statistics.html'" class="sidebar-buttons">
+            <button class="sidebar-buttons" id="stats">
                 <i class=" fa-solid fa-chart-line"></i>
                 Statistics
             </button>
-            <button onclick="location.href='settingsPage.html'" class="sidebar-buttons">
+            <button class="sidebar-buttons"  id="settings">
                 <i class=" fa-solid fa-gear"></i>
                 Settings
             </button>
