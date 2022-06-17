@@ -1,4 +1,4 @@
-.email-row .email-options {
+.user-row .email-options {
   flex: 0.1;
 }
 
@@ -7,7 +7,7 @@
   color: white;
 } */
 
-.email-row .email-content .email-sender {
+.user-row .user-content .first-name {
   flex: 0.3;
   margin-left: 5px;
   padding-right: 5px;
@@ -16,7 +16,7 @@
   text-overflow: ellipsis;
 }
 
-.email-row .email-content .email-message {
+.user-row .user-content .email {
   flex: 1;
 }
 
@@ -90,13 +90,13 @@ section .email-list {
 }
 
 @media (max-width: 480px) {
-  .email-row .email-content {
+  .user-row .user-content {
     flex: 1;
   }
-  .email-row .email-options {
+  .user-row .email-options {
     flex: 0.2;
   }
-  .email-row .email-options .email-lock {
+  .user-row .email-options .email-lock {
     display: flex;
   }
 }

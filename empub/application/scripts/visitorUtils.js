@@ -1,8 +1,8 @@
-import {Mail} from "./Mail.js";
+import {Publisher} from "./Publisher.js";
 
-let lastMailId = -1;
 
-function appendEmail(mail) {
+
+function appendPublisher(publisher) {
     const emailRow = document.createElement('div');
     emailRow.classList.add('email-row');
 
@@ -28,7 +28,7 @@ function appendEmail(mail) {
     }
 
     emailDate.appendChild(spanDate);
-    
+
     const emailContent = document.createElement('div');
     emailContent.classList.add('email-content');
 
@@ -134,55 +134,21 @@ function appendEmail(mail) {
     return emailRow;
 }
 
-function deleteEmailRequest(mail){
-    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
-    let myHeaders = new Headers();
-    myHeaders.append('Authorization', authToken);
-    let deleteEmail = new Request(`http://localhost/TehnologiiWeb/emails/mail/deleteMailByID/${mail.id}`, {
-        method: 'DELETE',
-        headers: myHeaders
-    });
 
-    fetch(deleteEmail)
-        .then((response) => {
-            if(response.status !== 200) {
-                checkStatus(response.status);
-                throw new TypeError(`Response with code ${response.status}`);
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
-}
-
-function deleteEmailFromList(mail) {
-    //delete mail from dom
-    mail.remove();
-    deleteEmailRequest(mail);
-}
-
-function deleteEmail(mail) {
-    deleteEmailRequest(mail);
-}
-
-function appendEmails() {
-    const orderBy = getOrderBy();
-    const filter = getFilter();
+function appendPublishers() {
     const query = getQuery();
-    const emailList = document.getElementById('email-list');
+    const publisherList = document.getElementById('publishers-list');
     const authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
-    myHeaders.append('filter', filter);
-    myHeaders.append('orderBy', orderBy);
     myHeaders.append('searchquery', query);
-    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail`, {
+    let request = new Request(`http://localhost/TehnologiiWeb/users/users`, {
         method: 'GET',
         headers: myHeaders
     });
     fetch(request)
         .then(res => {
-            if(res.status != 200) {
+            if(res.status !== 200) {
                 checkStatus(res.status);
                 throw new TypeError (`Response with code ${res.status}`);
             }
@@ -194,12 +160,11 @@ function appendEmails() {
         })
         .then(data => {
             let length = data.length;
-            deleteAllEmails();//from dom
+            deleteAllPublishers();//from dom
             for(let i = 0; i < length; i++) {
-                let mail = new Mail(data[i]);
-                updateLastMailId(mail);
-                const elem = appendEmail(mail);
-                emailList.appendChild(elem);
+                let publisher = new Publisher(data[i]);
+                const elem = appendPublisher(publisher);
+                publisherList.appendChild(elem);
             }
         })
         .catch(err => {
@@ -207,69 +172,21 @@ function appendEmails() {
         });
 }
 
-function updateLastMailId(mail){
-    if(lastMailId<mail.id)
-        lastMailId = mail.id;
-}
 
-function getLastMailId(){
-    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
-    let myHeaders = new Headers();
-    myHeaders.append('Authorization', authToken);
-    let getLastMailId = new Request(`http://localhost/TehnologiiWeb/emails/mail/getLastMailId`, {
-        method: 'GET',
-        headers: myHeaders
-    });
-    fetch(getLastMailId)
-        .then((response) => {
-            if(response.status !== 200) {
-                checkStatus(response.status);
-                throw new TypeError(`Response with code ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((id) =>{
-            compareLastMailsIDs(id);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-}
-
-function compareLastMailsIDs(newId){
-    if(newId>lastMailId){
-        console.log("new mail!")
-        appendEmails();
-    }
-}
-
-function checkNewEmails(){
-    getLastMailId();
+function deleteAllPublishers(){//from dom
+    const allPublishers = document.getElementById('publishers-list');
+    allPublishers.replaceChildren();
 }
 
 function checkStatus(code){
     if(code==403)
         location.href="http://localhost/TehnologiiWeb/empub/public/";
 }
-
-function getOrderBy(){//publication_date or expiration_date or views
-    const orderBy = document.getElementById('order-by');
-    return  orderBy.options[orderBy.selectedIndex].value;
-}
-
-function getFilter(){//all or public or private
-    const filter = document.getElementById('email-permission');
-    return filter.options[filter.selectedIndex].value;
-}
-
 function getQuery(){
     const query = document.getElementById('search-input');
     return query.value;
 }
 
-function deleteAllEmails(){//from dom
-    const allEmails = document.getElementById('email-list');
-    allEmails.replaceChildren();
-}
 
-export {appendEmail, appendEmails, deleteEmail, deleteAllEmails, checkNewEmails};
+
+export {appendPublishers};

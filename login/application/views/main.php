@@ -81,21 +81,21 @@
 
     </div>
     <div class="email-list">
-      <div class="email-row" onclick="location.href='letterTemplate.html'">
+      <div class="user-row" onclick="location.href='letterTemplate.html'">
         <div class="email-date">
           <span class="email-expiration-date">
             17/04
           </span>
         </div>
-        <div class="email-content">
-          <div class="email-sender">
+        <div class="user-content">
+          <div class="first-name">
             <h3>
               Miro
             </h3>
           </div>
 
-          <div class="email-message">
-            <span class="email-subject">Tensor-Reloaded team Weekly Digest</span>
+          <div class="email">
+            <span class="last-name">Tensor-Reloaded team Weekly Digest</span>
             <span class="email-text"> - Here’s how your team did last week</span>
           </div>
         </div>
@@ -131,21 +131,21 @@
         </div>
       </div>
 
-      <div class="email-row" onclick="location.href='letterTemplate.html'">
+      <div class="user-row" onclick="location.href='letterTemplate.html'">
         <div class="email-date">
           <span class="email-expiration-date">
             20/07
           </span>
         </div>
-        <div class="email-content">
-          <div class="email-sender">
+        <div class="user-content">
+          <div class="first-name">
             <h3>
               service@intl.paypal.com
             </h3>
           </div>
 
-          <div class="email-message">
-            <span class="email-subject">Your transfer was successful</span>
+          <div class="email">
+            <span class="last-name">Your transfer was successful</span>
             <span class="email-text"> - Hi, there!
               Looking for better solutions for all your content creation?</span>
           </div>

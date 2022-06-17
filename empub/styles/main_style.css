@@ -58,7 +58,7 @@
   color: blue;
 }
 
-.email-row {
+.user-row {
   height: 60px;
   display: flex;
   align-items: center;
@@ -68,12 +68,12 @@
   background-color: #e5e5e5;
 }
 
-.email-row:hover {
+.user-row:hover {
   border: 1px solid rgb(71, 77, 86);
   box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
 }
 
-.email-row .email-date {
+.user-row .email-date {
   border-right: 1px solid grey;
   padding-right: 5px;
   padding-left: 5px;
@@ -84,7 +84,7 @@
   white-space: nowrap;
 }
 
-.email-row .email-content {
+.user-row .user-content {
   height: 100%;
   display: flex;
   flex: 1;
@@ -94,7 +94,7 @@
   text-overflow: ellipsis;
 }
 
-.email-row .email-content .email-sender {
+.user-row .user-content .first-name {
   flex: 0.4;
   margin-left: 5px;
   padding-right: 5px;
@@ -103,7 +103,7 @@
   text-overflow: ellipsis;
 }
 
-.email-row .email-content .email-message {
+.user-row .user-content .email {
   flex: 0.6;
   white-space: nowrap;
   overflow: hidden;
@@ -112,15 +112,15 @@
   padding-right: 20px;
 }
 
-.email-message .email-subject {
+.email .last-name {
   font-weight: bold;
 }
 
-.email-message .email-text {
+.email .email-text {
   color: grey;
 }
 
-.email-row .email-options {
+.user-row .email-options {
   height: 100%;
   flex: 0.5;
 
@@ -157,7 +157,7 @@
 }
 
 @media (max-width: 768px) {
-  .email-row {
+  .user-row {
     height: 75px;
   }
 
@@ -166,7 +166,7 @@
     margin: 7px;
   }
 
-  .email-row .email-content .email-message {
+  .user-row .user-content .email {
     flex: 0.5;
     display: flex;
     flex-direction: column;
@@ -174,8 +174,8 @@
     padding-left: 20px;
     padding-right: 20px;
   }
-  .email-row .email-message .email-text,
-  .email-row .email-message .email-subject {
+  .user-row .email .email-text,
+  .user-row .email .last-name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -197,7 +197,7 @@
     width: 95%;
   }
 
-  .email-row .email-content {
+  .user-row .user-content {
     flex: 0.7;
     flex-direction: column;
     align-items: flex-start;
@@ -207,17 +207,17 @@
     min-width: 0;
   }
 
-  .email-row .email-content .email-sender {
+  .user-row .user-content .first-name {
     margin-left: 0;
   }
 
-  .email-row .email-content .email-message {
+  .user-row .user-content .email {
     padding-left: 0;
   }
 
-  .email-row .email-options .email-lock,
-  .email-row .email-options .email-stats,
-  .email-row .email-options .email-expires {
+  .user-row .email-options .email-lock,
+  .user-row .email-options .email-stats,
+  .user-row .email-options .email-expires {
     display: none;
   }
 

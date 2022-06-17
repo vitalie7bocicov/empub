@@ -30,6 +30,9 @@
             <span class="bar "></span>-->
       </a>
       <ul class="nav-links">
+          <li>
+              <a href="http://localhost/TehnologiiWeb/empub/public/publishers">Publishers</a>
+          </li>
         <li>
           <a href="http://localhost/TehnologiiWeb/empub/public/main">Home</a>
         </li>

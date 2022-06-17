@@ -1,0 +1,190 @@
+.container {
+    padding-top: 80px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.config-menu {
+    height: 60px;
+
+    border: 1px solid rgb(71, 77, 86);
+    background-color: #e5e5e5;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
+.config-menu .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 60px;
+    margin: 20px;
+}
+
+.config-menu .search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 7px;
+    padding-left: 10px;
+}
+
+.config-menu .search-bar button {
+    background: transparent;
+    border: 0;
+    border-radius: 35%;
+    outline: none;
+    color: rgb(71, 77, 86);
+    padding-top: 4px;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+
+.config-menu .search-bar button:hover{
+    padding: 2.5px;
+    border-radius: 50%;
+    background-color: rgb(71, 77, 86);
+    color: white;
+    cursor: pointer;
+}
+
+.user-row {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border: 1px solid whitesmoke;
+    cursor: pointer;
+    background-color: #e5e5e5;
+    border-radius: 0.25rem;
+}
+
+.user-row:hover {
+    border: 1px solid rgb(71, 77, 86);
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+}
+
+.user-row .user-content {
+    height: 100%;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-row .user-content .first-name {
+    flex: 0.4;
+    margin-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.email .last-name {
+    font-weight: bold;
+}
+
+.user-row .user-content .email {
+    flex: 0.6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+.
+@media (max-width: 1024px) {
+    .container {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-row {
+        height: 75px;
+    }
+
+    .config-menu .search-bar {
+        margin: 7px;
+    }
+
+    .user-row .user-content .email {
+        flex: 0.5;
+        display: flex;
+        flex-direction: column;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .user-row .email .email-text,
+    .user-row .email .last-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 480px) {
+    .config-menu {
+        height: 100px;
+        flex-direction: column;
+    }
+
+
+    .config-menu .search-bar {
+        width: 95%;
+    }
+
+    .user-row .user-content {
+        flex: 0.7;
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin-left: 20px;
+        margin-right: 20px;
+        min-width: 0;
+    }
+
+    .user-row .user-content .first-name {
+        margin-left: 0;
+    }
+
+    .user-row .user-content .email {
+        padding-left: 0;
+    }
+
+
+    .hamburger {
+        display: flex;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li a {
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}

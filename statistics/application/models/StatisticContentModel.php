@@ -82,7 +82,7 @@ class StatisticContentModel {
         return $statistic;
 
 
-    }   
+    }
     public static function getStatisticByDate($dbConnection, $id, $type) {
     
         if($type == "day"){
