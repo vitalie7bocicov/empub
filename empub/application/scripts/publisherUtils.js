@@ -8,7 +8,7 @@ function appendPublisher(publisher) {
 
     publisherRow.setAttribute('id', publisher.id);
     publisherRow.addEventListener('click', () => {
-        location.href = `http://localhost/TehnologiiWeb/empub/public/publisher/${publisher.email}`;
+        location.href = `http://localhost/TehnologiiWeb/empub/public/publisher/${publisher.id}`;
     });
 
 
