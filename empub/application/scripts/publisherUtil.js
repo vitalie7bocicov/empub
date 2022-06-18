@@ -79,10 +79,10 @@ function appendEmails() {
 }
 
 function clickEventHandler(event) {
-    if(window.innerWidth>768){
-        const target = event.currentTarget;
-        const id = target.getAttribute('id');
-
+    const target = event.currentTarget;
+    const id = target.getAttribute('id');
+    
+    if(window.innerWidth > 768){
         const length = mailsArray.length;
         let mail;
         for(let i = 0; i < length; i++) {
@@ -105,7 +105,6 @@ function clickEventHandler(event) {
                 const password = passwordInput.value;
 
                 fetchEmail(password, id);
-
             });
         }
         else {
@@ -116,13 +115,8 @@ function clickEventHandler(event) {
         }
     }
     else{
-
+        location.href = `http://localhost/TehnologiiWeb/empub/public/mobileView/${id}`;
     }
-
-
-
-
-    
 }
 
 function fetchEmail(password, id) {
@@ -148,20 +142,20 @@ function fetchEmail(password, id) {
         {method:'GET', headers:myHeaders})
         )
     .then((response) => {
-            if(response.status != 200) {
-                throw new TypeError (`Response with code ${response.status}`);
-            }
-            const contentType = response.headers.get('Content-Type');
+        if(response.status != 200) {
+            throw new TypeError (`Response with code ${response.status}`);
+        }
+        const contentType = response.headers.get('Content-Type');
     
-            if(contentType && contentType.includes('application/json')) {
-                //location.href = './home';
-                return response.json();
-            }
+        if(contentType && contentType.includes('application/json')) {
+            //location.href = './home';
+            return response.json();
+        }
             
-            throw new TypeError (`Not Json`);
+        throw new TypeError (`Not Json`);
     })
     .catch(err => {
-            console.log(err);
+        console.log(err);
     });
 
 
@@ -196,7 +190,7 @@ function fetchEmail(password, id) {
         const childDocument = iframeElem.contentDocument;
 
         const style = document.createElement('style');
-        style.innerText = 'table{ width: 100%; font-width: 14px; }';
+        style.innerText = 'table{ width: 100%; } @media screen and (max-width: 850px) { font-size: 14px; }';
         const parser = new DOMParser();
         const parsedDocument = parser.parseFromString(html, 'text/html');
         
