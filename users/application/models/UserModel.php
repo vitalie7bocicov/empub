@@ -116,10 +116,10 @@ class UserModel {
         $stmt -> execute($paramsArray);
     }
 
-    public static function delete($dbConnection, $email){
-        $sql = 'delete from users where email = ?';
+   public static function delete($dbConnection, $id){
+        $sql = 'delete from users where id = ?';
         $stmt = $dbConnection->prepare($sql);
-        $paramsArray = array($email);
+        $paramsArray = array($id);
         $stmt -> execute($paramsArray);
     }
 }
