@@ -142,8 +142,31 @@ section .email-list {
     height: 100px;
   }
 
-  .email-row .email-content {
-    flex: 1;
+  .email-sender{
+    padding-bottom: 20px;
+  }
+
+  .email-row .email-content{
+    margin: 0px;
+  }
+
+  .email-row .email-content{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+  }
+
+  .email-row .email-content .email-subject {
+    margin-left: 5px;
+
   }
 
 
@@ -154,25 +177,6 @@ section .email-list {
     display: flex;
   }
 
-  .email-row .email-content{
-    flex: 1;
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    margin-left: 20px;
-    margin-right: 20px;
-    min-width: 0;
-  }
-
-  .email-sender{
-    margin-left: 0px;
-  }
-
-  .email-row .email-content .email-subject{
-    justify-self: end;
-    margin-left: 5px;
-  }
 }
 
 
