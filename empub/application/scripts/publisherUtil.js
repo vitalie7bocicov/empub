@@ -143,6 +143,27 @@ function fetchEmail(password, id) {
         body: aux
     });
 
+    fetch(
+        new Request(`http://localhost/TehnologiiWeb/statistics/statistics/updateStatisticsForMail/${id}`,
+        {method:'GET', headers:myHeaders})
+        )
+    .then((response) => {
+            if(response.status != 200) {
+                throw new TypeError (`Response with code ${response.status}`);
+            }
+            const contentType = response.headers.get('Content-Type');
+    
+            if(contentType && contentType.includes('application/json')) {
+                //location.href = './home';
+                return response.json();
+            }
+            
+            throw new TypeError (`Not Json`);
+    })
+    .catch(err => {
+            console.log(err);
+    });
+
 
     fetch(request)
     .then(res => {

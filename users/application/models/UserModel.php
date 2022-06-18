@@ -72,7 +72,7 @@ class UserModel {
     
             if($stmt -> execute($paramsArray)) {
                 $row = $stmt -> fetch();
-                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name']);
+                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name'], $row['nr_publications']);
             }
             
             return $settings;
@@ -86,7 +86,7 @@ class UserModel {
     
             if($stmt -> execute($paramsArray)) {
                 $row = $stmt -> fetch();
-                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name']);
+                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name'], $row['nr_publications']);
             }
             
             return $settings;
@@ -102,7 +102,7 @@ class UserModel {
     
             if($stmt -> execute($paramsArray)) {
                 $row = $stmt -> fetch();
-                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name']);
+                $settings = new UserModel($row['id'], $email, $row['first_name'], $row['last_name'], $row['nr_publications']);
             }
             
             return $settings;

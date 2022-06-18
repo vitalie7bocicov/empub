@@ -56,7 +56,8 @@ window.onload = () => {
 
     fetch(setName);
     fetch(setLname);
-   
+    
+     alert("Information saved");    
     });
 
 }
