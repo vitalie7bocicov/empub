@@ -1,9 +1,14 @@
 import {Mail} from "./Mail.js";
 import {constructEmailVisitorView} from './emailField.js';
+import {getOrderBy, getFilter, getQuery, deleteAllEmails} from "./utils.js";
 let mailsArray = [];
 let currentMail;
 
 window.onload = () => {
+    filterBy();
+    orderBy();
+    search();
+
     appendEmails();
 
     const insert_password = document.getElementById('insert-password');
@@ -12,8 +17,6 @@ window.onload = () => {
         event.preventDefault();
         const password = document.getElementById('password');
 
-
-        
     });
 };
 
@@ -76,39 +79,48 @@ function appendEmails() {
 }
 
 function clickEventHandler(event) {
-    const target = event.currentTarget;
-    const id = target.getAttribute('id');
+    if(window.innerWidth>768){
+        const target = event.currentTarget;
+        const id = target.getAttribute('id');
 
-    const length = mailsArray.length;
-    let mail;
-    for(let i = 0; i < length; i++) {
-        if(id == mailsArray[i].id) {
-            mail = mailsArray[i];
+        const length = mailsArray.length;
+        let mail;
+        for(let i = 0; i < length; i++) {
+            if(id == mailsArray[i].id) {
+                mail = mailsArray[i];
+            }
+        }
+        currentMail = mail;
+        var password = document.getElementById('insert-password');
+        var overlay = document.getElementById('overlay');
+
+
+        if(mail.isPublic === 0) {
+            overlay.classList.add('displayBlock');
+            password.classList.add('insert-password-display');
+
+            const passwordForm = document.getElementById('insert-password');
+            passwordForm.addEventListener('submit', (event) => {
+                const passwordInput = document.getElementById('password');
+                const password = passwordInput.value;
+
+                fetchEmail(password, id);
+
+            });
+        }
+        else {
+            overlay.classList.remove('displayBlock');
+            password.classList.remove('insert-password-display');
+
+            fetchEmail('', id);
         }
     }
+    else{
 
-
-    currentMail = mail;
-    var password = document.getElementById('insert-password');
-    var overlay = document.getElementById('overlay');
-    if(mail.isPublic === 0) {
-        overlay.classList.add('displaNone');
-        password.classList.add('insert-password-display');
-
-        const passwordForm = document.getElementById('insert-password');
-        passwordForm.addEventListener('submit', (event) => {
-            const passwordInput = document.getElementById('password');
-            const password = passwordInput.value;
-
-            fetchEmail(password, id);
-        });
     }
-    else {
-        overlay.classList.remove('displaNone');
-        password.classList.remove('insert-password-display');
 
-        fetchEmail('', id);
-    }
+
+
 
     
 }
@@ -153,7 +165,7 @@ function fetchEmail(password, id) {
         let password = document.getElementById('insert-password');
         let overlay = document.getElementById('overlay');
         const passwordInput = document.getElementById('password');
-        overlay.classList.remove('displaNone');
+        overlay.classList.remove('displayBlock');
         password.classList.remove('insert-password-display');
         passwordInput.value = '';
 
@@ -177,22 +189,24 @@ function fetchEmail(password, id) {
 
 }
 
-function deleteAllEmails(){
-    const emailList = document.getElementById('email-list');
-    emailList.replaceChildren();
+
+function search(){
+    document.getElementById('search').addEventListener('submit', (event) => {
+        event.preventDefault();
+        appendEmails();
+    });
 }
 
-function getOrderBy(){//publication_date or expiration_date or views
-    const orderBy = document.getElementById('order-by');
-    return  orderBy.options[orderBy.selectedIndex].value;
+function orderBy(){
+    document.getElementById('order-by').addEventListener('change', (event) => {
+        appendEmails();
+    });
 }
 
-function getFilter(){//all or public or private
-    const filter = document.getElementById('email-permission');
-    return filter.options[filter.selectedIndex].value;
+function filterBy(){
+    document.getElementById('email-permission').addEventListener('change', (event) => {
+        appendEmails();
+    });
 }
 
-function getQuery(){
-    const query = document.getElementById('search-input');
-    return query.value;
-}
+

@@ -46,7 +46,6 @@ function appendEmail(mail) {
     emailText.classList.add('email-text');
     emailSubject.classList.add('email-subject');
     emailSubject.innerText = mail.subject;
-    // emailText.innerText = mail.message;
     emailMessage.appendChild(emailSubject);
     emailMessage.appendChild(emailText);
 
@@ -276,4 +275,4 @@ function deleteAllEmails(){//from dom
     allEmails.replaceChildren();
 }
 
-export {appendEmail, appendEmails, deleteEmail, deleteAllEmails, checkNewEmails};
+export {appendEmail, appendEmails, deleteEmail, deleteAllEmails, checkNewEmails, getOrderBy,getFilter,getQuery};

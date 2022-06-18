@@ -24,15 +24,20 @@
                     <span class="bar "></span>-->
             </a>
             <ul class="nav-links">
+
                 <li>
                     <a href="http://localhost/TehnologiiWeb/empub/public/main">Home</a>
                 </li>
                 <li>
-                    <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>
+                    <a href="http://localhost/TehnologiiWeb/empub/public/publishers">Publishers</a>
                 </li>
                 <li id="account">
-                    <a href="http://localhost/TehnologiiWeb/empub/public/html/accountSettings.html">Account</a>
+                    <a href="http://localhost/TehnologiiWeb/empub/public/accountSettings">Account</a>
                 </li>
+                <li>
+                    <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>
+                </li>
+
                 <li id="logout">
                     <a href="login.php">
                         Logout

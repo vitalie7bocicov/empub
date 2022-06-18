@@ -85,7 +85,7 @@ section .email-list {
   z-index: 1;
 }
 
-.displaNone {
+.displayBlock {
   display: block;
 }
 

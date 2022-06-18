@@ -1,3 +1,4 @@
+import {getOrderBy} from "./utils.js";
 
 
 function constructEmailVisitorView(mail) {
@@ -8,13 +9,20 @@ function constructEmailVisitorView(mail) {
     const emailDate = document.createElement('div');
     emailDate.classList.add('email-date');
 
-    const emailSpan = document.createElement('span');
-    emailSpan.classList.add('email-expiration-date');
-    
-    let publicationDate = new Date(mail.publicationDate);
-    emailSpan.innerText = `${publicationDate.getDate().toString().padStart(2,"0")}/${publicationDate.getMonth().toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
+    const spanDate = document.createElement('span');
+    spanDate.classList.add('email-expiration-date');
 
-    emailDate.appendChild(emailSpan);
+    const orderBy = getOrderBy();
+
+    if(orderBy === "publication_date" || orderBy==="views"){
+        let publicationDate = new Date(mail.publicationDate);
+        spanDate.innerText = `${publicationDate.getDate().toString().padStart(2,"0")}/${publicationDate.getMonth().toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
+    }
+    else if(orderBy ==="expiration_date"){
+        let expirationDate = new Date(mail.expirationDate);
+        spanDate.innerText = `${expirationDate.getDate().toString().padStart(2,"0")}/${expirationDate.getMonth().toString().padStart(2,"0")}/${expirationDate.getFullYear()}`;
+    }
+    emailDate.appendChild(spanDate);
     emailRow.appendChild(emailDate);
 
     const emailContent = document.createElement('div');
