@@ -26,7 +26,7 @@ public class MessageThread {
     public void run() {
         Properties propss = new Properties();
         try {
-            propss.load(new FileReader("C:\\xampp\\htdocs\\TehnologiiWeb\\MailJavaPart\\src\\main\\resources\\Languaes.properties"));
+            propss.load(new FileReader("E:\\ProgramFiles\\xampp\\htdocs\\TehnologiiWeb\\MailJavaPart\\src\\main\\resources\\Languaes.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,27 +1,29 @@
 <?php
 use function MongoDB\BSON\toJSON;
 
-require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\core\Controller.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\core\BD.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\models\MailModel.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\emails\application\models\MailContentModel.php';
+require './application/core/Controller.php';
+require './application/core/BD.php';
+require './application/models/MailModel.php';
+require './application/models/MailContentModel.php';
 class Mail extends Controller {
-    function index($email = '') {
+    function index($userId = '') {
         header('Content-type: application/json');
         $orderBy = $this->getOrderBy();
         $filter = $this->getFilter();
         $query = $this->getQuery();
-        if($email == '') {
-            $email = $this->user->getName();
+
+
+        if($userId == '') {
+            $userId = $this->user->getId();
         }
 
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            http_response_code(400);
-            return;
-        }
+        // if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        //     http_response_code(400);
+        //     return;
+        // }
 
         $bd = new DB();
-        $mails = MailModel::getMails($bd->getConnection(), $this->user->getId(), $filter, $orderBy, $query);
+        $mails = MailModel::getMails($bd->getConnection(), $userId, $filter, $orderBy, $query);
         $response = array();
         $counter = 0;
         foreach($mails as $mailVar) {
@@ -40,6 +42,23 @@ class Mail extends Controller {
         $bd = new DB();
         $mailContent = MailContentModel::getMail($bd->getConnection(), $id);
         $mailContent = $mailContent -> toJson();
+        
+        echo json_encode($mailContent);
+    }
+
+
+    function getMailContentByIDWithPassword($id = '') {
+        $json = trim(file_get_contents('php://input'));
+        $data = json_decode($json);
+
+        if($data != null)
+            $password = $data->password;
+
+        header('Content-type: application/json');
+        $bd = new DB();
+        $mailContent = MailContentModel::getMailWithPassword($bd->getConnection(), $id, $password);
+        if($mailContent !== null)
+            $mailContent = $mailContent -> toJson();
         
         echo json_encode($mailContent);
     }

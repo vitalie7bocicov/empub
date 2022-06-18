@@ -1,8 +1,8 @@
 <?php
 use function MongoDB\BSON\toJSON;
-require 'C:\xampp\htdocs\TehnologiiWeb\statistics\application\core\Controller.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\statistics\application\core\BD.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\statistics\application\models\StatisticContentModel.php';
+require './application/core/Controller.php';
+require './application/core\BD.php';
+require './application/models/StatisticContentModel.php';
 
 class Statistics extends Controller {
 

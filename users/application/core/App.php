@@ -1,6 +1,6 @@
 <?php
 
-require 'C:\xampp\htdocs\TehnologiiWeb\users\application\models\User.php';
+require './application/models/User.php';
 include_once '../libs/php-jwt/src/JWT.php';
 include_once '../libs/php-jwt/src/Key.php';
 include_once '../libs/php-jwt/src/ExpiredException.php';

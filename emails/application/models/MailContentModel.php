@@ -51,4 +51,41 @@ class MailContentModel {
         }
         return $mailContent;
     }
+
+    public static function getMailWithPassword($dbConnection, $id, $password) {
+        $sql1 = 'select public, PASSWORD from mails where id = ?';
+        $mailStmt = $dbConnection->prepare($sql1);
+        $paramsArray = array($id);
+        
+
+        if($mailStmt -> execute($paramsArray)) {
+            $row = $mailStmt -> fetch();
+
+            if($row['public'] === 0) {
+
+    
+                if($password === null)
+                    return null;
+
+                $hash = hash('sha256', $password);
+
+                if($hash !== $row['PASSWORD']) {
+                    return null;
+                }
+            }
+        }
+        else {
+            return null;
+        }
+        
+        $sql = 'select * from mail_contents where mail_id = ?';
+
+        $stmt = $dbConnection->prepare($sql);
+
+        if($stmt -> execute($paramsArray)) {
+            $row = $stmt -> fetch();
+            $mailContent = new MailContentModel($row['id'], $row['plainText'], $row['htmlText'], $row['mail_id']);
+        }
+        return $mailContent;
+    }
 }

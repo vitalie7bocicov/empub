@@ -1,8 +1,8 @@
 <?php
 use function MongoDB\BSON\toJSON;
-require 'C:\xampp\htdocs\TehnologiiWeb\users\application\core\Controller.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\users\application\core\BD.php';
-require 'C:\xampp\htdocs\TehnologiiWeb\users\application\models\UserModel.php';
+require './application/core/Controller.php';
+require './application/core/BD.php';
+require './application/models/UserModel.php';
 
 class Users extends Controller {
 

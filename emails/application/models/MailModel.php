@@ -1,5 +1,6 @@
 <?php
 
+use http\Exception\InvalidArgumentException;
 class MailModel {
     private $id;
     private $sender;
@@ -73,19 +74,25 @@ class MailModel {
             return 1;
         if($filter==="private")
             return 0;
-        return  throw new \http\Exception\InvalidArgumentException("Filter by: ". $filter);
+        return  throw new \InvalidArgumentException("Filter by: ". $filter);
     }
 
-    public static function getOrderBy($orderBy){
-        if($orderBy==="publication_date" || $orderBy==="views")
+    public static function getOrderBy($orderBy) {
+        if($orderBy === "publication_date" || $orderBy==="views")
             return $orderBy ." desc";
-        if($orderBy==="expiration_date")
+        if($orderBy === "expiration_date")
             return $orderBy;
-        throw new \http\Exception\InvalidArgumentException("Order by: ". $orderBy);
+        throw new \InvalidArgumentException("Order by: " . $orderBy);
     }
 
     public static function getMails($dbConnection, $id, $filter, $orderBy, $query='') {
-        $orderBy = MailModel::getOrderBy($orderBy);
+        try {
+            $orderBy = MailModel::getOrderBy($orderBy);
+        }
+        catch(\InvalidArgumentException $e) {
+            echo 'error caught';
+        }
+        
         if($filter==="all"){
             $sql = 'select * from mails where user_id = ? order by ' . $orderBy;
         }
