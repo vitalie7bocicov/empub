@@ -20,7 +20,9 @@
 </head>
 
 <body>
-  <?=include('../application/views/navbar.php')?>
+    <?php
+    include('../application/views/navbar.php')
+    ?>
   
   <div class="panel" id="panelID">
     <div class="panel-header">

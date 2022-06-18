@@ -14,8 +14,9 @@
 </head>
 
 <body>
-    <?=include('../application/views/navbar.php')?>
-    
+    <?php
+    include('../application/views/navbar.php')
+    ?>
     <main class="wrapper" id = "wrapper">
         <div class="sidebar" id="sidebar">
             <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons">

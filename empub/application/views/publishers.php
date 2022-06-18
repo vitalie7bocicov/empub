@@ -16,7 +16,9 @@
 
 
 <body>
-<?=include('../application/views/navbar.php')?>
+    <?php
+    include('../application/views/navbar.php')
+    ?>
 
 <section class="container">
 
