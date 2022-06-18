@@ -115,10 +115,11 @@ function clickEventHandler(event) {
 
 function fetchEmail(password, id) {
     let aux;
-    console.log(password);
     if(password !== '') {
         aux = `{ "password" : "${password}" }`;
     }
+    const incorectPass = document.getElementById('incorectPass');
+    incorectPass.classList.remove('displayIncoretPassword');
 
     const authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
@@ -144,8 +145,10 @@ function fetchEmail(password, id) {
         throw new TypeError ('Response got is not in correct format');
     })
     .then(data => {
-        if(data == null)
+        if(data == null) {
+            incorectPass.classList.add('displayIncoretPassword');
             return null;
+        }
 
         let password = document.getElementById('insert-password');
         let overlay = document.getElementById('overlay');

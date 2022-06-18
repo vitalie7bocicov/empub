@@ -65,7 +65,7 @@ section .email-list {
     border-radius: 2rem;
     background-color: white;
     width: 250px;
-    height: 130px;
+    height: 140px;
     padding: 20px;
     border: 1px solid black;
     z-index: 2;
@@ -75,6 +75,16 @@ section .email-list {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.incorect-password {
+  font-size: 13px;
+  color: red;
+  display: none;
+}
+
+.displayIncoretPassword {
+  display: block;
 }
 
 .passwordButton {

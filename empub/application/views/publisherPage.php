@@ -569,7 +569,9 @@
             <form class="insert-password" id="insert-password">
                 <label for="password">Please enter password: </label>
                 <input type="password" name="password" id="password">
+                <p class="incorect-password" id="incorectPass">Incorrect Password</p>
                 <button type="submit" class="passwordButton">Submit</button>
+
             </form>
             
             <iframe id="email-frame" style="width: 100%; height: 100%;"></iframe>
@@ -580,49 +582,6 @@
 
 </body>
 
-<script>
-    var emails = document.getElementsByClassName('email-row');
-    
-    for(let i = 0; i < emails.length; i++) {
-        
-        emails[i].addEventListener('click', function() {
-            var emailString = 'email';
-
-            let j = i + 1;
-            emailString = emailString + j;
-
-            //console.log(emailString);
-            load_email(emailString);
-        });
-    }
-
-
-    function load_email(divName) {
-        var doc = document.getElementById(divName);
-        console.log(doc);
-
-        if(doc.classList.contains('email-unlocked')) {
-            var password = document.getElementById('insert-password');
-            var overlay = document.getElementById('overlay');
-
-            overlay.classList.add('displaNone');
-            password.classList.add('insert-password-display');
-        }
-        else {
-            var password = document.getElementById('insert-password');
-            var overlay = document.getElementById('overlay');
-
-            overlay.classList.remove('displaNone');
-            password.classList.remove('insert-password-display');
-        }
-        document.getElementById("email-frame").src = "letterFrame.html";
-    }
-    function load_settings() {
-        document.getElementById("email-frame").src = "settingsPage.html";
-    }
-
-</script>
-<!--<script src="http://localhost/TehnologiiWeb/empub/application/scripts/visitor.js"></script>-->
 <script type="module" src="http://localhost/TehnologiiWeb/empub/application/scripts/publisherUtil.js"></script>
 
 </html>
