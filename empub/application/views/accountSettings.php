@@ -13,36 +13,8 @@
 </head>
 
 <body>
- <header>
-
-    <nav>
-      <div class="logo">
-        <a href="http://localhost/TehnologiiWeb/empub/public/main">
-          <img src="../images/white_logo.png" alt="Logo">
-        </a>
-      </div>
-      <a href="#" class="hamburger">
-        <div class="bar"></div>
-      </a>
-      <ul class="nav-links">
-        <li>
-          <a href="http://localhost/TehnologiiWeb/empub/public/main">Home</a>
-        </li>
-        <li>
-          <a href="doc.html">About</a>
-        </li>
-        <li id="account">
-          <a href="http://localhost/TehnologiiWeb/empub/public/accountSettings">Account</a>
-        </li>
-        <li id="logout">
-          <a href="http://localhost/TehnologiiWeb/empub/public/login">
-            Logout
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
+  <?=include('../application/views/navbar.php')?>
+ 
   <div class="container">
     <div class="center">
       <div class="headerDiv">

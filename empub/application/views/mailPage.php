@@ -14,36 +14,8 @@
 </head>
 
 <body>
-    <header>
-
-        <nav>
-            <div class="logo">
-                <a href="../../application/views/main.php">
-                    <img src="../../application/images/white_logo.png" alt="Logo">
-                </a>
-            </div>
-            <a href="#" class="hamburger">
-                <span class="bar"></span>
-            </a>
-            <ul class="nav-links">
-                <li>
-                    <a href="../../application/views/main.php">Home</a>
-                </li>
-                <li>
-                    <a href="doc.html">About</a>
-                </li>
-                <li id="account">
-                    <a href="accountSettings.html">Account</a>
-                </li>
-                <li id="logout">
-                    <a href="../index.html">
-                        Logout
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    <?=include('../application/views/navbar.php')?>
+    
     <main class="wrapper" id = "wrapper">
         <div class="sidebar" id="sidebar">
             <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons">
