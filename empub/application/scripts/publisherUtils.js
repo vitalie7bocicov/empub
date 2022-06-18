@@ -46,7 +46,7 @@ function appendPublisher(publisher) {
     const nrPublications = document.createElement('div');
     nrPublications.classList.add("nr-publications");
     const spanNrPublications = document.createElement('span');
-    spanNrPublications.innerText=`Nr. of publications: `;
+    spanNrPublications.innerText=`Nr. of publications: ${publisher.nr_publications}`;
     nrPublications.appendChild(spanNrPublications);
 
     publisherInfo.append(nrPublications);

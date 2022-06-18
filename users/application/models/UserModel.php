@@ -5,30 +5,17 @@ class UserModel {
     private $email;
     private $first_name;
     private $last_name;
+    private $nr_publications;
 
-
-    public function  __construct($id, $email, $first_name, $last_name) {
+    public function  __construct($id, $email, $first_name, $last_name, $nr_publications) {
         $this->id = $id;
         $this->email = $email;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
+        $this->nr_publications = $nr_publications;
     }
 
-    public function getId() {
-        return $this->id;
-    }
 
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getFirstName() {
-        return $this->first_name;
-    }
-
-    public function getLastName() {
-        return $this->last_name;
-    }
 
     public function toJson() {
         $result = array();
@@ -36,26 +23,45 @@ class UserModel {
         $result['email'] = $this->email;
         $result['first_name'] = $this->first_name;
         $result['last_name'] = $this->last_name;
-
+        $result['nr_publications'] = $this->nr_publications;
         return $result;
     }
 
-    public static function getUsers($dbConnection) {
+    public static function getUsers($dbConnection,  $query='') {
     
-        $sql = 'select * from users';
+        $sql = 'select users.id,email,first_name,last_name,count(mails.id) nr_publications from users left join mails on users.id=mails.user_id group by users.id;';
         $stmt = $dbConnection->prepare($sql);
         $result = array();
         $counter = 0;
 
         if($stmt -> execute()) {
             while($row = $stmt -> fetch()) {
-                $mail = new UserModel($row['id'], $row['email'], $row['first_name'], $row['last_name']);
-                $result[$counter] = $mail;
+                $user = new UserModel($row['id'], $row['email'], $row['first_name'], $row['last_name'], $row['nr_publications']);
+
+                if($query!=='' && !UserModel::searchUser($user,$query)){
+                    continue;
+                }
+
+                $result[$counter] = $user;
                 $counter += 1;
             }
         }
 
         return $result;
+    }
+
+    public static function searchUser($user, $query){
+        $email = mb_strtolower($user->email);
+        $query = mb_strtolower($query);
+        if (str_contains($email, $query))
+            return true;
+        $first_name = mb_strtolower($user->first_name);
+        if(str_contains($first_name, $query))
+            return true;
+        $last_name = mb_strtolower($user->last_name);
+        if(str_contains($last_name, $query))
+            return true;
+        return false;
     }
 
     public static function setF($dbConnection, $name, $email){

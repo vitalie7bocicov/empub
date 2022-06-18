@@ -8,8 +8,9 @@ class Users extends Controller {
 
     function index() {
         header('Content-type: application/json');
+        $query = $this->getQuery();
         $bd = new DB();
-        $users = UserModel::getUsers($bd->getConnection());
+        $users = UserModel::getUsers($bd->getConnection(), $query);
         $response = array();
         $counter = 0;
         foreach($users as $userVar) {
@@ -64,6 +65,11 @@ class Users extends Controller {
     function deleteUser($email){
       $bd = new DB();
       UserModel::delete($bd->getConnection(),$email);
+    }
+
+    function getQuery(){
+        $headers = apache_request_headers();
+        return $headers['searchquery'];
     }
    
 }

@@ -91,6 +91,7 @@ function appendEmail(mail) {
     emailLock.appendChild(material_icons_span1);
 
     emailLock.classList.add('email-lock');
+    emailLock.title = "Locked";
     emailLock.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -100,6 +101,7 @@ function appendEmail(mail) {
 
     emailSettings.appendChild(material_icons_span2);
     emailSettings.classList.add('email-settings');
+    emailSettings.title='Settings';
     emailSettings.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -111,10 +113,12 @@ function appendEmail(mail) {
     emailStats.appendChild(material_icons_span3);
     emailStats.appendChild(emailViews);
     emailStats.classList.add('email-stats');
+    emailStats.title='Statistics';
 
 
     emailDelete.appendChild(material_icons_span4);
     emailDelete.classList.add('email-delete');
+    emailDelete.title='Delete';
     emailDelete.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
