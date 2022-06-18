@@ -1,0 +1,72 @@
+.insert-password {
+    display: none;
+    position: absolute;
+    margin: auto;
+    top: calc(50% - 70px);
+    left: calc(50% - 120px);
+    border-radius: 2rem;
+    background-color: white;
+    width: 250px;
+    height: 140px;
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 2;
+}
+
+.insert-password-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.incorect-password {
+  font-size: 13px;
+  color: red;
+  display: none;
+}
+
+.displayIncoretPassword {
+  display: block;
+}
+
+.passwordButton {
+  width: 100px;
+  padding: 2%;
+  margin: 10px 0;
+  background-color: lightgray;
+  font-weight: 600;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  font-family: "Amazon Ember", sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: lightcyan;
+  z-index: 1;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.displayNone {
+  display: none;
+}

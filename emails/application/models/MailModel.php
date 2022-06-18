@@ -134,10 +134,10 @@ class MailModel {
     }
 
 
-    public static function getMail($dbConnection, $user_id, $id) {
-        $sql = 'select *  from mails where user_id = ? and id=?';
+    public static function getMail($dbConnection, $id) {
+        $sql = 'select *  from mails where id=?';
         $stmt = $dbConnection->prepare($sql);
-        $paramsArray = array($user_id, $id);
+        $paramsArray = array($id);
        if($stmt -> execute($paramsArray)) {
             $row = $stmt -> fetch();
             $mail = new MailModel($row['id'], $row['senderName'], $row['senderEmailAddress'], $row['subject'], $row['public'], $row['publication_date'], $row['expiration_date'], $row['views'], $row['PASSWORD'] );

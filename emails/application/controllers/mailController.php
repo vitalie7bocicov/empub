@@ -65,8 +65,9 @@ class Mail extends Controller {
 
     function getMailByID($id = '') {
         header('Content-type: application/json');
+
         $bd = new DB();
-        $response = MailModel::getMail($bd->getConnection(),$this->user->getId(), $id);
+        $response = MailModel::getMail($bd->getConnection(), $id);
         $mail = $response -> toJson();
         echo json_encode($mail);
     }
