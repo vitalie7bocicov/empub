@@ -109,10 +109,10 @@ class UserModel {
         
     }
 
-    public static function create($dbConnection,$user){
-        $sql = 'insert into users(email,first_name,last_name) values(?,?,?)';
+    public static function create($dbConnection,$email,$fname,$lname){
+        $sql = 'insert into users(email,first_name,last_name) values (?,?,?)';
         $stmt = $dbConnection->prepare($sql);
-        $paramsArray = array($user->getEmail() , $user->getFirstName(), $user->getLastName());
+        $paramsArray = array($email,$fname,$lname);
         $stmt -> execute($paramsArray);
     }
 
