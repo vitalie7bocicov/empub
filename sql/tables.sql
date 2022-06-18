@@ -10,6 +10,13 @@ drop table countries;
 
 drop table statistics;
 
+drop table admins;
+
+create table admins (
+	id int primary key auto_increment,
+	email varchar(128) not null UNIQUE,
+	password varchar(256) not null
+);
 
 create table users (
 	id int primary key auto_increment,

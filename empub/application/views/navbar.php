@@ -25,8 +25,8 @@
                   <a href="http://localhost/TehnologiiWeb/empub/public/html/doc.html">About</a>
               </li>
 
-              <li id="logout">
-                  <a href="login.php">
+              <li id="logout" onclick="localStorage.removeItem('accessToken')">
+                  <a href="http://localhost/TehnologiiWeb/empub/public/html/login.php"" ">
                       Logout
                   </a>
               </li>

@@ -169,6 +169,11 @@ function deleteEmail(mail) {
 }
 
 function appendEmails() {
+    let cookies = {};
+    document.cookie.split(';').forEach(element => {
+        let [key, value] = element.split('=');
+        cookies[key.trim()] = value.trim();
+    });
     const orderBy = getOrderBy();
     const filter = getFilter();
     const query = getQuery();
@@ -179,7 +184,7 @@ function appendEmails() {
     myHeaders.append('filter', filter);
     myHeaders.append('orderBy', orderBy);
     myHeaders.append('searchquery', query);
-    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail`, {
+    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/${cookies['userId']}`, {
         method: 'GET',
         headers: myHeaders
     });

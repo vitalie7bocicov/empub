@@ -24,6 +24,18 @@ class User {
         return false;
     }
 
+    public static function findAdminByEmail($dbConnection, $params = []) {
+        $sql = 'select id, email from e_admins where email = ?';
+        $prepareStatemnt =  $dbConnection->prepare($sql);
+        if($prepareStatemnt->execute($params)) {
+            if($row = $prepareStatemnt -> fetch()) {
+                $user = new User($row['id'], $row['email']);
+                return $user;
+            }
+        }
+        return false;
+    }
+
     public function updatePassword($dbConnection, $password) {
         $sql = 'update users set password = ? where email = ?';
 
@@ -51,6 +63,22 @@ class User {
             }
         }
 
+        return false;
+    }
+
+    public function passwordAdminMatching($dbConnection, $password) {
+        $sql = 'select password from e_admins where id = ?';
+
+        $prepareStatemnt = $dbConnection->prepare($sql);
+        $array = array($this->user_id);
+        if($prepareStatemnt->execute($array)) {
+            if($row = $prepareStatemnt -> fetch()) {
+                $actualPassword = $row['password'];
+                if(strcmp($actualPassword, $password) == 0) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

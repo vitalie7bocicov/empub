@@ -42,7 +42,7 @@ class Login extends Controller {
 
         header('Content-type: application/json');
 
-        $resposeObj = array('respose' => false);
+        $responseObj = array('response' => false);
         $generatePass = $this->randomPassword();
 
         require '../application/views/passwordEmail.php';
@@ -52,7 +52,7 @@ class Login extends Controller {
         
         if(!$user->updatePassword($bd->getConnection(), $hash)) {
             http_response_code(400);
-            echo json_encode($resposeObj);
+            echo json_encode($responseObj);
             return;
         }
 
@@ -61,12 +61,12 @@ class Login extends Controller {
 
         if(!$mailSend) {
             http_response_code(400);
-            echo json_encode($resposeObj);
+            echo json_encode($responseObj);
             return;
         }
 
-        $resposeObj['respose'] = true;
-        echo json_encode($resposeObj);
+        $responseObj['response'] = true;
+        echo json_encode($responseObj);
     }
 
     public function verifyPassword() {
@@ -82,24 +82,24 @@ class Login extends Controller {
         $paramsArray = array($email);
         $user = User::findByEmail($bd->getConnection(), $paramsArray);
         header('Content-type: application/json');
-        $resposeObj = array('respose' => false);
+        $responseObj = array('response' => false);
 
         if(!$user) {
             //http_response_code(400);
-            $resposeObj['respose'] = 'Can not find user';
-            echo json_encode($resposeObj);
+            $responseObj['response'] = 'Can not find user';
+            echo json_encode($responseObj);
             return;
         }
         
         $hash = hash('sha256', $password);
         if(!$user->passwordMatching($bd->getConnection(), $hash)) {
             //http_response_code(400);
-            $resposeObj['respose'] = 'Passwords don\'t match';
-            echo json_encode($resposeObj);
+            $responseObj['response'] = 'Passwords don\'t match';
+            echo json_encode($responseObj);
             return;
         }
 
-        $resposeObj['respose'] = true;
+        $responseObj['response'] = true;
         
         $iat = time();
         $exp = $iat + 60 * 60;
@@ -113,26 +113,90 @@ class Login extends Controller {
         );
 
         $jwt = JWT::encode($payload, $this->key, 'HS512');
-        $resposeObj['respose'] = array('token' => $jwt);
+        $responseObj['response'] = array('token' => $jwt);
 
-        echo json_encode($resposeObj);
+        echo json_encode($responseObj);
+    }
+
+    public function verifyAdminPassword() {
+        $json = trim(file_get_contents('php://input'));
+
+        $obj = json_decode($json);
+        $email = $obj->email;
+        $password = $obj->password;
+
+        $bd = new DB;
+
+        $paramsArray = array($email);
+        $user = User::findAdminByEmail($bd->getConnection(), $paramsArray);
+        header('Content-type: application/json');
+        $responseObj = array('response' => false);
+        if(!$user) {
+            //http_response_code(400);
+            $responseObj['response'] = 'Can not find admin';
+            echo json_encode($responseObj);
+            return;
+        }
+        $hash = hash('sha256', $password);
+        if(!$user->passwordAdminMatching($bd->getConnection(), $hash)) {
+            //http_response_code(400);
+            $responseObj['response'] = 'Passwords don\'t match';
+            echo json_encode($responseObj);
+            return;
+        }
+
+        $responseObj['response'] = true;
+
+        $iat = time();
+        $exp = $iat + 60 * 60;
+        $payload = array(
+            'iat' => $iat,
+            'exp' => $exp,
+            'data' => array(
+                'id' => $user->getUserId(),
+                'name' => $user->getEmail()
+            )
+        );
+
+        $jwt = JWT::encode($payload, $this->key, 'HS512');
+        $responseObj['response'] = array('token' => $jwt);
+
+        echo json_encode($responseObj);
     }
 
     public function verifyEmail($email = '') {
         $db = new DB;
         header('Content-type: application/json');
 
-        $resposeObj = array('respose' => false);
+        $responseObj = array('response' => false);
         $paramsArray = array($email);
 
         $user = User::findByEmail($db->getConnection(), $paramsArray);
 
         if($user) {
-            $resposeObj['respose'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
+            $responseObj['response'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
+            setcookie('email', $user->getEmail(),  time() + 300, '/empub/public/login/password');
+        }
+        echo json_encode($responseObj);
+
+    }
+
+
+    public function verifyAdmin($email = '') {
+        $db = new DB;
+        header('Content-type: application/json');
+
+        $responseObj = array('response' => false);
+        $paramsArray = array($email);
+
+        $user = User::findAdminByEmail($db->getConnection(), $paramsArray);
+
+        if($user) {
+            $responseObj['response'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
         }
 
         setcookie('email', $user->getEmail(),  time() + 300, '/empub/public/login/password');
-        echo json_encode($resposeObj);
+        echo json_encode($responseObj);
     }
 
     public static function randomPassword() {

@@ -1,10 +1,10 @@
 <?php
 class Main extends Controller
 {
-    public function index()
+    public function index($userId='')
     {
+        setcookie('userId', $userId);
         $this->view('main');
-        
     }
 
 }
