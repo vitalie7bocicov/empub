@@ -23,6 +23,7 @@
 
     <div class="config-menu">
     <button class="btn" id="btn"><i class="fa fa-plus"></i> Add new user</button>
+    <button class="btn" id="csv">EXPORT as CSV</button>
         <form action="#" class="search-bar" id="search">
             <input type="text" name="q"  placeholder="search"  id="search-input">
             <button class="publisher-search">
