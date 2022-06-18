@@ -62,10 +62,11 @@ class Users extends Controller {
 
     }
 
-    function deleteUser($email){
+  function deleteUser($id){
       $bd = new DB();
-      UserModel::delete($bd->getConnection(),$email);
+      UserModel::delete($bd->getConnection(),$id);
     }
+
 
     function getQuery(){
         $headers = apache_request_headers();
