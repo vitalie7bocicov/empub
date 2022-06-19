@@ -5,8 +5,9 @@
   <title>EMPub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="../../application/styles/statistics.css">
+
   <link rel="stylesheet" href="../../application/styles/style.css">
+    <link rel="stylesheet" href="../../application/styles/statistics.css">
   <script src="../../application/scripts/navbar.js" defer></script>
   <script src="https://kit.fontawesome.com/d31da07a9e.js" crossorigin="anonymous"></script>
 
