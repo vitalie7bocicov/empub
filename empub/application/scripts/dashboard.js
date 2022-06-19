@@ -4,25 +4,26 @@ window.onload = () => {
     appendUsers();
     search();
 
-var modal = document.getElementById("myModal");
-    
 
-var btn = document.getElementById("btn");
+    let modal = document.getElementById("myModal");
 
 
-var span = document.getElementsByClassName("close")[0];
-    
-var csv = document.getElementById("csv");
+    let btn = document.getElementById("btn");
 
-csv.addEventListener('click', ()=>{
-    const authToken = `Bearer ${localStorage.getItem('accessToken')}`;
-    let myHeaders = new Headers();
-    myHeaders.append('Authorization', authToken);
-    let request = new Request(`http://localhost/TehnologiiWeb/users/users`, {
-        method: 'GET',
-        headers: myHeaders
-    });
-    fetch(request)
+
+    let span = document.getElementsByClassName("close")[0];
+
+    let csv = document.getElementById("csv");
+
+    csv.addEventListener('click', ()=>{
+        const authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', authToken);
+        let request = new Request(`http://localhost/TehnologiiWeb/users/users`, {
+            method: 'GET',
+            headers: myHeaders
+        });
+        fetch(request)
         .then(res => {
             if(res.status != 200) {
                 checkStatus(res.status);
@@ -43,9 +44,9 @@ csv.addEventListener('click', ()=>{
                     csvContent += row + "\r\n";
                 });
 
-                var encodedUri = encodeURI(csvContent);
+                let encodedUri = encodeURI(csvContent);
                 window.open(encodedUri);
-            
+
         })
         .catch(err => {
             console.log(err);
@@ -69,20 +70,20 @@ create.addEventListener('click', ()=>{
   const email = document.getElementById('email').value;
   const fname = document.getElementById('fname').value;
   const lname = document.getElementById('lname').value;
-  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   if(email.match(validRegex)){
 
-  let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
-  let myHeaders = new Headers();
-  myHeaders.append('Authorization', authToken);
- 
-  let createUser = new Request(`http://localhost/TehnologiiWeb/users/users/createUser/${email}/${fname}/${lname}`, {
-      method: 'POST',
-      headers: myHeaders
-  });
+      let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+      let myHeaders = new Headers();
+      myHeaders.append('Authorization', authToken);
 
-  fetch(createUser)
+      let createUser = new Request(`http://localhost/TehnologiiWeb/users/users/createUser/${email}/${fname}/${lname}`, {
+          method: 'POST',
+          headers: myHeaders
+      });
+
+      fetch(createUser)
       .then((response) => {
           if(response.status !== 200) {
               checkStatus(response.status);
@@ -100,7 +101,7 @@ create.addEventListener('click', ()=>{
 }
 
 window.onclick = (event) =>{
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("myModal");
     if (event.target == modal) {
         modal.style.display = "none";
       }

@@ -42,7 +42,7 @@ function appendUser(publisher) {
 
     publisherRow.appendChild(publisherInfo);
     const options = document.createElement('div');
-    options.classList.add("nr-publications");
+    options.classList.add("delete");
 
     const userDelete = document.createElement('a');
     const material_icons_span4 = document.createElement('span');
@@ -54,12 +54,12 @@ function appendUser(publisher) {
     userDelete.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        deleteUserFromList(event.target.parentElement.parentElement.parentElement.parentElement);
+        deleteUserFromList(event.target.parentElement.parentElement.parentElement);
         deleteUserRequest(publisher);
     });
     options.appendChild(userDelete);
 
-    publisherInfo.append(options);
+    publisherRow.append(options);
 
     return publisherRow;
 }
@@ -106,18 +106,17 @@ function deleteUserRequest(user){
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
-    console.log(user);
     let deleteUser = new Request(`http://localhost/TehnologiiWeb/users/users/deleteUser/${user.id}`, {
         method: 'POST',
         headers: myHeaders
     });
-
     fetch(deleteUser)
         .then((response) => {
             if(response.status !== 200) {
                 checkStatus(response.status);
                 throw new TypeError(`Response with code ${response.status}`);
             }
+            appendUsers();
         })
         .catch(err => {
             console.log(err);

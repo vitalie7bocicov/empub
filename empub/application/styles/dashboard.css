@@ -1,11 +1,10 @@
 #insert{
     padding: 2px;
 }
-
 .btn{
      border: 0.5px solid black;
      font-size: 16px; 
-     padding: 10px 12px;  
+     padding: 5px 6px;
      cursor: pointer;
      border-radius: 2rem;
      margin-left: 10px;
@@ -74,6 +73,14 @@
 }
 
 
+
+.delete a:hover{
+    padding: 2px;
+    border-radius: 50%;
+    background-color: rgb(71, 77, 86);
+    color: white;
+}
+
 .config-menu .search-bar {
     display: flex;
     align-items: center;
@@ -136,7 +143,6 @@
     white-space: nowrap;
     height: 100%;
     margin-left: 20px;
-
     overflow: hidden;
     text-overflow: ellipsis;
     border-right: 1px solid black;
@@ -170,11 +176,11 @@
     height: 100%;
 }
 
-.publisher-info .nr-publications{
-    padding-left: 100px;
+.delete{
+    padding-left: 10px;
+    padding-right: 10px;
     display: flex;
     align-items: center;
-    justify-items: flex-end;
     height: 100%;
     border-left: 1px solid black;
 }
@@ -216,15 +222,38 @@
     }
 
 
-   .publisher-name{
-       flex-direction: column;
-   }
-
-    .publisher-row .publisher-info .publisher-first-name,
     .publisher-row .publisher-info .publisher-last-name{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .publisher-row .publisher-info{
+        flex: 0.6;
+    }
+}
+
+@media (max-width: 600px){
+    .config-menu{
+        height: 100px;
+        flex-direction: column-reverse;
+    }
+
+    .config-menu .search-bar{
+        margin-top: 15px;
+        width: 95%;
+    }
+
+    .config-menu .config-buttons{
+        width: 100%;
+        font-size: 10px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .config-buttons .btn{
+        padding: 5px;
     }
 }
 
@@ -232,6 +261,10 @@
     .container{
         width: 100%;
         margin: 0;
+    }
+
+    .config-menu{
+
     }
 
     .publisher-name{
@@ -248,10 +281,12 @@
     .publisher-email{
         flex: 1;
     }
-    .publisher-info{
+    .publisher-row .publisher-info{
         width: 20%;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
+        padding-left: 10px;
     }
     .publisher-info .publisher-name{
         padding-left: 0px;
