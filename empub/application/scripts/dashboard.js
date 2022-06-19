@@ -1,6 +1,7 @@
 import {appendUsers} from './dashboardUtils.js';
 
 window.onload = () => {
+    if(localStorage.getItem("nimda") === 1){
     appendUsers();
     search();
 
@@ -96,6 +97,10 @@ create.addEventListener('click', ()=>{
     }
 
 });
+     else{
+    alert("You are not an admin!");
+    window.location.replace("http://localhost/TehnologiiWeb/empub/public/main");
+    }
 
 
 }
