@@ -52,6 +52,7 @@ window.onload = () => {
 
                 localStorage.setItem('accessToken', data.response.token);
                 location.href = 'http://localhost/TehnologiiWeb/empub/public/main';
+                return;
             }
     
             const text = data.response;

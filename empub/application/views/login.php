@@ -4,13 +4,14 @@
 <head>
     <title>EMPub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Email publisher">
     <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/logIN.css">
 </head>
 
 <body>
 
     <div class="center">
-        <img src="http://localhost/TehnologiiWeb/empub/application/images/LOGOT.png" class="centerLOGO" width="200" height="144" alt="empub logo">
+        <img src="http://localhost/TehnologiiWeb/empub/application/images/LOGOT.png" class="centerLOGO" width="200" height="auto" alt="empub logo">
         <p class="quote">
             the best email publisher.
         </p>

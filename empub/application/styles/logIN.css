@@ -157,7 +157,7 @@ img {
 
 @media only screen and (max-width: 768px) {
   .center {
-    /*position: relative;*/
+    /* position: relative; */
     background-color: white;
     top: 50%;
     transform: translate(0, -50%);
@@ -172,7 +172,7 @@ img {
 
   img {
     margin-top: 20%;
-    max-width: 400px;
+    max-width: 200px;
     width: 60%;
     height: auto;
   }
@@ -192,5 +192,10 @@ img {
   }
   .center .copyright {
     margin-top: 20%;
+  }
+
+  img {
+    width: 150px;
+    height: auto;
   }
 }
