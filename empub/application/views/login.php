@@ -11,7 +11,7 @@
 <body>
 
     <div class="center">
-        <img src="http://localhost/TehnologiiWeb/empub/application/images/LOGOT.png" class="centerLOGO">
+        <img src="http://localhost/TehnologiiWeb/empub/application/images/LOGOT.png" class="centerLOGO" width="200" height="144" alt="empub logo">
         <p class="quote">
             the best email publisher.
         </p>

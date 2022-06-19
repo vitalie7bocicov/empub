@@ -42,15 +42,15 @@
 
             <div class="modal-content" >
                 <span class="close">&times;</span><br>
-                <form id="form1" method="POST">
-                <label>First-Name</label><br>
-                <input type="text" name="firstname" id="fname" class="input"><br>
-                <label>Last-Name</label><br>
-                <input type="text" name="lastname" id="lname" class="input"><br>
-                <label>Email</label><br>
-                <input type="email" name="mail" id="email" class="input" required><br><br>
-                <button type="submit" id="create" for="form1">CREATE</button>
-                 </form>
+                <form id="form1">
+                    <label>First-Name</label><br>
+                    <input type="text" name="firstname" id="fname" class="input"><br>
+                    <label>Last-Name</label><br>
+                    <input type="text" name="lastname" id="lname" class="input"><br>
+                    <label>Email</label><br>
+                    <input type="email" name="mail" id="email" class="input" required><br><br>
+                    <button type="submit" id="create" for="form1">CREATE</button>
+                </form>
               
             </div>
 
