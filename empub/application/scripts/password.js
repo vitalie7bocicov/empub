@@ -118,6 +118,7 @@ function checkAdminPassword(){
                     localStorage.setItem('accessToken', data.response.token);
 
                     location.href = 'http://localhost/TehnologiiWeb/empub/public/dashboard';
+                    return;
                 }
                 const text = data.response;
                 const errMessage = document.getElementById('errMessage');
