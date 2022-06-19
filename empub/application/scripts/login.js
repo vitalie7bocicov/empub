@@ -27,6 +27,7 @@ function checkIfAdmin(email, formSubmit){
             throw new TypeError (`Not Json`);
         })
         .then(data => {
+            
             if(data.response !== false) {
                 localStorage.setItem("nimda", true);
                 formSubmit.submit();
