@@ -1,5 +1,5 @@
 window.onload = () => {
-
+    document.getElementById('message').classList.add('hidden');
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     let email = localStorage.getItem('email');
@@ -32,14 +32,16 @@ window.onload = () => {
     });
 
     const img = document.getElementById('img');
-    
+
+
     img.addEventListener('click', () =>{
         console.log(img.value.substring(12));
     });
 
     const save = document.getElementById('saveBtn');
 
-    save.addEventListener('click' , () => {
+    save.addEventListener('click' , (e) => {
+        e.preventDefault();
         const fname = document.getElementById('fname').value;
         const lname = document.getElementById('lname').value;
 
@@ -56,8 +58,9 @@ window.onload = () => {
 
     fetch(setName);
     fetch(setLname);
-    
-     alert("Information saved");    
+
+    document.getElementById('message').classList.remove('hidden');
+
     });
 
 }

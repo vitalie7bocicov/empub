@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/dashboard.css"/>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/style.css">
+    <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/dashboard.css"/>
     <script src="http://localhost/TehnologiiWeb/empub/application/scripts/navbar.js" defer></script>
     <title>EMPub</title>
 </head>
@@ -22,8 +23,11 @@
 <section class="container">
 
     <div class="config-menu">
-    <button class="btn" id="btn"><i class="fa fa-plus"></i> Add new user</button>
-    <button class="btn" id="csv">EXPORT as CSV</button>
+    <div class="config-buttons">
+        <button class="btn" id="btn"><i class="fa fa-plus"></i> Add user</button>
+        <button class="btn" id="csv">Export</button>
+    </div>
+
         <form action="#" class="search-bar" id="search">
             <input type="text" name="q"  placeholder="search"  id="search-input">
             <button class="publisher-search">

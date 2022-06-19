@@ -111,6 +111,17 @@ input[type="file"] {
   cursor: pointer;
 }
 
+.message{
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.hidden{
+  display: none;
+}
+
+
 @media (max-width: 1024px) {
   .center {
     width: 60%;
@@ -126,7 +137,7 @@ input[type="file"] {
 	 header{
 	   z-index:1;
      }
-   
+
   .profilePicture {
     border-radius: 50%;
     width: 70%;
@@ -142,7 +153,7 @@ input[type="file"] {
     align-items: center;
     margin-top: 70px;
   }
-  
+
 
   .center {
     /*margin: auto 0;
@@ -157,7 +168,7 @@ input[type="file"] {
     box-sizing: border-box;
     padding: 4%;
     /*margin-top: 5%;*/
-	
+
   }
 
   .content {
