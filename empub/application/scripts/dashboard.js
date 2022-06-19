@@ -4,6 +4,13 @@ window.onload = () => {
     appendUsers();
     search();
 
+
+    const homeButton = document.getElementById('homeButton');
+    const admin = localStorage.getItem('nimda');
+    console.log(homeButton);
+    console.log(localStorage.getItem('nimda'));
+
+
 var modal = document.getElementById("myModal");
     
 

@@ -202,7 +202,11 @@ class Login extends Controller {
         if($user) {
             $responseObj['response'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
         }
-
+        else {
+            echo json_encode($responseObj);
+            return;
+        }
+        
         setcookie('email', $user->getEmail(),  time() + 300, '/empub/public/login/password');
         echo json_encode($responseObj);
     }

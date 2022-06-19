@@ -133,6 +133,20 @@ class MailModel {
         return false;
     }
 
+    public static function getMailUser($dbConnection, $id) {
+        $sql = 'select user_id from mails where id = ?';
+
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($id);
+        if($stmt -> execute($paramsArray)) {
+            $row = $stmt -> fetch();
+            
+            return $row['user_id'];
+        }
+
+        return false;
+    }
+
 
     public static function getMail($dbConnection, $id) {
         $sql = 'select *  from mails where id=?';

@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/main_style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/style.css">
-  <script src="http://localhost/TehnologiiWeb/empub/application/scripts/navbar.js" defer></script>
   <title>EMPub</title>
 </head>
 
@@ -160,7 +159,7 @@
     </div>
 
   </section>
-  
+  <script src="http://localhost/TehnologiiWeb/empub/application/scripts/navbar.js" defer></script>
   <script type="module" src="http://localhost/TehnologiiWeb/empub/application/scripts/main.js" defer></script>
 </body>
 </html>

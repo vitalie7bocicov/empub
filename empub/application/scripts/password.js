@@ -1,5 +1,5 @@
 window.onload = () => {
-    if(localStorage.getItem('nimda')==="1"){
+    if(localStorage.getItem('nimda')){
         checkAdminPassword();
         return;
     }
@@ -79,7 +79,7 @@ window.onload = () => {
 }
 
 function checkAdminPassword(){
-    localStorage.removeItem('nimda');
+    //localStorage.removeItem('nimda');
     const hidden = document.getElementById('hidden');
     const obj = `{ "email": "${hidden.value}" }`;
     const submitForm = document.getElementById('submitForm');

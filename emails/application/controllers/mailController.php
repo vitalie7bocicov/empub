@@ -35,6 +35,14 @@ class Mail extends Controller {
         echo json_encode($response);
     }
 
+    function getMailUser($id = '') {
+        header('Content-type: application/json');
+        $bd = new DB();
+        $mailUser = MailModel::getMailUser($bd->getConnection(), $id);
+        $json = array('user' => $mailUser);
+
+        echo json_encode($json); 
+    }
 
     function getMailContentByID($id = '') {
 
