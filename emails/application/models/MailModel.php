@@ -135,7 +135,20 @@ class MailModel {
         return false;
     }
 
-    public static function checkExpirationDate($dbConnection, $id, $mail){
+    public static function getMailUser($dbConnection, $id) {
+        $sql = 'select user_id from mails where id = ?';
+
+        $stmt = $dbConnection->prepare($sql);
+        $paramsArray = array($id);
+        if($stmt -> execute($paramsArray)) {
+            $row = $stmt -> fetch();
+            
+            return $row['user_id'];
+        }
+        
+        return false;
+    }
+    public static function checkExpirationDate($dbConnection, $id, $mail) {
         date_default_timezone_set("Europe/Bucharest");
         $date = date('y-m-d H:i:s');
 
@@ -161,7 +174,6 @@ class MailModel {
             return $mail;
        }
        return false;
-
     }
 
     public static function updateMail($dbConnection, $user_id, $id, $newExpirationDate, $isPublic, $password) {

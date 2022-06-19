@@ -3,8 +3,15 @@ class Main extends Controller
 {
     public function index($userId='')
     {
-        if($userId !== null)
+        if(isset($_COOKIE['userId'])) {
+            $_COOKIE['userId'] = '';
+            setcookie('userId','',time()-6600);
+        }
+
+        if($userId !== '') {
             setcookie('userId', $userId);
+        }
+
         $this->view('main');
     }
 

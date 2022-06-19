@@ -123,7 +123,7 @@ window.onload = () => {
             const childDocument = iframeElem.contentDocument;
     
             const style = document.createElement('style');
-            style.innerText = 'table{ width: 100%; } @media screen and (max-width: 850px) { font-size: 14px; }';
+            style.innerText = 'table{ width: 100%; } @media screen and (max-width: 850px) { body { font-size: 14px; } }';
             const parser = new DOMParser();
             const parsedDocument = parser.parseFromString(html, 'text/html');
             

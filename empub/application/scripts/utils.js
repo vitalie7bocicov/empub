@@ -171,6 +171,8 @@ function deleteEmail(mail) {
 function appendEmails() {
     let cookies = {};
     let id = '';
+
+    console.log(document.cookie);
     if(document.cookie !== '') {
         document.cookie.split(';').forEach(element => {
             let [key, value] = element.split('=');
@@ -179,6 +181,8 @@ function appendEmails() {
 
         id = cookies['userId'];
     }
+
+    console.log(id);
 
     const orderBy = getOrderBy();
     const filter = getFilter();

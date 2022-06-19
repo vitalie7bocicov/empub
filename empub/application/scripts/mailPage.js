@@ -6,6 +6,19 @@ window.onload = () => {
     });
     linkStatsAndSettingsButtons(cookies['mailID']);
 
+    const inboxButton = document.getElementById('inboxButton');
+    inboxButton.addEventListener('click', () => {
+        const admin = localStorage.getItem('nimda');
+       // console.log(admin);
+        
+        if(admin) {
+            getMailUser(cookies['mailID']);
+        }
+        else {
+            location.href = 'http://localhost/TehnologiiWeb/empub/public/main';
+        }
+    });
+
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
@@ -15,8 +28,8 @@ window.onload = () => {
     });
 
     fetch(
-    new Request(`http://localhost/TehnologiiWeb/statistics/statistics/updateStatisticsForMail/${cookies['mailID']}`,
-    {method:'GET', headers:myHeaders})
+        new Request(`http://localhost/TehnologiiWeb/statistics/statistics/updateStatisticsForMail/${cookies['mailID']}`,
+        {method:'GET', headers:myHeaders})
     )
     .then((response) => {
         if(response.status != 200) {
@@ -73,6 +86,43 @@ window.onload = () => {
     });
 
 
+}
+
+function getMailUser(email) {
+    const admin = localStorage.getItem('nimda');
+    if(!admin) 
+        return false;
+    
+        let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', authToken);
+        let getEmailUser = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailUser/${email}`, {
+                method: 'GET',
+                headers: myHeaders
+        });
+
+        fetch(getEmailUser)
+        .then((respose) => {
+            if(respose.status != 200) {
+                throw new TypeError (`Response with code ${response.status}`);
+            }
+            const contentType = respose.headers.get('Content-Type');
+    
+            if(contentType && contentType.includes('application/json')) {
+                //location.href = './home';
+                return respose.json();
+            }
+    
+            throw new TypeError (`Not Json`);
+        })
+        .then(data => {
+           if(data !== null) {
+                location.href = `http://localhost/TehnologiiWeb/empub/public/main/${data.user}`;
+           }
+        })
+    .catch(err => {
+        console.log(err);
+    });
 }
 
 function checkStatus(code){

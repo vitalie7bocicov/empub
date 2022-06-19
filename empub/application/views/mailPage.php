@@ -20,7 +20,7 @@
     ?>
     <main class="wrapper" id = "wrapper">
         <div class="sidebar" id="sidebar">
-            <button onclick="location.href='http://localhost/TehnologiiWeb/empub/public/main'" class="sidebar-buttons">
+            <button id="inboxButton" class="sidebar-buttons">
                 <i class="fa-solid fa-inbox"></i>
                 Inbox
             </button>

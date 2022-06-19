@@ -6,6 +6,19 @@ window.onload = () => {
         let [key, value] = element.split('=');
         cookies[key.trim()] = value.trim();
     });
+
+    const inboxButton = document.getElementById('inboxButton');
+    inboxButton.addEventListener('click', () => {
+        const admin = localStorage.getItem('nimda');
+        
+        if(admin) {
+            getMailUser(cookies['mailID']);
+        }
+        else {
+            location.href = 'http://localhost/TehnologiiWeb/empub/public/main';
+        }
+    });
+
     let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
     let myHeaders = new Headers();
     myHeaders.append('Authorization', authToken);
@@ -88,6 +101,40 @@ function setInfo(mail) {
 
     time.value=formatTime(expirationDate);
     onFormSubmit(mail);
+}
+
+function getMailUser(id) {
+    
+    let authToken = `Bearer ${localStorage.getItem('accessToken')}`;
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', authToken);
+        let getEmailUser = new Request(`http://localhost/TehnologiiWeb/emails/mail/getMailUser/${id}`, {
+                method: 'GET',
+                headers: myHeaders
+        });
+
+        fetch(getEmailUser)
+        .then((respose) => {
+            if(respose.status != 200) {
+                throw new TypeError (`Response with code ${response.status}`);
+            }
+            const contentType = respose.headers.get('Content-Type');
+    
+            if(contentType && contentType.includes('application/json')) {
+                //location.href = './home';
+                return respose.json();
+            }
+    
+            throw new TypeError (`Not Json`);
+        })
+        .then(data => {
+           if(data !== null) {
+                location.href = `http://localhost/TehnologiiWeb/empub/public/main/${data.user}`;
+           }
+        })
+    .catch(err => {
+        console.log(err);
+    });
 }
 
 function onFormSubmit(mail) {

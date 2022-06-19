@@ -5,7 +5,6 @@
     <title>EMPub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/TehnologiiWeb/empub/application/styles/logIN.css">
-
 </head>
 
 <body>
