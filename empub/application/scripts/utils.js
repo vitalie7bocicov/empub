@@ -20,11 +20,11 @@ function appendEmail(mail) {
 
     if(orderBy === "publication_date" || orderBy==="views"){
         let publicationDate = new Date(mail.publicationDate);
-        spanDate.innerText = `${publicationDate.getDate().toString().padStart(2,"0")}/${publicationDate.getMonth().toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
+        spanDate.innerText = `${publicationDate.getDate().toString().padStart(2,"0")}/${(publicationDate.getMonth() +1).toString().padStart(2,"0")}/${publicationDate.getFullYear()}`;
     }
     else if(orderBy ==="expiration_date"){
         let expirationDate = new Date(mail.expirationDate);
-        spanDate.innerText = `${expirationDate.getDate().toString().padStart(2,"0")}/${expirationDate.getMonth().toString().padStart(2,"0")}/${expirationDate.getFullYear()}`;
+        spanDate.innerText = `${expirationDate.getDate().toString().padStart(2,"0")}/${(expirationDate.getMonth()+1).toString().padStart(2,"0")}/${expirationDate.getFullYear()}`;
     }
 
     emailDate.appendChild(spanDate);
@@ -200,6 +200,7 @@ function appendEmails() {
                 checkStatus(res.status);
                 throw new TypeError (`Response with code ${res.status}`);
             }
+            // console.log(res.text());
             const contentType = res.headers.get('Content-Type');
             if(contentType && contentType.includes('application/json')) {
                 return res.json();
@@ -211,7 +212,7 @@ function appendEmails() {
             deleteAllEmails();//from dom
             for(let i = 0; i < length; i++) {
                 let mail = new Mail(data[i]);
-                updateLastMailId(mail);
+                 updateLastMailId(mail);
                 const elem = appendEmail(mail);
                 emailList.appendChild(elem);
             }
@@ -258,7 +259,7 @@ function compareLastMailsIDs(newId){
 }
 
 function checkNewEmails(){
-    getLastMailId();
+    // getLastMailId();
 }
 
 function checkStatus(code){

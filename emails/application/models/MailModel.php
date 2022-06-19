@@ -114,11 +114,13 @@ class MailModel {
                 if($query!=='' && !MailModel::searchMail($mail,$query)){
                     continue;
                 }
+//                if mail is expired
+                if(MailModel::checkExpirationDate($dbConnection, $id, $mail))
+                    continue;
                 $result[$counter] = $mail;
                 $counter += 1;
             }
         }
-
         return $result;
     }
 
@@ -130,6 +132,21 @@ class MailModel {
         $subject = mb_strtolower($mail->subject);
         if(str_contains($subject, $query))
             return true;
+        return false;
+    }
+
+    public static function checkExpirationDate($dbConnection, $id, $mail){
+        date_default_timezone_set("Europe/Bucharest");
+        $date = date('y-m-d H:i:s');
+
+        $expDate = strtotime($mail->expirationDate);
+
+        $expDate = date('y-m-d H:i:s',$expDate);
+
+        if($date>$expDate){
+            MailModel::deleteMail($dbConnection, $id, $mail->id);
+            return true;
+        }
         return false;
     }
 
