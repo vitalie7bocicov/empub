@@ -20,7 +20,7 @@ create table admins (
 
 create table users (
 	id int primary key auto_increment,
-	email varchar(128) not null,
+	email varchar(128) not null UNIQUE,
 	password varchar(256),
 	first_name varchar(256),
 	last_name varchar(256)
