@@ -167,18 +167,26 @@ class Login extends Controller {
     public function verifyEmail($email = '') {
         $db = new DB;
         header('Content-type: application/json');
+        
 
         $responseObj = array('response' => false);
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode($responseObj);
+            return;
+        }
         $paramsArray = array($email);
 
         $user = User::findByEmail($db->getConnection(), $paramsArray);
 
-        if($user) {
-            $responseObj['response'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
-            setcookie('email', $user->getEmail(),  time() + 300, '/empub/public/login/password');
+        if(!$user) {
+            User::insertEmail($db->getConnection(), $email);
+            $user = User::findByEmail($db->getConnection(), $paramsArray);
         }
-        echo json_encode($responseObj);
 
+        $responseObj['response'] = array('user_id' => $user->getUserId(), 'email' => $user->getEmail());
+        setcookie('email', $user->getEmail(),  time() + 300, '/empub/public/login/password');
+        echo json_encode($responseObj);
     }
 
 

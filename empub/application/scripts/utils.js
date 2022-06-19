@@ -170,10 +170,16 @@ function deleteEmail(mail) {
 
 function appendEmails() {
     let cookies = {};
-    document.cookie.split(';').forEach(element => {
-        let [key, value] = element.split('=');
-        cookies[key.trim()] = value.trim();
-    });
+    let id = '';
+    if(document.cookie !== '') {
+        document.cookie.split(';').forEach(element => {
+            let [key, value] = element.split('=');
+            cookies[key.trim()] = value.trim();
+        });
+
+        id = cookies['userId'];
+    }
+
     const orderBy = getOrderBy();
     const filter = getFilter();
     const query = getQuery();
@@ -184,7 +190,7 @@ function appendEmails() {
     myHeaders.append('filter', filter);
     myHeaders.append('orderBy', orderBy);
     myHeaders.append('searchquery', query);
-    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/${cookies['userId']}`, {
+    let request = new Request(`http://localhost/TehnologiiWeb/emails/mail/${id}`, {
         method: 'GET',
         headers: myHeaders
     });

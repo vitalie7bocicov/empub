@@ -9,6 +9,18 @@ class User {
         $this->email = $email;
     }
 
+    public static function insertEmail($dbConnection, $email) {
+        $sql = 'insert into users(email) values (?)';
+        $prepareStatemnt =  $dbConnection->prepare($sql);
+
+        $params = array($email);
+        if($prepareStatemnt->execute($params)) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static function findByEmail($dbConnection, $params = []) {
         $sql = 'select id, email from users where email = ?';
         $prepareStatemnt =  $dbConnection->prepare($sql);

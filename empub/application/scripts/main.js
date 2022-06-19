@@ -1,7 +1,6 @@
 import {appendEmails, checkNewEmails} from './utils.js';
 
 window.onload = () => {
-
     filterBy();
     orderBy();
     search();
