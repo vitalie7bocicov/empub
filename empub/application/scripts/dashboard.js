@@ -5,7 +5,6 @@ window.onload = () => {
     appendUsers();
     search();
 
-
     let modal = document.getElementById("myModal");
 
 
