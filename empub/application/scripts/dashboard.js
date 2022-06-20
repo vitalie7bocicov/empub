@@ -1,10 +1,9 @@
 import {appendUsers} from './dashboardUtils.js';
 
 window.onload = () => {
-    if(localStorage.getItem("nimda") === 1){
+    if(localStorage.getItem("nimda")){
     appendUsers();
     search();
-
 
     let modal = document.getElementById("myModal");
 

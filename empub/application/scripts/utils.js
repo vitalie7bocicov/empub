@@ -180,7 +180,6 @@ function appendEmails() {
 
         id = cookies['userId'];
     }
-    console.log(id);
     const orderBy = getOrderBy();
     const filter = getFilter();
     const query = getQuery();
