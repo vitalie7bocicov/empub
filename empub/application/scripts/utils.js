@@ -179,7 +179,7 @@ function parseJwt (token) {
     return JSON.parse(jsonPayload);
 };
 
-function appendEmails() {
+function appendEmails()     {
     let cookies = {};
     let id = '';
 
@@ -194,7 +194,6 @@ function appendEmails() {
     }
 
     const admin = localStorage.getItem('nimda');
-    console.log(admin);
     if(admin === null && id !== '') {
         id = '';
     }

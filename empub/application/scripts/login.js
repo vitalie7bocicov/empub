@@ -1,4 +1,5 @@
 window.onload = () => {
+    checkLocalStorage();
     const formSubmit = document.getElementById('formSubmit');
 
     formSubmit.addEventListener('submit',  (e) => {
@@ -39,6 +40,11 @@ function checkIfAdmin(email, formSubmit){
         .catch(err => {
             console.log(err);
         });
+}
+
+function checkLocalStorage(){
+    if(localStorage.getItem('nimda'))
+        localStorage.removeItem('nimda');
 }
 
 function verifyUser(email, formSubmit) {

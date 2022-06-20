@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         String host = "imap.gmail.com";
         String user = "empub.send@gmail.com";
-        String password = "dqiskcafniragusj";
+        String password = "erpzduislscrnhrm";
         try {
             Properties props = new Properties();
             props.setProperty("mail.imap.ssl.enable", "true");

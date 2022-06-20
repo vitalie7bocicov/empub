@@ -7,17 +7,14 @@
     <list default="true" id="391dc202-8956-4c98-abf0-c26c60fab1f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MailHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MailHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MailHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MessageThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MessageThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../emails/application/controllers/mailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emails/application/controllers/mailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emails/application/core/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emails/application/core/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emails/application/models/MailContentModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emails/application/models/MailContentModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../emails/application/models/MailModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emails/application/models/MailModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../empub/application/scripts/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/scripts/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../empub/application/styles/visitor.css" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/styles/visitor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../users/application/controllers/usersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../users/application/controllers/usersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../users/application/core/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/../users/application/core/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../empub/application/scripts/password.js" beforeDir="false" afterPath="$PROJECT_DIR$/../empub/application/scripts/password.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
