@@ -3,14 +3,16 @@ class Main extends Controller
 {
     public function index($userId='')
     {
+        //echo $_COOKIE['userId'];
         if(isset($_COOKIE['userId'])) {
-            $_COOKIE['userId'] = '';
-            setcookie('userId','',time()-6600);
+            unset($_COOKIE['userId']);
         }
 
         if($userId !== '') {
-            setcookie('userId', $userId);
+            setcookie('userId', $userId, time() + 5);
         }
+
+        //echo $_COOKIE['userId'];
 
         $this->view('main');
     }

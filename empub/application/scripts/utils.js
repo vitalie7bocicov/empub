@@ -168,12 +168,23 @@ function deleteEmail(mail) {
     deleteEmailRequest(mail);
 }
 
+function parseJwt (token) {
+    const base64Url = token.split('.')[1];
+
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
 function appendEmails() {
     let cookies = {};
     let id = '';
 
-    console.log(document.cookie);
-    if(document.cookie !== '') {
+    const userObj = parseJwt(localStorage.getItem('accessToken')).data;
+     if(document.cookie !== '') {
         document.cookie.split(';').forEach(element => {
             let [key, value] = element.split('=');
             cookies[key.trim()] = value.trim();
@@ -182,7 +193,11 @@ function appendEmails() {
         id = cookies['userId'];
     }
 
-    console.log(id);
+    const admin = localStorage.getItem('nimda');
+    console.log(admin);
+    if(admin === null && id !== '') {
+        id = '';
+    }
 
     const orderBy = getOrderBy();
     const filter = getFilter();
