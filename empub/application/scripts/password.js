@@ -116,7 +116,6 @@ function checkAdminPassword(){
             .then(data => {
                 if(typeof data.response === 'object') {
                     localStorage.setItem('accessToken', data.response.token);
-
                     location.href = 'http://localhost/TehnologiiWeb/empub/public/dashboard';
                     return;
                 }
