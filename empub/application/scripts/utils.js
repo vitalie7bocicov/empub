@@ -277,7 +277,7 @@ function compareLastMailsIDs(newId){
 }
 
 function checkNewEmails(){
-    // getLastMailId();
+    getLastMailId();
 }
 
 function checkStatus(code){
