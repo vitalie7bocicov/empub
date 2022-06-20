@@ -176,15 +176,15 @@ class MailModel {
        return false;
     }
 
-    public static function updateMail($dbConnection, $user_id, $id, $newExpirationDate, $isPublic, $password) {
-        $sql = 'update mails set expiration_date=?, public=?, PASSWORD=? where user_id = ? and id=?';
+    public static function updateMail($dbConnection, $id, $newExpirationDate, $isPublic, $password) {
+        $sql = 'update mails set expiration_date=?, public=?, PASSWORD=? where id=?';
         $stmt = $dbConnection->prepare($sql);
         if($password==="NULL")
             $password=NULL;
         else{
             $password = hash('sha256', $password);
         }
-        $paramsArray = array($newExpirationDate, $isPublic, $password, $user_id, $id);
+        $paramsArray = array($newExpirationDate, $isPublic, $password, $id);
 
         if($stmt -> execute($paramsArray)) {
             return true;
@@ -192,10 +192,10 @@ class MailModel {
         return false;
     }
 
-    public static function deleteMail($dbConnection, $user_id, $id) {
-        $sql = 'delete from mails where user_id = ? and id=?';
+    public static function deleteMail($dbConnection, $id) {
+        $sql = 'delete from mails where id=?';
         $stmt = $dbConnection->prepare($sql);
-        $paramsArray = array($user_id, $id);
+        $paramsArray = array($id);
 
         if($stmt -> execute($paramsArray)) {
            return true;
@@ -204,9 +204,10 @@ class MailModel {
     }
 
     public static function getLastMailId($dbConnection, $user_id) {
-        $sql = 'select id from mails order by id desc LIMIT 1;';
+        $sql = 'select id from mails where user_id=? order by id desc LIMIT 1;';
         $stmt = $dbConnection->prepare($sql);
-        if($stmt -> execute()) {
+        $paramsArray = array($user_id);
+        if($stmt -> execute($paramsArray)) {
             $row = $stmt -> fetch();
             $id=$row['id'];
             return $id;

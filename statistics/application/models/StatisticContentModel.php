@@ -91,12 +91,12 @@ class StatisticContentModel {
             $paramsArray = array($id,date("Y-m-d"));
         }
         else if($type == "week"){
-            $sql = 'select * from statistics where mail_id = ? and view_date >= (? - 7)';
+            $sql = 'select * from statistics where mail_id = ? and DATEDIFF(?, view_date) <=7';
             $stmt = $dbConnection->prepare($sql);
             $paramsArray = array($id,date("Y-m-d"));
         }
           else if($type == "month"){
-            $sql = 'select * from statistics where mail_id = ? and view_date >= (? - 30)';
+            $sql = 'select * from statistics where mail_id = ? and DATEDIFF(?, view_date) <=31';
             $stmt = $dbConnection->prepare($sql);
             $paramsArray = array($id,date("Y-m-d"));
           }
@@ -114,6 +114,7 @@ class StatisticContentModel {
            
               
             $country = $row2['country'];
+            $viewsArray[$row2['country']] = 0;
             array_push($countryArray,$country);
           }
 

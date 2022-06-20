@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="../../application/styles/doc.css">
+    <script src="js/scholarly.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <div class="banner">
+            <img src="../../application/images/logot.png" width="227" height="50" alt="empub logo">
+        </div>
+        <h1>EMPub - User documentation</h1>
+    </header>
+
+    <div role="contentinfo">
+        <dl>
+            <ol role="directory">
+
+                <li><a href="#introduction">
+                        <span>1. </span>What is EMPub?</a>
+                </li>
+                <li><a href="#getting-started">
+                        <span>2. </span>Getting started</a>
+                    <ol role="directory">
+                        <li><a href="#forward"><span>2.1</span> Publish your first email</a></li>
+                        <li><a href="#login"><span>2.2</span> Login</a></li>
+                    </ol>
+                </li>
+                <li><a href="#features">
+                        <span>3. </span>EMPub application</a>
+                    <ol role="directory">
+                        <li><a href="#main"><span>3.1</span> Using the homepage</a></li>
+                        <li><a href="#email-settings"><span>3.2</span> Using the email settings page</a></li>
+                        <li><a href="#email-stats"><span>3.3</span> Using the email statistics page</a></li>
+                        <li><a href="#account-settings"><span>3.4</span> Using the account settings page</a></li>
+                        <li><a href="#publishers"><span>3.5</span> Using the publishers page</a></li>
+                        <li><a href="#publisher"><span>3.6</span> Using the publisher page</a></li>
+                    </ol>
+                </li>
+            </ol>
+
+
+    </div>
+    <section id="introduction" role="doc-introduction">
+        <h2>1. What is EMPub?</h2>
+        <section id="purpose">
+            <p>Empub is an extension of the standard
+                mailer.
+                Using this application, a mail user can easily share a message from his inbox, providing access to it to
+                multiple
+                friends in just one click.</p>
+        </section>
+
+
+    </section>
+
+
+    <section id="getting-started">
+
+        <h2><span>2.</span> Getting started</h2>
+
+
+        <section id="forward">
+            <h3><span>2.1</span> Publish your first email!</h3>
+            <ul>
+                <li>
+                    Redirect the email you want to publish from your email software to our address : <br>
+                    <code>empub.send@gmail.com</code>
+
+                </li>
+                <li>
+                    Publish parameters can be set through a tag system included in the body of the email, for
+                    example:
+                    <code> [Password = mysecretpassword]</code> <br>
+                    <code> [Duration = 1y2mon4h5m7s] </code>
+                </li>
+                <li>
+                    The default publishing parameters are: <br>
+                    <code> [public]</code> <br>
+                    <code> [Duration = 1mon] </code>
+                </li>
+            </ul>
+
+            <br>
+
+
+            <figure>
+                <img src="./examples/forward.png" alt="Forward example" style="width:100%">
+                <figcaption>Example - Forward an email with publishing parameters.</figcaption>
+            </figure>
+        </section>
+
+        <section id="login">
+            <h3><span>2.2</span> Login</h3>
+            If you forwarded at least one email to our address, the account associated with your email address has been
+            created.<br>
+            Otherwise, if you just want to see other publications, you can log in using a valid email address.<br><br>
+            In either case, a temporary password will be sent to the email address you entered.
+
+        </section>
+
+    </section>
+
+
+
+    <section id="features">
+        <h2>EMPub application</h2>
+        <section id="main">
+            <h3><span>3.1</span> Using the homepage</h3>
+            <p>
+                On the homepage you can see all your published emails, the date of their publication / expiration,
+                whether public or
+                private, or the number of views.
+            <ul>
+
+
+                <li>
+
+                </li>
+                <li>
+                    You can filter them with permission (public / private),
+                    you can sort them by publication date, expiration date, or number of views.
+                </li>
+                <li>
+                    You can search for emails using the search bar (keywords will be searched in the sender's name and
+                    subject).
+                </li>
+                <li>You can view the content of the emails
+                </li>
+                <li>
+                    You can delete emails
+                </li>
+
+            </ul>
+
+            <figure>
+                <img src="./examples/main.png" alt="mainpage example" style="width:100%">
+                <figcaption>Example - Homepage.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+        <section id="email-settings">
+            <h3><span>3.2</span> Using email settings page</h3>
+            <p>On this page you can see the publishing parameters and update them. You can also delete the email.
+            <figure>
+                <img src="./examples/email-settings.png" alt="Email settings pag example" style="width:100%">
+                <figcaption>Example - Email settings page.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+        <section id="email-stats">
+            <h3><span>3.3</span> Using the email statistics page</h3>
+            <p>On this page you can view statistics related to a publication that belongs to you (total views, number of
+                views grouped
+                by country of origin of visitors) during the selected period (last 24 hours, last week, last month).
+                <br>
+                Also, these statistics can be downloaded in xml or pdf formats.
+            <figure>
+                <img src="./examples/stats.png" alt="Email statistics page example" style="width:100%">
+                <figcaption>Example - Email statistics page.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+
+        <section id="account-settings">
+            <h3><span>3.4</span> Using the account settings page</h3>
+            <p>On this page you can view the email address associated with your account, you can view and update the
+                first and last
+                name associated with your profile.
+            <figure>
+                <img src="./examples/account.png" alt="Account settings page example" style="width:100%">
+                <figcaption>Example - Account settings page.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+        <section id="publishers">
+            <h3><span>3.4</span> Using the publishers page</h3>
+            <p>On this page you can view and search for other publishers.
+                You can also see the total number of their publications.
+            <figure>
+                <img src="./examples/publishers.png" alt="Publishers page example" style="width:100%">
+                <figcaption>Example - Publishers page.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+        <section id="publisher">
+            <h3><span>3.4</span> Using the publisher page</h3>
+            <p>On this page you can see all the emails published by another publisher,
+                the date of their publication / expiration. You
+                can search, filter and sort these emails. <br>
+                In order to read private publication, you must enter the password set by the publisher.
+            <figure>
+                <img src="./examples/publisher1.png" alt="Publisher page example" style="width:100%">
+                <figcaption>Example - Publisher page, public publication.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="./examples/publisher2.png" alt="Publisher page example" style="width:100%">
+                <figcaption>Example - Publisher page, private publication.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+
+
+    </section>
+
+</body>
+
+</html>

@@ -89,7 +89,7 @@ class Mail extends Controller {
 
     function updateMailByID($id = '') {
         $bd = new DB();
-        $response = MailModel::updateMail($bd->getConnection(),$this->user->getId(), $id, $this->getExpirationDate(), $this->getIsPublic(), $this->getPassword());
+        $response = MailModel::updateMail($bd->getConnection(), $id, $this->getExpirationDate(), $this->getIsPublic(), $this->getPassword());
         if($response)
         {
             http_response_code(200);
@@ -101,7 +101,7 @@ class Mail extends Controller {
 
     function deleteMailByID($id = '') {
         $bd = new DB();
-        $response = MailModel::deleteMail($bd->getConnection(),$this->user->getId(), $id);
+        $response = MailModel::deleteMail($bd->getConnection(), $id);
         if($response)
         {
             http_response_code(200);

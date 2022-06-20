@@ -13,7 +13,6 @@ window.onload = () => {
         body: obj,
         headers: {}
     });
-    
     const submitForm = document.getElementById('submitForm');
     
     submitForm.addEventListener('submit', (event) => {
