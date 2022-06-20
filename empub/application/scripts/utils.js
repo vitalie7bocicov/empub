@@ -271,7 +271,6 @@ function getLastMailId(){
 
 function compareLastMailsIDs(newId){
     if(newId>lastMailId){
-        console.log("new mail!")
         appendEmails();
     }
 }

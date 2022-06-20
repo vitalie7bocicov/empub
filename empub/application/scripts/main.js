@@ -5,7 +5,7 @@ window.onload = () => {
     orderBy();
     search();
     appendEmails();
-    checkNewEmail();
+    checkInbox();
 }
 
 function search(){
@@ -15,9 +15,10 @@ function search(){
     });
 }
 
-function checkNewEmail(){
+function checkInbox(){
     checkNewEmails();
-    setTimeout(checkNewEmail, 1000);
+    //checkInbox every 1 second
+    setTimeout(checkInbox, 1000);
 }
 
 function orderBy(){
