@@ -43,6 +43,7 @@ function checkIfAdmin(email, formSubmit){
 }
 
 function checkLocalStorage(){
+    console.log(localStorage.getItem('nimda'));
     if(localStorage.getItem('nimda'))
         localStorage.removeItem('nimda');
 }
