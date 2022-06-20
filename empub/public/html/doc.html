@@ -185,6 +185,9 @@
       developing the software to staff within a company / school or people who have nothing to do with technology,
       because
       the interface is friendly for anyone.
+
+      <br/>
+      Another importat class of users are admins that could perform CRUD operation on users and mails.
     </section>
 
     <section id="d4">
@@ -205,6 +208,13 @@
       <h3><span>2.5</span> Design and Implementation Constraints</h3>
       This product is developed in PHP for the server back-end side and uses HTML5 and CSS3 in order to provide a
       responsive front-end interface.
+      <br/>
+      An important component of Empub Application is MailParser Component which is design to serve as a sort of a server that will constantly listen to the inbox folder of empub.send@gmail.com mail address and will place incoming mails in a database. If the user how send the following email does not exist in database it will insert it.
+      Some important technologies used in implementation of Java component are JavaMail to get mails with IMAP protocol and JDBC.
+      <br/>
+      For application part was used PHP, JavaScript, HTML and CSS.
+      One the backend side was created the following services: mail service, login service, user service, statistics service. Together with services exists main application, which make use of the following services via ajax calls in JavaScript calls to display content.
+    
     </section>
 
     <section id="d6">
@@ -213,8 +223,15 @@
     </section>
     <section id="d7">
       <h3><span>2.7</span> Assumptions and Dependencies</h3>
-      No specific assumptions or dependencies are considered at this time.
-    </section>
+      Technologies used in implementaion of the project are JavaMail, JDBC, PDO, PHPMailer.
+      <br/>
+          The JavaMail API provides a platform-independent and protocol-independent framework to build mail and messaging applications. The JavaMail API is available as an optional package for use with the Java SE platform and is also included in the Java EE platform.
+      <br/>
+          Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database. It is a Java-based data access technology used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation.
+      <br/>
+          PHPMailer is a code library to send emails safely and easily via PHP code from a web server. Sending emails directly by PHP code requires a high-level familiarity to SMTP protocol standards and related issues and vulnerabilities about Email injection for spamming.
+          In the application it is used to send mails with passwords to users.
+        </section>
 
   </section>
 
@@ -331,6 +348,8 @@
         The communication architecture must follow the client-server model. Communication
         between the client and server must be
         served over HTTP Secure (HTTPS).
+        <br/>
+        Another protocol used in communication is Imap used for getting mails from inbox of mail server of the application.
       </p>
     </section>
   </section>
