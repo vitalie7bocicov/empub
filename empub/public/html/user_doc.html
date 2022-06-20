@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="../../application/styles/doc.css">
+    <script src="js/scholarly.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <div class="banner">
+            <img src="../../application/images/logot.png" width="227" height="50" alt="empub logo">
+        </div>
+        <h1>EMPub - User documentation</h1>
+    </header>
+
+    <div role="contentinfo">
+        <dl>
+            <ol role="directory">
+
+                <li><a href="#introduction">
+                        <span>1. </span>What is EMPub?</a>
+                </li>
+                <li><a href="#getting-started">
+                        <span>2. </span>Getting started</a>
+                    <ol role="directory">
+                        <li><a href="#forward"><span>2.1</span> Publish your first email</a></li>
+                        <li><a href="#login"><span>2.2</span> Login</a></li>
+                    </ol>
+                </li>
+                <li><a href="#features">
+                        <span>3. </span>EMPub application</a>
+                    <ol role="directory">
+                        <li><a href="#main"><span>3.1</span> Using the homepage</a></li>
+                        <li><a href="#email-settings"><span>3.2</span> Using the email settings page</a></li>
+                        <li><a href="#email-stats"><span>3.3</span> Using the email statistics page</a></li>
+                        <li><a href="#s4"><span>4.4</span> Email statistics</a></li>
+                        <li><a href="#s5"><span>4.5</span> Login via email</a></li>
+                        <li><a href="#s6"><span>4.6</span> Account settings manager</a></li>
+                    </ol>
+                </li>
+            </ol>
+
+            <dt>Authors</dt>
+            <dd>
+                <a href="https://github.com/vitalie7bocicov/">Bocicov Vitalie</a>
+            </dd>
+            <dd>
+                <a href="https://github.com/TiberiuBadelita"> Badelita Tiberiu </a>
+            </dd>
+            <dd>
+                <a href="https://github.com/eduardsoltan"> Soltan Eduard</a>
+
+            </dd>
+
+
+    </div>
+    <section id="introduction" role="doc-introduction">
+        <h2>1. What is EMPub?</h2>
+        <section id="purpose">
+            <p>Empub is an extension of the standard
+                mailer.
+                Using this application, a mail user can easily share a message from his inbox, providing access to it to
+                multiple
+                friends in just one click.</p>
+        </section>
+
+
+    </section>
+
+
+    <section id="getting-started">
+
+        <h2><span>2.</span> Getting started</h2>
+
+
+        <section id="forward">
+            <h3><span>2.1</span> Publish your first email!</h3>
+            <ul>
+                <li>
+                    Redirect the email you want to publish from your email software to our address : <br>
+                    <code>empub.send@gmail.com</code>
+
+                </li>
+                <li>
+                    Publish parameters can be set through a tag system included in the body of the email, for
+                    example:
+                    <code> [Password = mysecretpassword]</code> <br>
+                    <code> [Duration = 1y2mon4h5m7s] </code>
+                </li>
+                <li>
+                    The default publishing parameters are: <br>
+                    <code> [public]</code> <br>
+                    <code> [Duration = 1mon] </code>
+                </li>
+            </ul>
+
+            <br>
+
+
+            <figure>
+                <img src="./examples/forward.png" alt="Forward example" style="width:100%">
+                <figcaption>Example - Forward an email with publishing parameters.</figcaption>
+            </figure>
+        </section>
+
+        <section id="login">
+            <h3><span>2.2</span> Login</h3>
+            If you forwarded at least one email to our address, the account associated with your email address has been
+            created.<br>
+            Otherwise, if you just want to see other publications, you can log in using a valid email address.<br><br>
+            In either case, a temporary password will be sent to the email address you entered.
+
+        </section>
+
+    </section>
+
+
+
+    <section id="features">
+        <h2>EMPub application</h2>
+        <section id="main">
+            <h3><span>3.1</span> Using the homepage</h3>
+            <p>
+                On the homepage you can see all your published emails, the date of their publication / expiration,
+                whether public or
+                private, or the number of views.
+            <ul>
+
+
+                <li>
+
+                </li>
+                <li>
+                    You can filter them with permission (public / private),
+                    you can sort them by publication date, expiration date, or number of views.
+                </li>
+                <li>
+                    You can search for emails using the search bar (keywords will be searched in the sender's name and
+                    subject).
+                </li>
+                <li>You can view the content of the emails
+                </li>
+                <li>
+                    You can delete emails
+                </li>
+
+            </ul>
+
+            <figure>
+                <img src="./examples/main.png" alt="mainpage example" style="width:100%">
+                <figcaption>Example - Homepage.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+        <section id="email-settings">
+            <h3><span>3.2</span> Using email settings page</h3>
+            <p>On this page you can see the publishing parameters and update them. You can also delete the email.
+            <figure>
+                <img src="./examples/email-settings.png" alt="Email settings pag example" style="width:100%">
+                <figcaption>Example - Email settings page.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+        <section id="email-stats">
+            <h3><span>3.3</span> Using the email statistics page</h3>
+            <p>On this page you can view statistics related to a publication that belongs to you (total views, number of
+                views grouped
+                by country of origin of visitors) during the selected period (last 24 hours, last week, last month).
+                <br>
+                Also, these statistics can be downloaded in xml or pdf formats.
+            <figure>
+                <img src="./examples/stats.png" alt="Email statistics pag example" style="width:100%">
+                <figcaption>Example - Email statistics page.</figcaption>
+            </figure>
+            </p>
+        </section>
+
+
+        <section id="s4">
+            <h3><span>4.4</span> Email statistics</h3>
+            <p>Through this feature a user can view the list of related statistics (number of views, country of origin
+                of
+                visitors, schedule of visits by time intervals) for a period viewed (per day, per week, per month)
+                chosen by the
+                user. Statistics will be available in HTML, PDF and XML formats.</p>
+        </section>
+
+        <section id="s5">
+            <h3><span>4.5</span> Login via email</h3>
+            <p>Through this feature a user account is created upon receipt of the first email from an email address or
+                via the
+                web interface. Authentication in the web application will be done by temporary passwords sent to the
+                email
+                address
+                of the account.</p>
+        </section>
+
+        <section id="s6">
+            <h3><span>4.6</span> Account settings manager</h3>
+            <p>Through this feature a user can set or change its name and surname, can upload a profile picture.</p>
+        </section>
+
+
+
+    </section>
+
+</body>
+
+</html>
