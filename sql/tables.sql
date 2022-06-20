@@ -10,9 +10,9 @@ drop table countries;
 
 drop table statistics;
 
-drop table admins;
+drop table e_admins;
 
-create table admins (
+create table e_admins (
 	id int primary key auto_increment,
 	email varchar(128) not null UNIQUE,
 	password varchar(256) not null
