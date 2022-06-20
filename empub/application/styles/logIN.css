@@ -166,8 +166,10 @@ img {
     box-sizing: border-box;
     padding: 4%;
     left: auto;
-    right: auto;
     width: 100%;
+    right: auto;
+    
+  
   }
 
   img {
